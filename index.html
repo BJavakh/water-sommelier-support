@@ -1205,6 +1205,257 @@
     }
 
     /* ============================================================
+       CUSTOM CURSOR (desktop only) — small water drop
+       ============================================================ */
+    @media (hover: hover) and (pointer: fine) {
+      body { cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24'><path d='M12 2.5c0 0 7 7.5 7 12.5a7 7 0 0 1-14 0c0-5 7-12.5 7-12.5Z' fill='%233D6FB8' fill-opacity='0.85'/><circle cx='10' cy='13' r='2' fill='white' fill-opacity='0.55'/></svg>") 14 14, auto; }
+      a, button, summary, .pill-btn, .faq-trigger { cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'><path d='M12 2.5c0 0 7 7.5 7 12.5a7 7 0 0 1-14 0c0-5 7-12.5 7-12.5Z' fill='%23A85F3C' fill-opacity='0.95'/><circle cx='10' cy='13' r='2.4' fill='white' fill-opacity='0.6'/></svg>") 16 16, pointer; }
+    }
+
+    /* ============================================================
+       FLEURON DIVIDER — ornamental section break
+       ============================================================ */
+    .fleuron {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 0;
+      color: var(--copper);
+      opacity: 0.85;
+    }
+    .fleuron svg { width: 120px; height: 28px; }
+
+    /* ============================================================
+       SCROLLING WORDMARK MARQUEE — the signature moment
+       ============================================================ */
+    .marquee {
+      padding: 80px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      background: var(--paper-warm);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+    .marquee-track {
+      display: inline-flex;
+      gap: 80px;
+      animation: marqueeSlide 38s linear infinite;
+      will-change: transform;
+    }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+    @keyframes marqueeSlide {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .marquee-item {
+      font-family: 'Fraunces', Georgia, serif;
+      font-variation-settings: 'opsz' 144, 'SOFT' 100;
+      font-size: clamp(64px, 12vw, 180px);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      gap: 80px;
+    }
+    .marquee-item em {
+      font-style: italic;
+      font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
+      color: var(--water);
+    }
+    .marquee-item .dot {
+      color: var(--copper);
+      font-size: 0.7em;
+      vertical-align: middle;
+    }
+
+    /* ============================================================
+       ANNOTATED BOTTLE — scientific specimen diagram
+       ============================================================ */
+    .bottle-diagram {
+      width: 100%;
+      max-width: 460px;
+      aspect-ratio: 460 / 360;
+      position: relative;
+    }
+    .bottle-diagram svg { width: 100%; height: 100%; overflow: visible; }
+    .bottle-diagram .anno-line { stroke: var(--rule); stroke-width: 1; fill: none; }
+    .bottle-diagram .anno-dot { fill: var(--copper); }
+    .bottle-diagram .anno-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      fill: var(--ink-soft);
+      letter-spacing: 0.04em;
+    }
+    .bottle-diagram .anno-value {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      font-size: 13px;
+      fill: var(--ink);
+      letter-spacing: -0.005em;
+    }
+    .bottle-diagram .specimen-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      fill: var(--copper);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    /* Mineral specks animation inside bottle */
+    .speck {
+      transform-origin: center;
+      animation: speckDrift 7s ease-in-out infinite;
+    }
+    .speck.s2 { animation-duration: 9s; animation-delay: -1.5s; }
+    .speck.s3 { animation-duration: 11s; animation-delay: -3s; }
+    .speck.s4 { animation-duration: 8s; animation-delay: -2s; }
+    .speck.s5 { animation-duration: 10s; animation-delay: -4s; }
+    @keyframes speckDrift {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-6px) translateX(2px); }
+    }
+
+    /* ============================================================
+       LETTER-BY-LETTER HERO REVEAL
+       ============================================================ */
+    .hero h1 .char {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(14px);
+      filter: blur(8px);
+      transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out), filter 0.9s var(--ease-out);
+    }
+    .hero h1.reveal.in .char { opacity: 1; transform: translateY(0); filter: blur(0); }
+
+    /* ============================================================
+       UPGRADED DROP CAP
+       ============================================================ */
+    .premise-body .drop {
+      font-family: 'Fraunces', Georgia, serif;
+      font-variation-settings: 'opsz' 144, 'SOFT' 80, 'WONK' 0;
+      float: left;
+      font-size: 130px;
+      line-height: 0.82;
+      margin: 10px 16px -6px 0;
+      color: var(--ink);
+      font-weight: 400;
+      background: linear-gradient(180deg, var(--ink) 0%, var(--navy) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+    }
+    .premise-body .drop::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -14px;
+      width: 8px;
+      height: 8px;
+      background: var(--copper);
+      border-radius: 50%;
+      opacity: 0.7;
+    }
+
+    /* ============================================================
+       TASTING NOTES CARD — wine-tasting-note styled
+       ============================================================ */
+    .tasting-note {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 18px;
+      padding: 48px 48px 40px;
+      box-shadow: var(--shadow-paper);
+      position: relative;
+    }
+    .tn-tag {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--paper);
+      padding: 4px 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--copper);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+    }
+    .tn-header {
+      text-align: center;
+      padding-bottom: 28px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .tn-name {
+      font-family: 'Fraunces', Georgia, serif;
+      font-variation-settings: 'opsz' 144, 'SOFT' 100;
+      font-size: clamp(32px, 4vw, 44px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .tn-name em {
+      font-style: italic;
+      font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
+      color: var(--water);
+    }
+    .tn-origin {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      font-size: 15px;
+      color: var(--ink-soft);
+    }
+    .tn-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+    .tn-cell .tn-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 6px;
+    }
+    .tn-cell .tn-value {
+      font-family: 'Fraunces', Georgia, serif;
+      font-variation-settings: 'opsz' 72, 'SOFT' 100;
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+    .tn-cell .tn-unit {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--ink-faint);
+    }
+    .tn-footer {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--rule);
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--ink-soft);
+      text-align: center;
+    }
+
+    /* ============================================================
        MOBILE
        ============================================================ */
     @media (max-width: 1020px) {
@@ -1224,6 +1475,13 @@
     }
     @media (max-width: 640px) {
       body { font-size: 16px; }
+      .marquee { padding: 56px 0; }
+      .marquee-item { font-size: 56px; gap: 40px; }
+      .marquee-track { gap: 40px; }
+      .premise-body .drop { font-size: 88px; margin-right: 12px; }
+      .tasting-note { padding: 36px 24px 28px; }
+      .tn-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+      .tn-cell .tn-value { font-size: 22px; }
       .masthead-inner { grid-template-columns: 1fr auto; }
       .masthead-meta { display: none; }
       .masthead-nav { gap: 18px; font-size: 12px; }
@@ -1294,6 +1552,21 @@
       </symbol>
       <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor">
         <path d="M4 3.4c0-.6.62-1 1.16-.74L19.7 11.3c.56.32.56 1.08 0 1.4L5.16 21.4c-.54.26-1.16-.14-1.16-.74V3.4Z"/>
+      </symbol>
+
+      <!-- Decorative fleuron — section divider ornament -->
+      <symbol id="i-fleuron" viewBox="0 0 80 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="0" y1="12" x2="28" y2="12" opacity="0.7"/>
+        <line x1="52" y1="12" x2="80" y2="12" opacity="0.7"/>
+        <path d="M34 12c0-3 2-5 6-5 4 0 6 2 6 5 0 3-2 5-6 5-4 0-6-2-6-5Z" fill="currentColor" fill-opacity="0.1"/>
+        <path d="M34 12c0-3 2-5 6-5 4 0 6 2 6 5 0 3-2 5-6 5-4 0-6-2-6-5Z"/>
+        <path d="M40 5v-3M40 22v-3" opacity="0.55"/>
+        <circle cx="40" cy="12" r="1" fill="currentColor"/>
+      </symbol>
+
+      <!-- Drop emblem variant (for masthead, custom cursor) -->
+      <symbol id="i-drop-fill" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2.5c0 0 7 7.5 7 12.5a7 7 0 0 1-14 0c0-5 7-12.5 7-12.5Z"/>
       </symbol>
     </defs>
   </svg>
@@ -1505,6 +1778,17 @@
     </div>
   </section>
 
+  <!-- Fleuron divider -->
+  <div class="fleuron" aria-hidden="true"><svg><use href="#i-fleuron"/></svg></div>
+
+  <!-- ============== MARQUEE WORDMARK — signature moment ============== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">Water <em>Sommelier</em> <span class="dot">&middot;</span> Water <em>Sommelier</em> <span class="dot">&middot;</span> </span>
+      <span class="marquee-item">Water <em>Sommelier</em> <span class="dot">&middot;</span> Water <em>Sommelier</em> <span class="dot">&middot;</span> </span>
+    </div>
+  </div>
+
   <!-- ============== FEATURES — numbered vignettes ============== -->
   <section id="features">
     <div class="container">
@@ -1543,13 +1827,103 @@
             <p>Calcium, magnesium, sodium, bicarbonates, sulphates, pH and total dissolved solids &mdash; aggregated from the world's best databases. Where the water comes from and why that matters.</p>
           </div>
           <div class="feature-visual">
-            <div class="viz-minerals">
-              <div class="min-row"><span class="min-name">Calcium</span><span class="min-value">208 mg/L</span></div>
-              <div class="min-row"><span class="min-name">Magnesium</span><span class="min-value">55 mg/L</span></div>
-              <div class="min-row"><span class="min-name">Sodium</span><span class="min-value">34 mg/L</span></div>
-              <div class="min-row"><span class="min-name">Bicarbonates</span><span class="min-value">219 mg/L</span></div>
-              <div class="min-row"><span class="min-name">pH</span><span class="min-value">7.6</span></div>
-              <div class="min-row"><span class="min-name">TDS</span><span class="min-value">305 ppm</span></div>
+            <div class="bottle-diagram">
+              <svg viewBox="0 0 460 360" xmlns="http://www.w3.org/2000/svg">
+                <!-- Specimen label top-left -->
+                <text class="specimen-label" x="14" y="20">Specimen No. III &middot; Spring water</text>
+
+                <!-- Bottle outline (centered) -->
+                <g transform="translate(195, 32)">
+                  <!-- Cap -->
+                  <rect x="22" y="0" width="26" height="18" rx="3" fill="none" stroke="#15182A" stroke-width="1.4"/>
+                  <!-- Neck -->
+                  <path d="M28 18 L28 38 Q26 42 24 50 L24 70" fill="none" stroke="#15182A" stroke-width="1.4"/>
+                  <path d="M42 18 L42 38 Q44 42 46 50 L46 70" fill="none" stroke="#15182A" stroke-width="1.4"/>
+                  <!-- Body -->
+                  <path d="M24 70 Q14 72 14 88 L14 260 Q14 280 35 280 L35 280 L70 280 Q70 280 70 280 Q70 280 70 280 Q70 280 70 280 Q70 280 70 280 L70 280 Q70 280 70 280 L70 280 Q70 280 70 280 Q70 280 70 280 Z" fill="none"/>
+                  <path d="M24 70 Q14 78 14 92 L14 260 Q14 282 38 282 L70 282 L70 282 L70 282 Q70 282 70 282 L70 282 Q70 282 70 282 L70 282 Q70 282 70 282 Z" fill="rgba(61, 111, 184, 0.06)" stroke="none"/>
+                  <path d="M24 70 Q14 78 14 92 L14 260 Q14 282 38 282 L70 282 Q70 282 70 282 Q70 282 70 282 Q70 282 70 282 L70 282 Z" fill="none" stroke="#15182A" stroke-width="1.4" stroke-linejoin="round"/>
+                  <!-- Right side -->
+                  <path d="M46 70 Q56 78 56 92 L56 260 Q56 282 32 282 Z" fill="none" stroke="#15182A" stroke-width="1.4" stroke-linejoin="round" transform="translate(-1 0)"/>
+                  <!-- Closed bottle: combine to closed path -->
+                </g>
+
+                <!-- Simpler clean bottle: overlay a single bottle outline -->
+                <g transform="translate(195, 32)">
+                  <!-- Replace the messy lines above with a single clean path; the prior was a sketch -->
+                  <rect x="22" y="0" width="26" height="14" rx="3" fill="#F4EFE5" stroke="#15182A" stroke-width="1.4"/>
+                  <path d="M22 14 L22 42 Q22 48 18 56 L14 80 Q12 88 12 96 L12 264 Q12 284 32 284 L38 284 L38 284 L38 284 Q38 284 38 284 L38 284 L38 284 L38 284 L38 284 Z" fill="none"/>
+                  <path d="M22 14 L22 42 Q22 50 18 58 L14 82 Q12 90 12 98 L12 264 Q12 284 32 284 L38 284" fill="none" stroke="#15182A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M48 14 L48 42 Q48 50 52 58 L56 82 Q58 90 58 98 L58 264 Q58 284 38 284 L38 284" fill="none" stroke="#15182A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <!-- Bottle fill, slight blue tint -->
+                  <path d="M22 14 L22 42 Q22 50 18 58 L14 82 Q12 90 12 98 L12 264 Q12 284 32 284 L38 284 L38 284 L38 284 L38 284 Q38 284 38 284 L38 284 Q38 284 38 284 Q58 284 58 264 L58 98 Q58 90 56 82 L52 58 Q48 50 48 42 L48 14 Z" fill="rgba(61, 111, 184, 0.07)"/>
+
+                  <!-- Water meniscus line -->
+                  <path d="M14 110 Q22 106 35 110 Q48 114 56 110" fill="none" stroke="rgba(61, 111, 184, 0.5)" stroke-width="1" stroke-linecap="round"/>
+
+                  <!-- Mineral specks suspended in water -->
+                  <circle class="speck s1" cx="22" cy="160" r="1.6" fill="rgba(61, 111, 184, 0.6)"/>
+                  <circle class="speck s2" cx="40" cy="190" r="1.2" fill="rgba(168, 95, 60, 0.5)"/>
+                  <circle class="speck s3" cx="30" cy="220" r="1.8" fill="rgba(61, 111, 184, 0.55)"/>
+                  <circle class="speck s4" cx="48" cy="150" r="1" fill="rgba(168, 95, 60, 0.4)"/>
+                  <circle class="speck s5" cx="20" cy="240" r="1.4" fill="rgba(61, 111, 184, 0.55)"/>
+                  <circle class="speck s1" cx="44" cy="240" r="1.1" fill="rgba(61, 111, 184, 0.4)"/>
+                  <circle class="speck s3" cx="28" cy="180" r="0.9" fill="rgba(168, 95, 60, 0.5)"/>
+
+                  <!-- Label band -->
+                  <rect x="14" y="180" width="44" height="50" fill="none" stroke="rgba(21,24,42,0.25)" stroke-width="0.8"/>
+                  <text x="36" y="200" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="8" fill="#15182A" opacity="0.7">San</text>
+                  <text x="36" y="212" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="8" fill="#15182A" opacity="0.7">Pellegrino</text>
+                  <line x1="20" y1="220" x2="52" y2="220" stroke="rgba(21,24,42,0.2)" stroke-width="0.5"/>
+                </g>
+
+                <!-- Annotation lines and labels -->
+                <!-- Top-left annotation: pH -->
+                <line class="anno-line" x1="100" y1="80" x2="200" y2="80"/>
+                <line class="anno-line" x1="200" y1="80" x2="218" y2="100"/>
+                <circle class="anno-dot" cx="218" cy="100" r="2"/>
+                <text class="anno-label" x="20" y="68">pH</text>
+                <text class="anno-value" x="20" y="86">7.6</text>
+
+                <!-- Top-right: Calcium -->
+                <line class="anno-line" x1="360" y1="80" x2="252" y2="80"/>
+                <line class="anno-line" x1="252" y1="80" x2="240" y2="120"/>
+                <circle class="anno-dot" cx="240" cy="120" r="2"/>
+                <text class="anno-label" x="370" y="68">Calcium</text>
+                <text class="anno-value" x="370" y="86">208 mg/L</text>
+
+                <!-- Mid-left: Magnesium -->
+                <line class="anno-line" x1="100" y1="180" x2="200" y2="180"/>
+                <line class="anno-line" x1="200" y1="180" x2="215" y2="180"/>
+                <circle class="anno-dot" cx="215" cy="180" r="2"/>
+                <text class="anno-label" x="20" y="168">Magnesium</text>
+                <text class="anno-value" x="20" y="186">55 mg/L</text>
+
+                <!-- Mid-right: Sodium -->
+                <line class="anno-line" x1="360" y1="180" x2="252" y2="180"/>
+                <line class="anno-line" x1="252" y1="180" x2="238" y2="180"/>
+                <circle class="anno-dot" cx="238" cy="180" r="2"/>
+                <text class="anno-label" x="370" y="168">Sodium</text>
+                <text class="anno-value" x="370" y="186">34 mg/L</text>
+
+                <!-- Bottom-left: Bicarbonates -->
+                <line class="anno-line" x1="100" y1="280" x2="200" y2="280"/>
+                <line class="anno-line" x1="200" y1="280" x2="218" y2="260"/>
+                <circle class="anno-dot" cx="218" cy="260" r="2"/>
+                <text class="anno-label" x="20" y="268">Bicarbonates</text>
+                <text class="anno-value" x="20" y="286">219 mg/L</text>
+
+                <!-- Bottom-right: TDS -->
+                <line class="anno-line" x1="360" y1="280" x2="252" y2="280"/>
+                <line class="anno-line" x1="252" y1="280" x2="238" y2="260"/>
+                <circle class="anno-dot" cx="238" cy="260" r="2"/>
+                <text class="anno-label" x="370" y="268">TDS</text>
+                <text class="anno-value" x="370" y="286">305 ppm</text>
+
+                <!-- Caption at bottom -->
+                <line x1="50" y1="340" x2="410" y2="340" stroke="#C9BFA6" stroke-width="0.5"/>
+                <text class="anno-label" x="230" y="354" text-anchor="middle" fill="#717890">Figure II &middot; Mineral composition, cross-sectional</text>
+              </svg>
             </div>
           </div>
         </article>
@@ -1605,6 +1979,37 @@
     </blockquote>
     <div class="attribution reveal reveal-1">Volume I &middot; Editor's preface</div>
   </div>
+
+  <!-- Tasting note — small editorial flourish before the dark spread -->
+  <section style="padding: 100px 0 60px;">
+    <div class="container">
+      <div class="tasting-note reveal">
+        <span class="tn-tag">Tasting Note &middot; No. 47</span>
+        <div class="tn-header">
+          <div class="tn-name">San <em>Pellegrino</em></div>
+          <div class="tn-origin">Italian Alps, Lombardy &middot; Source: San Pellegrino Terme</div>
+        </div>
+        <div class="tn-grid">
+          <div class="tn-cell">
+            <div class="tn-label">pH</div>
+            <div class="tn-value">7.6</div>
+            <div class="tn-unit">slightly alkaline</div>
+          </div>
+          <div class="tn-cell">
+            <div class="tn-label">TDS</div>
+            <div class="tn-value">305<span class="tn-unit"> ppm</span></div>
+            <div class="tn-unit">medium mineral</div>
+          </div>
+          <div class="tn-cell">
+            <div class="tn-label">Calcium</div>
+            <div class="tn-value">208<span class="tn-unit"> mg/L</span></div>
+            <div class="tn-unit">high content</div>
+          </div>
+        </div>
+        <p class="tn-footer">A bright, structured mineral water with notable calcium &mdash; well suited to long meals and warm afternoons.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- ============== INSIDE THE APP — gallery (dark editorial spread) ============== -->
   <section id="inside" class="dark-spread">
@@ -1827,6 +2232,46 @@
   </footer>
 
   <script>
+    // Wrap each character of the hero <h1> in spans for staggered ink-reveal
+    (function() {
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var h1 = document.querySelector('.hero h1');
+      if (!h1 || prefersReducedMotion) return;
+      // Walk text nodes inside each .line and wrap chars
+      h1.querySelectorAll('.line').forEach(function(line) {
+        var html = '';
+        var charIndex = 0;
+        Array.from(line.childNodes).forEach(function(node) {
+          if (node.nodeType === Node.TEXT_NODE) {
+            node.nodeValue.split('').forEach(function(ch) {
+              if (ch === ' ') {
+                html += '<span class="char" style="transition-delay:' + (charIndex * 36) + 'ms">&nbsp;</span>';
+              } else {
+                html += '<span class="char" style="transition-delay:' + (charIndex * 36) + 'ms">' + ch + '</span>';
+              }
+              charIndex++;
+            });
+          } else if (node.nodeType === Node.ELEMENT_NODE) {
+            // Preserve <em> and other inline tags but wrap their text in chars
+            var inner = '';
+            node.textContent.split('').forEach(function(ch) {
+              if (ch === ' ') {
+                inner += '<span class="char" style="transition-delay:' + (charIndex * 36) + 'ms">&nbsp;</span>';
+              } else {
+                inner += '<span class="char" style="transition-delay:' + (charIndex * 36) + 'ms">' + ch + '</span>';
+              }
+              charIndex++;
+            });
+            var tag = node.tagName.toLowerCase();
+            var cls = node.className ? ' class="' + node.className + '"' : '';
+            html += '<' + tag + cls + '>' + inner + '</' + tag + '>';
+          }
+        });
+        line.innerHTML = html;
+      });
+    })();
+
+    // Scroll-triggered reveal (standard fade-up + char reveal)
     (function() {
       var els = document.querySelectorAll('.reveal');
       if (!('IntersectionObserver' in window)) {
