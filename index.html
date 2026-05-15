@@ -1773,7 +1773,7 @@
        ============================================================ */
       .inaction-pinned {
         position: relative;
-        height: 320vh;
+        height: 220vh;
         background: var(--night);
         color: var(--paper);
       }
@@ -6840,63 +6840,8 @@
         update();
       })();
 
-      // ============================================================
-      // Smooth scroll (Lenis-style momentum lerp)
-      // ============================================================
-      (function () {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        if ('ontouchstart' in window) return; // skip on touch devices
-        var target = window.scrollY;
-        var current = window.scrollY;
-        var ease = 0.085;
-        var raf = null;
-        var animating = false;
-        var userScrolling = false;
-        var userScrollTimer;
-
-        // Hijack wheel
-        function onWheel(e) {
-          e.preventDefault();
-          target += e.deltaY;
-          target = Math.max(0, Math.min(target, document.documentElement.scrollHeight - window.innerHeight));
-          if (!animating) animate();
-        }
-        // Restore native on keyboard / scrollIntoView / link click
-        function onAnchorClick(e) {
-          var a = e.target.closest('a[href^="#"]');
-          if (!a) return;
-          var id = a.getAttribute('href');
-          if (id === '#' || !id) return;
-          var el = document.querySelector(id);
-          if (!el) return;
-          e.preventDefault();
-          var top = el.getBoundingClientRect().top + window.scrollY - 40;
-          target = top;
-          if (!animating) animate();
-        }
-        function animate() {
-          animating = true;
-          var diff = target - current;
-          current += diff * ease;
-          if (Math.abs(diff) < 0.5) {
-            current = target;
-            window.scrollTo(0, current);
-            animating = false;
-            return;
-          }
-          window.scrollTo(0, current);
-          raf = requestAnimationFrame(animate);
-        }
-        // Keep target in sync if user uses keyboard / scrollbar / find-in-page
-        window.addEventListener('scroll', function () {
-          if (!animating) {
-            target = window.scrollY;
-            current = window.scrollY;
-          }
-        }, { passive: true });
-        window.addEventListener('wheel', onWheel, { passive: false });
-        document.addEventListener('click', onAnchorClick);
-      })();
+      // (Smooth-scroll momentum removed — native scroll is faster and feels better here.
+      // CSS `html { scroll-behavior: smooth }` still handles anchor-link smoothness.)
 
       // ============================================================
       // Cursor water-drop trail
