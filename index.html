@@ -1724,6 +1724,249 @@
       }
 
       /* ============================================================
+       COMPARE TWO WATERS WIDGET
+       ============================================================ */
+      .compare {
+        padding: 140px 0;
+        background: var(--paper);
+        position: relative;
+      }
+      .compare-stage {
+        max-width: 980px;
+        margin: 0 auto;
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        border-radius: 24px;
+        padding: 36px;
+        box-shadow: var(--shadow-paper);
+      }
+      .compare-picker {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+      .compare-picker:last-of-type { margin-bottom: 0; margin-top: 24px; }
+      .compare-picker-head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .compare-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--copper);
+      }
+      .compare-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .compare-chip {
+        font-family: 'Manrope', sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--ink-soft);
+        padding: 8px 14px;
+        background: var(--paper-warm);
+        border: 1px solid transparent;
+        border-radius: 999px;
+        cursor: pointer;
+        transition: background 0.25s var(--ease-out), border-color 0.25s var(--ease-out), color 0.25s var(--ease-out);
+      }
+      .compare-chip:hover { background: var(--paper-deep); color: var(--ink); }
+      .compare-chip.active {
+        background: var(--ink);
+        color: var(--paper);
+        border-color: var(--ink);
+      }
+      .compare-table {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        gap: 24px;
+        padding: 28px 0;
+        border-top: 1px solid var(--rule);
+        border-bottom: 1px solid var(--rule);
+      }
+      .compare-col {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .compare-col-head {
+        text-align: center;
+        padding-bottom: 16px;
+        border-bottom: 1px dashed var(--rule);
+      }
+      .compare-col-mark {
+        width: 6px; height: 6px;
+        background: var(--water);
+        border-radius: 50%;
+        margin: 0 auto 10px;
+      }
+      #colB .compare-col-mark { background: var(--copper); }
+      .compare-col-name {
+        font-family: 'Fraunces', Georgia, serif;
+        font-variation-settings: 'opsz' 72, 'SOFT' 100;
+        font-style: italic;
+        font-size: clamp(22px, 2.6vw, 30px);
+        font-weight: 400;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+        margin-bottom: 4px;
+      }
+      .compare-col-origin {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 10px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--ink-faint);
+      }
+      .compare-divider {
+        width: 1px;
+        background: var(--rule);
+      }
+      .compare-rows {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .compare-row {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .compare-row-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+      .compare-row-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--ink-faint);
+      }
+      .compare-row-value {
+        font-family: 'Fraunces', Georgia, serif;
+        font-variation-settings: 'opsz' 36, 'SOFT' 100;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+      }
+      .compare-row-unit {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 10px;
+        color: var(--ink-faint);
+        margin-left: 2px;
+      }
+      .compare-row-bar {
+        height: 4px;
+        background: rgba(201, 191, 166, 0.4);
+        border-radius: 2px;
+        overflow: hidden;
+        position: relative;
+      }
+      #colA .compare-row-bar-fill {
+        background: linear-gradient(90deg, var(--water), var(--water-bright));
+      }
+      #colB .compare-row-bar-fill {
+        background: linear-gradient(90deg, var(--copper), var(--copper-soft));
+      }
+      .compare-row-bar-fill {
+        position: absolute;
+        inset: 0;
+        border-radius: 2px;
+        width: var(--w, 0%);
+        transition: width 0.6s var(--ease-out);
+      }
+      .compare-verdict {
+        max-width: 700px;
+        margin: 28px auto 0;
+        text-align: center;
+        font-family: 'Fraunces', Georgia, serif;
+        font-variation-settings: 'opsz' 18, 'SOFT' 100;
+        font-style: italic;
+        font-size: 17px;
+        color: var(--ink-soft);
+        line-height: 1.5;
+      }
+      .compare-verdict em {
+        color: var(--water);
+      }
+
+      /* ============================================================
+       LIVE TICKER — recently scanned strip
+       ============================================================ */
+      .ticker {
+        padding: 14px 0;
+        background: var(--paper-warm);
+        border-top: 1px solid var(--rule);
+        border-bottom: 1px solid var(--rule);
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+      }
+      .ticker::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, var(--paper-warm) 0%, transparent 8%, transparent 92%, var(--paper-warm) 100%);
+        pointer-events: none;
+        z-index: 1;
+      }
+      .ticker-track {
+        display: inline-flex;
+        gap: 32px;
+        animation: tickerSlide 52s linear infinite;
+        will-change: transform;
+      }
+      @keyframes tickerSlide {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+      }
+      .ticker-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: 'Manrope', sans-serif;
+        font-size: 13px;
+        color: var(--ink-soft);
+      }
+      .ticker-item .ticker-pulse {
+        width: 6px;
+        height: 6px;
+        background: var(--water);
+        border-radius: 50%;
+        flex-shrink: 0;
+        animation: pulseSoft 2.4s ease-in-out infinite;
+      }
+      .ticker-item .ticker-brand {
+        font-family: 'Fraunces', Georgia, serif;
+        font-variation-settings: 'opsz' 14, 'SOFT' 100;
+        font-style: italic;
+        color: var(--ink);
+      }
+      .ticker-item .ticker-loc {
+        color: var(--ink-faint);
+      }
+      .ticker-item .ticker-sep {
+        color: var(--rule);
+      }
+      .ticker-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 10px;
+        color: var(--copper);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin-right: 8px;
+      }
+
+      /* ============================================================
        SCROLLING WORDMARK MARQUEE — the signature moment
        ============================================================ */
       .marquee {
@@ -2274,6 +2517,41 @@
         font-size: 14px;
         fill: var(--ink);
         letter-spacing: -0.005em;
+      }
+
+      /* Hoverable mineral ions */
+      .mineral-ion { cursor: pointer; transition: transform 0.2s var(--ease-out); }
+      .mineral-ion:hover circle { fill: rgba(168, 95, 60, 0.32); stroke-width: 1.6; }
+      .mineral-tooltip {
+        position: fixed;
+        pointer-events: none;
+        background: var(--ink);
+        color: var(--paper);
+        padding: 12px 16px;
+        border-radius: 12px;
+        max-width: 260px;
+        font-family: 'Manrope', sans-serif;
+        font-size: 13px;
+        line-height: 1.55;
+        box-shadow: var(--shadow-deep);
+        z-index: 250;
+        opacity: 0;
+        transform: translateY(4px);
+        transition: opacity 0.2s var(--ease-out), transform 0.2s var(--ease-out);
+      }
+      .mineral-tooltip.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .mineral-tooltip strong {
+        font-family: 'JetBrains Mono', monospace;
+        color: var(--copper-soft);
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-weight: 600;
+        display: block;
+        margin-bottom: 6px;
       }
 
       /* ============================================================
@@ -3312,6 +3590,47 @@
       </div>
     </section>
 
+    <!-- ============== LIVE TICKER — recently scanned ============== -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span class="ticker-item"><span class="ticker-label">Recently scanned</span></span>
+        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">San Pellegrino</span><span class="ticker-loc">Italian Alps</span></span>
+        <span class="ticker-item ticker-sep">&middot;</span>
+        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Evian</span><span class="ticker-loc">Evian-les-Bains, France</span></span>
+        <span class="ticker-item ticker-sep">&middot;</span>
+        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Volvic</span><span class="ticker-loc">Auvergne, France</span></span>
+        <span class="ticker-item ticker-sep">&middot;</span>
+        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Vichy Catalan</span><span class="ticker-loc">Caldes de Malavella, Spain</span></span>
+        <span class="ticker-item ticker-sep">&middot;</span>
+        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Gerolsteiner</span><span class="ticker-loc">Eifel, Germany</span></span>
+        <span class="ticker-item ticker-sep">&middot;</span>
+        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Borjomi</span><span class="ticker-loc">Borjomi, Georgia</span></span>
+        <span class="ticker-item ticker-sep">&middot;</span>
+        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Fiji</span><span class="ticker-loc">Yaqara Valley, Fiji</span></span>
+        <span class="ticker-item ticker-sep">&middot;</span>
+        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Acqua Panna</span><span class="ticker-loc">Tuscany, Italy</span></span>
+        <span class="ticker-item ticker-sep">&middot;</span>
+        <!-- Duplicate set for seamless loop -->
+        <span class="ticker-item"><span class="ticker-label">Recently scanned</span></span>
+        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">San Pellegrino</span><span class="ticker-loc">Italian Alps</span></span>
+        <span class="ticker-item ticker-sep">&middot;</span>
+        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Evian</span><span class="ticker-loc">Evian-les-Bains, France</span></span>
+        <span class="ticker-item ticker-sep">&middot;</span>
+        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Volvic</span><span class="ticker-loc">Auvergne, France</span></span>
+        <span class="ticker-item ticker-sep">&middot;</span>
+        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Vichy Catalan</span><span class="ticker-loc">Caldes de Malavella, Spain</span></span>
+        <span class="ticker-item ticker-sep">&middot;</span>
+        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Gerolsteiner</span><span class="ticker-loc">Eifel, Germany</span></span>
+        <span class="ticker-item ticker-sep">&middot;</span>
+        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Borjomi</span><span class="ticker-loc">Borjomi, Georgia</span></span>
+        <span class="ticker-item ticker-sep">&middot;</span>
+        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Fiji</span><span class="ticker-loc">Yaqara Valley, Fiji</span></span>
+        <span class="ticker-item ticker-sep">&middot;</span>
+        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Acqua Panna</span><span class="ticker-loc">Tuscany, Italy</span></span>
+        <span class="ticker-item ticker-sep">&middot;</span>
+      </div>
+    </div>
+
     <!-- ============== ANATOMY OF WATER ============== -->
     <section class="anatomy" id="anatomy">
       <div class="container">
@@ -3561,93 +3880,25 @@
                   </text>
                 </g>
 
-                <!-- Mineral ions: Ca2+, Mg2+, Na+, HCO3- -->
-                <g transform="translate(110, 230)" class="pulse-soft">
-                  <circle
-                    cx="0"
-                    cy="0"
-                    r="9"
-                    fill="rgba(168, 95, 60, 0.18)"
-                    stroke="#A85F3C"
-                    stroke-width="1"
-                  />
-                  <text
-                    x="0"
-                    y="2.5"
-                    text-anchor="middle"
-                    font-family="JetBrains Mono, monospace"
-                    font-size="6.5"
-                    fill="#A85F3C"
-                    font-weight="600"
-                  >
-                    Ca
-                  </text>
+                <!-- Mineral ions: Ca2+, Mg2+, Na+, HCO3- (hoverable) -->
+                <g transform="translate(110, 230)" class="pulse-soft mineral-ion" data-tooltip="<strong>Ca&sup2;&#8314; &middot; Calcium</strong>Strengthens bones and teeth. Daily need ~1000mg. High in mineral waters from limestone regions.">
+                  <circle cx="0" cy="0" r="9" fill="rgba(168, 95, 60, 0.18)" stroke="#A85F3C" stroke-width="1"/>
+                  <text x="0" y="2.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6.5" fill="#A85F3C" font-weight="600">Ca</text>
                 </g>
 
-                <g transform="translate(40, 230)" class="pulse-soft">
-                  <circle
-                    cx="0"
-                    cy="0"
-                    r="8"
-                    fill="rgba(168, 95, 60, 0.18)"
-                    stroke="#A85F3C"
-                    stroke-width="1"
-                  />
-                  <text
-                    x="0"
-                    y="2.5"
-                    text-anchor="middle"
-                    font-family="JetBrains Mono, monospace"
-                    font-size="6"
-                    fill="#A85F3C"
-                    font-weight="600"
-                  >
-                    Mg
-                  </text>
+                <g transform="translate(40, 230)" class="pulse-soft mineral-ion" data-tooltip="<strong>Mg&sup2;&#8314; &middot; Magnesium</strong>Supports muscle and nerve function. Particularly useful after exercise. Daily need ~400mg.">
+                  <circle cx="0" cy="0" r="8" fill="rgba(168, 95, 60, 0.18)" stroke="#A85F3C" stroke-width="1"/>
+                  <text x="0" y="2.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="#A85F3C" font-weight="600">Mg</text>
                 </g>
 
-                <g transform="translate(75, 410)" class="pulse-soft">
-                  <circle
-                    cx="0"
-                    cy="0"
-                    r="8"
-                    fill="rgba(168, 95, 60, 0.18)"
-                    stroke="#A85F3C"
-                    stroke-width="1"
-                  />
-                  <text
-                    x="0"
-                    y="2.5"
-                    text-anchor="middle"
-                    font-family="JetBrains Mono, monospace"
-                    font-size="6"
-                    fill="#A85F3C"
-                    font-weight="600"
-                  >
-                    Na
-                  </text>
+                <g transform="translate(75, 410)" class="pulse-soft mineral-ion" data-tooltip="<strong>Na&#8314; &middot; Sodium</strong>An electrolyte you lose through sweat. Helpful after long runs. Most diets have plenty already.">
+                  <circle cx="0" cy="0" r="8" fill="rgba(168, 95, 60, 0.18)" stroke="#A85F3C" stroke-width="1"/>
+                  <text x="0" y="2.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="#A85F3C" font-weight="600">Na</text>
                 </g>
 
-                <g transform="translate(160, 440)" class="pulse-soft">
-                  <circle
-                    cx="0"
-                    cy="0"
-                    r="10"
-                    fill="rgba(168, 95, 60, 0.18)"
-                    stroke="#A85F3C"
-                    stroke-width="1"
-                  />
-                  <text
-                    x="0"
-                    y="2.5"
-                    text-anchor="middle"
-                    font-family="JetBrains Mono, monospace"
-                    font-size="5.5"
-                    fill="#A85F3C"
-                    font-weight="600"
-                  >
-                    HCO&#8323;
-                  </text>
+                <g transform="translate(160, 440)" class="pulse-soft mineral-ion" data-tooltip="<strong>HCO&#8323;&#8315; &middot; Bicarbonate</strong>Buffers the water's pH and gives it a soft, smooth mouthfeel. Higher levels = more alkaline character.">
+                  <circle cx="0" cy="0" r="10" fill="rgba(168, 95, 60, 0.18)" stroke="#A85F3C" stroke-width="1"/>
+                  <text x="0" y="2.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="5.5" fill="#A85F3C" font-weight="600">HCO&#8323;</text>
                 </g>
 
                 <!-- Base / glass bottom -->
@@ -3840,6 +4091,74 @@
             </svg>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ============== COMPARE TWO WATERS ============== -->
+    <section class="compare" id="compare">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-num"><span>Compare two waters</span></div>
+          <h2 class="display">Side by <em>side</em>.</h2>
+          <p class="lede">
+            Pick any two bottles. The app surfaces the difference instantly.
+          </p>
+        </div>
+
+        <div class="compare-stage reveal reveal-1">
+          <div class="compare-picker">
+            <div class="compare-picker-head">
+              <span class="compare-label">Water A</span>
+            </div>
+            <div class="compare-chips" data-side="A">
+              <button class="compare-chip active" data-water="sanpellegrino">San Pellegrino</button>
+              <button class="compare-chip" data-water="evian">Evian</button>
+              <button class="compare-chip" data-water="volvic">Volvic</button>
+              <button class="compare-chip" data-water="vichy">Vichy Catalan</button>
+              <button class="compare-chip" data-water="gerolsteiner">Gerolsteiner</button>
+              <button class="compare-chip" data-water="fiji">Fiji</button>
+            </div>
+          </div>
+
+          <div class="compare-table">
+            <div class="compare-col" id="colA">
+              <div class="compare-col-head">
+                <div class="compare-col-mark"></div>
+                <div class="compare-col-name" data-name="A">San Pellegrino</div>
+                <div class="compare-col-origin" data-origin="A">Italian Alps</div>
+              </div>
+              <div class="compare-rows" data-rows="A"></div>
+            </div>
+
+            <div class="compare-divider"></div>
+
+            <div class="compare-col" id="colB">
+              <div class="compare-col-head">
+                <div class="compare-col-mark"></div>
+                <div class="compare-col-name" data-name="B">Evian</div>
+                <div class="compare-col-origin" data-origin="B">Evian-les-Bains, France</div>
+              </div>
+              <div class="compare-rows" data-rows="B"></div>
+            </div>
+          </div>
+
+          <div class="compare-picker">
+            <div class="compare-picker-head">
+              <span class="compare-label">Water B</span>
+            </div>
+            <div class="compare-chips" data-side="B">
+              <button class="compare-chip" data-water="sanpellegrino">San Pellegrino</button>
+              <button class="compare-chip active" data-water="evian">Evian</button>
+              <button class="compare-chip" data-water="volvic">Volvic</button>
+              <button class="compare-chip" data-water="vichy">Vichy Catalan</button>
+              <button class="compare-chip" data-water="gerolsteiner">Gerolsteiner</button>
+              <button class="compare-chip" data-water="fiji">Fiji</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sommelier verdict line -->
+        <div class="compare-verdict reveal reveal-2" id="compareVerdict"></div>
       </div>
     </section>
 
@@ -4975,6 +5294,128 @@
           { passive: true },
         );
         update();
+      })();
+
+      // ============================================================
+      // Compare two waters widget
+      // ============================================================
+      (function () {
+        var WATERS = {
+          sanpellegrino: { name: 'San Pellegrino', origin: 'Italian Alps', pH: 7.6, tds: 1109, ca: 208, mg: 55, na: 34 },
+          evian:         { name: 'Evian',         origin: 'Evian-les-Bains, France', pH: 7.2, tds: 357,  ca: 80,  mg: 26, na: 6 },
+          volvic:        { name: 'Volvic',        origin: 'Auvergne, France', pH: 7.0, tds: 130,  ca: 12,  mg: 8,  na: 12 },
+          vichy:         { name: 'Vichy Catalan', origin: 'Caldes de Malavella, Spain', pH: 7.4, tds: 2900, ca: 60, mg: 9,  na: 1110 },
+          gerolsteiner:  { name: 'Gerolsteiner',  origin: 'Eifel, Germany', pH: 6.0, tds: 2500, ca: 348, mg: 108, na: 118 },
+          fiji:          { name: 'Fiji',          origin: 'Yaqara Valley, Fiji', pH: 7.7, tds: 222,  ca: 18,  mg: 14, na: 18 }
+        };
+        var MAX = { pH: 8.5, tds: 3000, ca: 400, mg: 120, na: 1200 };
+        var rowsConfig = [
+          { key: 'pH',  label: 'pH',          unit: '',     digits: 1 },
+          { key: 'tds', label: 'TDS',         unit: 'mg/L', digits: 0 },
+          { key: 'ca',  label: 'Calcium',     unit: 'mg/L', digits: 0 },
+          { key: 'mg',  label: 'Magnesium',   unit: 'mg/L', digits: 0 },
+          { key: 'na',  label: 'Sodium',      unit: 'mg/L', digits: 0 }
+        ];
+        var state = { A: 'sanpellegrino', B: 'evian' };
+
+        function pct(value, max) {
+          return Math.max(2, Math.min(100, (value / max) * 100));
+        }
+
+        function renderSide(side) {
+          var water = WATERS[state[side]];
+          if (!water) return;
+          document.querySelector('[data-name="' + side + '"]').textContent = water.name;
+          document.querySelector('[data-origin="' + side + '"]').textContent = water.origin;
+          var rowsContainer = document.querySelector('[data-rows="' + side + '"]');
+          rowsContainer.innerHTML = '';
+          rowsConfig.forEach(function (row) {
+            var v = water[row.key];
+            var html =
+              '<div class="compare-row">' +
+                '<div class="compare-row-head">' +
+                  '<span class="compare-row-label">' + row.label + '</span>' +
+                  '<span class="compare-row-value">' + (row.digits === 0 ? Math.round(v) : v.toFixed(row.digits)) +
+                    (row.unit ? '<span class="compare-row-unit"> ' + row.unit + '</span>' : '') +
+                  '</span>' +
+                '</div>' +
+                '<div class="compare-row-bar"><div class="compare-row-bar-fill" style="--w:' + pct(v, MAX[row.key]) + '%"></div></div>' +
+              '</div>';
+            rowsContainer.insertAdjacentHTML('beforeend', html);
+          });
+          // Update active chip
+          document.querySelectorAll('[data-side="' + side + '"] .compare-chip').forEach(function (chip) {
+            chip.classList.toggle('active', chip.getAttribute('data-water') === state[side]);
+          });
+        }
+
+        function renderVerdict() {
+          var a = WATERS[state.A], b = WATERS[state.B];
+          var verdict = document.getElementById('compareVerdict');
+          if (!verdict || !a || !b) return;
+          if (state.A === state.B) {
+            verdict.innerHTML = '<em>Same water.</em> Pick two different bottles to compare.';
+            return;
+          }
+          // Pick the most interesting difference
+          var diffs = [
+            { k: 'tds',  label: 'mineral content', a: a.tds, b: b.tds },
+            { k: 'ca',   label: 'calcium',         a: a.ca,  b: b.ca  },
+            { k: 'na',   label: 'sodium',          a: a.na,  b: b.na  },
+            { k: 'mg',   label: 'magnesium',       a: a.mg,  b: b.mg  }
+          ];
+          var biggest = diffs.sort(function (x, y) {
+            var rx = x.a === 0 || x.b === 0 ? 1000 : Math.max(x.a / x.b, x.b / x.a);
+            var ry = y.a === 0 || y.b === 0 ? 1000 : Math.max(y.a / y.b, y.b / y.a);
+            return ry - rx;
+          })[0];
+          var richer = biggest.a > biggest.b ? a.name : b.name;
+          var ratio = (Math.max(biggest.a, biggest.b) / Math.max(1, Math.min(biggest.a, biggest.b))).toFixed(1);
+          verdict.innerHTML =
+            'The biggest difference is <em>' + biggest.label + '</em>: ' +
+            '<em>' + richer + '</em> has roughly <em>' + ratio + '&times;</em> as much as ' +
+            (richer === a.name ? b.name : a.name) + '.';
+        }
+
+        function render() {
+          renderSide('A');
+          renderSide('B');
+          renderVerdict();
+        }
+
+        document.querySelectorAll('.compare-chip').forEach(function (chip) {
+          chip.addEventListener('click', function () {
+            var side = chip.parentElement.getAttribute('data-side');
+            var water = chip.getAttribute('data-water');
+            state[side] = water;
+            render();
+          });
+        });
+        render();
+      })();
+
+      // ============================================================
+      // Mineral hover tooltips on the Anatomy diagram
+      // ============================================================
+      (function () {
+        var ions = document.querySelectorAll('.mineral-ion');
+        if (!ions.length) return;
+        var tip = document.createElement('div');
+        tip.className = 'mineral-tooltip';
+        document.body.appendChild(tip);
+        ions.forEach(function (ion) {
+          ion.addEventListener('pointerenter', function () {
+            tip.innerHTML = ion.getAttribute('data-tooltip') || '';
+            tip.classList.add('visible');
+          });
+          ion.addEventListener('pointermove', function (e) {
+            tip.style.left = (e.clientX + 16) + 'px';
+            tip.style.top = (e.clientY + 16) + 'px';
+          });
+          ion.addEventListener('pointerleave', function () {
+            tip.classList.remove('visible');
+          });
+        });
       })();
 
       // ============================================================
