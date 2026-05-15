@@ -2477,6 +2477,143 @@
         body {
           font-size: 16px;
         }
+        .container {
+          padding: 0 20px;
+        }
+        .container-narrow {
+          padding: 0 20px;
+        }
+
+        /* Nav: brand stays one line, links tighter, no bottom-meta */
+        .masthead {
+          padding: 18px 0 0;
+        }
+        .masthead-inner {
+          grid-template-columns: 1fr auto;
+          gap: 16px;
+          padding-bottom: 18px;
+        }
+        .masthead-meta {
+          display: none;
+        }
+        .brand {
+          font-size: 17px;
+          white-space: nowrap;
+        }
+        .brand-mark {
+          width: 26px;
+          height: 26px;
+        }
+        .brand-mark svg {
+          width: 20px;
+          height: 20px;
+        }
+        .masthead-nav {
+          gap: 14px;
+          font-size: 13px;
+        }
+
+        /* Hero: tighter padding + better meta-row */
+        .hero {
+          padding: 48px 0 64px;
+        }
+        .hero-eyebrow {
+          margin-bottom: 28px;
+        }
+        .hero-ctas {
+          gap: 10px;
+        }
+        .pill-btn {
+          padding: 13px 18px 13px 16px;
+          font-size: 14px;
+        }
+        .hero-meta-row {
+          margin-top: 28px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+          font-size: 13px;
+        }
+        .hero-meta-row .item {
+          gap: 10px;
+        }
+        .hero-meta-row svg {
+          width: 14px;
+          height: 14px;
+          flex-shrink: 0;
+        }
+        .hero-visual {
+          min-height: 460px;
+          margin-top: 8px;
+        }
+        .phone-stage {
+          width: 248px;
+        }
+        .float-card {
+          padding: 10px 12px;
+        }
+        .fc-icon {
+          width: 28px;
+          height: 28px;
+        }
+        .fc-icon svg {
+          width: 14px;
+          height: 14px;
+        }
+        .fc-title {
+          font-size: 13px;
+        }
+        .fc-sub {
+          font-size: 11px;
+        }
+        .float-card.fc-1 {
+          left: -12px;
+          top: 8%;
+        }
+        .float-card.fc-2 {
+          right: -12px;
+          bottom: 14%;
+        }
+        .hero-chat-bubble {
+          left: -8px;
+          bottom: -10px;
+          max-width: 220px;
+          padding: 12px 14px;
+          font-size: 13px;
+        }
+
+        /* Premise drop cap */
+        .premise-body .drop {
+          font-size: 88px;
+          margin-right: 12px;
+        }
+
+        /* Anatomy section */
+        .anatomy {
+          padding: 72px 0;
+        }
+        .anatomy-grid {
+          gap: 40px;
+        }
+        .anatomy-num {
+          margin-bottom: 14px;
+        }
+        .anatomy-lede {
+          font-size: 17px;
+          margin-bottom: 24px;
+        }
+        .anatomy-bullets li {
+          font-size: 14px;
+        }
+        .anatomy-bullets strong {
+          font-size: 12px;
+        }
+        .anatomy-viz {
+          max-width: 100%;
+          padding: 0;
+        }
+
+        /* Marquee */
         .marquee {
           padding: 56px 0;
         }
@@ -2487,10 +2624,29 @@
         .marquee-track {
           gap: 40px;
         }
-        .premise-body .drop {
-          font-size: 88px;
-          margin-right: 12px;
+
+        /* Sommelier chat */
+        .sommelier {
+          padding: 72px 0;
         }
+        .chat-msg {
+          max-width: 92%;
+          gap: 10px;
+        }
+        .chat-avatar {
+          width: 32px;
+          height: 32px;
+          font-size: 13px;
+        }
+        .chat-bubble {
+          font-size: 15px;
+          padding: 14px 16px;
+        }
+        .chat-bubble .mono-tag {
+          font-size: 10px;
+        }
+
+        /* Tasting note */
         .tasting-note {
           padding: 36px 24px 28px;
         }
@@ -2501,40 +2657,30 @@
         .tn-cell .tn-value {
           font-size: 22px;
         }
-        .masthead-inner {
-          grid-template-columns: 1fr auto;
+        .tn-header {
+          padding-bottom: 22px;
+          margin-bottom: 22px;
         }
-        .masthead-meta {
-          display: none;
-        }
-        .masthead-nav {
-          gap: 18px;
-          font-size: 12px;
-        }
+
+        /* Misc sections */
         section,
         .pull-quote,
         .cta-section {
           padding: 84px 0;
         }
-        .hero {
-          padding: 56px 0 80px;
-        }
-        .phone-stage {
-          width: 280px;
-        }
-        .float-card.fc-1 {
-          left: -10px;
-          top: 8%;
-        }
-        .float-card.fc-2 {
-          right: -10px;
-          bottom: 12%;
+        .section-head {
+          margin-bottom: 56px;
         }
         .principles {
           grid-template-columns: 1fr;
         }
         .feature-row {
           padding: 40px 0;
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+        .feature-num {
+          font-size: 12px;
         }
         .gallery-stage {
           gap: 16px;
@@ -2547,14 +2693,69 @@
         .show-phone:nth-child(3) {
           transform: none;
         }
+
+        .pull-quote {
+          padding: 84px 0;
+        }
         .pull-quote blockquote {
           font-size: 28px;
+          padding: 0 24px;
         }
+
         .contact-card {
           padding: 40px 24px;
         }
+        .faq-trigger {
+          padding: 22px 4px;
+          font-size: 17px;
+          gap: 16px;
+        }
+        .faq-num {
+          font-size: 11px;
+        }
         .faq-body {
-          padding-left: 0;
+          padding: 0 0 22px 0;
+          font-size: 15px;
+        }
+
+        .cta-section h2 {
+          padding: 0 8px;
+        }
+
+        /* Footer */
+        footer {
+          padding: 56px 0 48px;
+        }
+        .colophon {
+          gap: 28px;
+        }
+
+        /* Disable cursor spotlight + tilt on mobile */
+        .spotlight {
+          display: none;
+        }
+      }
+      @media (max-width: 460px) {
+        .masthead-nav { gap: 14px; font-size: 12px; }
+        .masthead-nav a[href="#inside"] { display: none; }
+      }
+      @media (max-width: 380px) {
+        .masthead-nav {
+          gap: 10px;
+          font-size: 11px;
+        }
+        .brand {
+          font-size: 15px;
+        }
+        .marquee-item {
+          font-size: 44px;
+          gap: 28px;
+        }
+        .marquee-track {
+          gap: 28px;
+        }
+        .premise-body .drop {
+          font-size: 72px;
         }
       }
     </style>
