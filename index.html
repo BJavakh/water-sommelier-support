@@ -2306,6 +2306,108 @@
         margin: 0 auto;
         position: relative;
       }
+      /* Fake input bar */
+      .chat-input-wrap {
+        margin-bottom: 20px;
+      }
+      .chat-input {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 14px 18px;
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        border-radius: 14px;
+        box-shadow: var(--shadow-paper);
+        transition: border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+      }
+      .chat-input:hover {
+        border-color: var(--water);
+        box-shadow: 0 0 0 4px rgba(61, 111, 184, 0.08);
+      }
+      .chat-input-prompt {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--ink-soft);
+      }
+      .chat-input-prompt svg {
+        color: var(--ink-faint);
+        flex-shrink: 0;
+      }
+      .chat-input-placeholder {
+        font-family: 'Fraunces', Georgia, serif;
+        font-variation-settings: 'opsz' 18, 'SOFT' 100;
+        font-style: italic;
+        font-size: 16px;
+        color: var(--ink-faint);
+      }
+      .chat-input-cta {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11px;
+        color: var(--ink-soft);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        flex-shrink: 0;
+      }
+      .chat-input-cta kbd {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11px;
+        padding: 2px 6px;
+        background: var(--paper-warm);
+        border: 1px solid var(--rule);
+        border-radius: 4px;
+        color: var(--ink-soft);
+      }
+
+      /* Starter chips */
+      .chat-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 32px;
+      }
+      .chat-chip {
+        font-family: 'Manrope', sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--ink);
+        padding: 9px 16px;
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        border-radius: 999px;
+        transition: background 0.25s var(--ease-out), border-color 0.25s var(--ease-out), transform 0.25s var(--ease-out), color 0.25s var(--ease-out);
+        cursor: pointer;
+      }
+      .chat-chip:hover, .chat-chip:focus-visible {
+        background: var(--ink);
+        color: var(--paper);
+        border-color: var(--ink);
+        transform: translateY(-1px);
+        outline: none;
+      }
+      .chat-chip.used {
+        opacity: 0.4;
+        cursor: default;
+        pointer-events: none;
+      }
+
+      /* Typewriter cursor */
+      .typing-caret::after {
+        content: '';
+        display: inline-block;
+        width: 6px;
+        height: 16px;
+        background: var(--ink);
+        margin-left: 2px;
+        vertical-align: text-bottom;
+        animation: caretBlink 0.7s step-end infinite;
+      }
+
       .chat-thread {
         display: flex;
         flex-direction: column;
@@ -2736,8 +2838,13 @@
         }
       }
       @media (max-width: 460px) {
-        .masthead-nav { gap: 14px; font-size: 12px; }
-        .masthead-nav a[href="#inside"] { display: none; }
+        .masthead-nav {
+          gap: 14px;
+          font-size: 12px;
+        }
+        .masthead-nav a[href="#inside"] {
+          display: none;
+        }
       }
       @media (max-width: 380px) {
         .masthead-nav {
@@ -2939,9 +3046,9 @@
     <header class="masthead">
       <div class="container masthead-inner">
         <div class="masthead-meta">
-          <span>Issue No. 01</span>
+          <span>Beta &middot; v1.1</span>
           <span class="meta-sep"></span>
-          <span>Spring 2026</span>
+          <span>iOS &amp; Android</span>
         </div>
 
         <a href="#top" class="brand">
@@ -2968,7 +3075,7 @@
             <div class="hero-eyebrow reveal">
               <span class="rule"></span>
               <span class="uppercase-tracked"
-                >A guide to the water you drink</span
+                >Your pocket water sommelier</span
               >
             </div>
 
@@ -2981,8 +3088,9 @@
             </h1>
 
             <p class="hero-lede reveal reveal-2">
-              Scan any bottle. Reveal its minerals, pH, and source. A pocket
-              sommelier for the water you drink every day.
+              Scan any bottle. Get its minerals, pH, and source in a tap. Ask
+              the AI sommelier anything &mdash; from "best water for a long run"
+              to "is alkaline water actually good for me."
             </p>
 
             <div class="hero-actions reveal reveal-3">
@@ -3204,45 +3312,13 @@
       </div>
     </section>
 
-    <!-- ============== PREMISE — Editorial intro ============== -->
-    <section id="premise" class="alt">
-      <div class="container">
-        <div class="premise">
-          <aside class="premise-aside reveal">
-            <span class="uppercase-tracked">Editor's note</span>
-            <div class="aside-title">On the quiet matter of what we drink.</div>
-          </aside>
-
-          <div class="premise-body reveal reveal-1">
-            <p>
-              <span class="drop">W</span>e drink the same water, day after day,
-              with about as much attention as we give the air we breathe. Yet
-              not all water is the same.
-              <em>Source matters. Mineral content matters. pH matters.</em> A
-              glass of alpine spring water carries a different chemistry &mdash;
-              and a different story &mdash; than a glass from a city tap.
-            </p>
-
-            <p>
-              Water Sommelier began as a small idea: that anyone, with nothing
-              more than a phone camera, ought to be able to know what is in
-              their bottle. No chemistry degree. No flipping the label over and
-              squinting at fine print.
-            </p>
-
-            <p>This is a pocket guide for the curious drinker.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ============== ANATOMY OF WATER ============== -->
     <section class="anatomy" id="anatomy">
       <div class="container">
         <div class="anatomy-grid">
           <div class="anatomy-text reveal">
             <div class="anatomy-num">
-              <span>Chapter I.5 &middot; the anatomy of water</span>
+              <span>The anatomy of water</span>
             </div>
             <h2>What's <em>inside</em> the glass.</h2>
             <p class="anatomy-lede">
@@ -3790,7 +3866,7 @@
     <section id="features">
       <div class="container">
         <div class="section-head reveal">
-          <div class="section-num"><span>Chapter II</span></div>
+          <div class="section-num"><span>Features</span></div>
           <h2 class="display">What it <em>does</em>.</h2>
           <p class="lede">
             Four small things that, together, change how you think about water.
@@ -4204,76 +4280,55 @@
       </div>
     </section>
 
-    <!-- ============== PULL QUOTE ============== -->
-    <div class="pull-quote">
-      <blockquote class="display reveal">
-        &ldquo;Most people <em>drink water</em>. Few know it.&rdquo;
-      </blockquote>
-      <div class="attribution reveal reveal-1">
-        Volume I &middot; Editor's preface
-      </div>
-    </div>
-
-    <!-- ============== ASK THE SOMMELIER — assistant conversation ============== -->
+    <!-- ============== ASK THE SOMMELIER — assistant centerpiece ============== -->
     <section class="sommelier" id="sommelier">
       <div class="container">
         <div class="section-head reveal">
           <div class="section-num">
-            <span>Chapter IV &middot; correspondence with the sommelier</span>
+            <span>The sommelier &middot; live in the app</span>
           </div>
-          <h2 class="display">Ask the <em>sommelier</em>.</h2>
+          <h2 class="display">Ask <em>anything</em>.</h2>
           <p class="lede">
-            The app's AI assistant has read the literature, the labels, and the
-            lab reports. Put a question to it.
+            The app's AI has read the literature, the labels, and the lab
+            reports. Tap a question below or type your own &mdash; the
+            sommelier answers in real time.
           </p>
         </div>
 
         <div class="chat-stage">
-          <div class="chat-thread">
-            <div class="chat-msg user reveal reveal-1">
-              <div class="chat-avatar">SR</div>
-              <div class="chat-bubble">Best water for a long run?</div>
+          <!-- Fake input -->
+          <div class="chat-input-wrap reveal">
+            <div class="chat-input">
+              <span class="chat-input-prompt">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="11" cy="11" r="7"/>
+                  <path d="m20 20-3.5-3.5"/>
+                </svg>
+                <span class="chat-input-placeholder">Ask anything about your water...</span>
+              </span>
+              <span class="chat-input-cta">Ask <kbd>&#8629;</kbd></span>
             </div>
-            <div class="chat-msg assistant reveal reveal-2">
-              <div class="chat-avatar">WS</div>
-              <div class="chat-bubble">
-                <span class="mono-tag">Answer 01</span>
-                Look for high <em>sodium</em> and high <em>calcium</em> &mdash;
-                Vichy Catalan, Gerolsteiner, or San Pellegrino all qualify.
-                Avoid distilled or low-mineral waters; you'll lose electrolytes
-                faster than you replace them.
-              </div>
-            </div>
+          </div>
 
-            <div class="chat-msg user reveal reveal-2">
-              <div class="chat-avatar">SR</div>
-              <div class="chat-bubble">
-                Is alkaline water actually good for me?
-              </div>
-            </div>
-            <div class="chat-msg assistant reveal reveal-3">
-              <div class="chat-avatar">WS</div>
-              <div class="chat-bubble">
-                <span class="mono-tag">Answer 02</span>
-                The pH of what you drink barely changes your body's chemistry
-                &mdash; your stomach is too acidic for it to matter. What does
-                matter is the <em>minerals</em>. Most alkaline waters happen to
-                be mineral-rich, which is the real benefit.
-              </div>
-            </div>
+          <!-- Starter question chips -->
+          <div class="chat-chips reveal reveal-1" id="chatChips">
+            <button class="chat-chip" data-q="run">Best water for a long run?</button>
+            <button class="chat-chip" data-q="alkaline">Is alkaline water good for me?</button>
+            <button class="chat-chip" data-q="tds">What does TDS mean on a label?</button>
+            <button class="chat-chip" data-q="baby">Safe water for a baby?</button>
+            <button class="chat-chip" data-q="evian">Why is Evian so popular?</button>
+            <button class="chat-chip" data-q="distilled">Should I drink distilled water?</button>
+          </div>
 
-            <div class="chat-msg user reveal reveal-3">
-              <div class="chat-avatar">SR</div>
-              <div class="chat-bubble">What does TDS mean on a label?</div>
-            </div>
-            <div class="chat-msg assistant reveal reveal-4">
+          <!-- Conversation thread (initial assistant intro + answers appended on click) -->
+          <div class="chat-thread reveal reveal-2" id="chatThread">
+            <div class="chat-msg assistant">
               <div class="chat-avatar">WS</div>
               <div class="chat-bubble">
-                <span class="mono-tag">Answer 03</span>
-                Total dissolved solids. The sum, in milligrams per litre, of
-                everything in the water that isn't water. Below 50 is very low,
-                50&ndash;500 is normal, above 500 is mineral-rich.
-                <em>Higher isn't better &mdash; it's different.</em>
+                <span class="mono-tag">Sommelier</span>
+                Hi. I'm your water sommelier &mdash; ask me anything about
+                what's in your bottle. <em>Try a question above</em>, or type
+                your own in the app.
               </div>
             </div>
           </div>
@@ -4281,47 +4336,39 @@
       </div>
     </section>
 
-    <!-- Tasting note — small editorial flourish before the dark spread -->
-    <section style="padding: 100px 0 60px">
-      <div class="container">
-        <div class="tasting-note reveal">
-          <span class="tn-tag">Tasting Note &middot; No. 47</span>
-          <div class="tn-header">
-            <div class="tn-name">San <em>Pellegrino</em></div>
-            <div class="tn-origin">
-              Italian Alps, Lombardy &middot; Source: San Pellegrino Terme
-            </div>
-          </div>
-          <div class="tn-grid">
-            <div class="tn-cell">
-              <div class="tn-label">pH</div>
-              <div class="tn-value">7.6</div>
-              <div class="tn-unit">slightly alkaline</div>
-            </div>
-            <div class="tn-cell">
-              <div class="tn-label">TDS</div>
-              <div class="tn-value">305<span class="tn-unit"> ppm</span></div>
-              <div class="tn-unit">medium mineral</div>
-            </div>
-            <div class="tn-cell">
-              <div class="tn-label">Calcium</div>
-              <div class="tn-value">208<span class="tn-unit"> mg/L</span></div>
-              <div class="tn-unit">high content</div>
-            </div>
-          </div>
-          <p class="tn-footer">
-            A bright, structured mineral water with notable calcium &mdash; well
-            suited to long meals and warm afternoons.
-          </p>
-        </div>
+    <!-- Hidden answer templates: chip clicks pull these into the chat thread -->
+    <template id="chatAnswers">
+      <div data-q="run">
+        <div class="q">Best water for a long run?</div>
+        <div class="a">Look for high <em>sodium</em> and high <em>calcium</em> &mdash; Vichy Catalan, Gerolsteiner, or San Pellegrino qualify. Avoid distilled or low-mineral waters; you'll lose electrolytes faster than you replace them.</div>
       </div>
-    </section>
+      <div data-q="alkaline">
+        <div class="q">Is alkaline water good for me?</div>
+        <div class="a">The pH of what you drink barely changes your body's chemistry &mdash; your stomach is too acidic for it to matter. What does matter is the <em>minerals</em>. Most alkaline waters happen to be mineral-rich, which is the real benefit.</div>
+      </div>
+      <div data-q="tds">
+        <div class="q">What does TDS mean on a label?</div>
+        <div class="a">Total dissolved solids. The sum, in mg per litre, of everything in the water that isn't water. Below 50 is very low, 50&ndash;500 is normal, above 500 is mineral-rich. <em>Higher isn't better &mdash; it's different.</em></div>
+      </div>
+      <div data-q="baby">
+        <div class="q">Safe water for a baby?</div>
+        <div class="a">Low-mineral, low-sodium water is the rule. Look for TDS under 100, sodium under 20 mg/L. Volvic and Evian are classic safe choices. <em>Avoid sparkling and high-mineral waters</em> for infants under 6 months.</div>
+      </div>
+      <div data-q="evian">
+        <div class="q">Why is Evian so popular?</div>
+        <div class="a">A balanced mineral profile from the French Alps, low TDS (~309 mg/L), neutral pH (7.2), and a brand history reaching back to 1789. It's not the most mineral-rich, but it's a <em>safe, reliable middle</em> &mdash; a clean default.</div>
+      </div>
+      <div data-q="distilled">
+        <div class="q">Should I drink distilled water?</div>
+        <div class="a">For everyday hydration, no. Distilled water has had its minerals removed, so it doesn't replenish what you sweat out. It's fine occasionally; it's not great as a daily drink. <em>The minerals are the point.</em></div>
+      </div>
+    </template>
 
     <!-- ============== INSIDE THE APP — gallery (dark editorial spread) ============== -->
     <section id="inside" class="dark-spread">
       <div class="container">
         <div class="section-head reveal">
-          <div class="section-num"><span>Chapter III</span></div>
+          <div class="section-num"><span>Inside the app</span></div>
           <h2 class="display">A quick look <em>inside</em>.</h2>
           <p class="lede">
             Three frames from the app, just as it appears in hand.
@@ -4481,15 +4528,15 @@
     <section id="support" class="alt">
       <div class="container">
         <div class="section-head reveal">
-          <div class="section-num"><span>Correspondence</span></div>
-          <h2 class="display">We <em>read</em> our mail.</h2>
+          <div class="section-num"><span>Support</span></div>
+          <h2 class="display">Need <em>a hand?</em></h2>
           <p class="lede">
-            A question, a request, a bottle we missed. Write to us.
+            Got a question, a bug, or a bottle we missed? Drop us a line.
           </p>
         </div>
 
         <div class="contact-card reveal">
-          <div class="label">Address all enquiries to</div>
+          <div class="label">Email us at</div>
           <a class="contact-email" href="mailto:admin@watersommelier.app"
             >admin@watersommelier.app</a
           >
@@ -4501,7 +4548,7 @@
         <div class="faq">
           <details class="faq-item reveal">
             <summary class="faq-trigger">
-              <span class="faq-num">Q.01</span>
+              <span class="faq-num">1</span>
               <span class="faq-q"
                 >The camera won't open when I try to scan.</span
               >
@@ -4518,7 +4565,7 @@
           </details>
           <details class="faq-item reveal">
             <summary class="faq-trigger">
-              <span class="faq-num">Q.02</span>
+              <span class="faq-num">2</span>
               <span class="faq-q">My bottle wasn't recognized.</span>
               <span class="faq-toggle"
                 ><svg><use href="#i-plus" /></svg
@@ -4534,7 +4581,7 @@
           </details>
           <details class="faq-item reveal">
             <summary class="faq-trigger">
-              <span class="faq-num">Q.03</span>
+              <span class="faq-num">3</span>
               <span class="faq-q">How do I delete my account or data?</span>
               <span class="faq-toggle"
                 ><svg><use href="#i-plus" /></svg
@@ -4551,7 +4598,7 @@
           </details>
           <details class="faq-item reveal">
             <summary class="faq-trigger">
-              <span class="faq-num">Q.04</span>
+              <span class="faq-num">4</span>
               <span class="faq-q">Is Water Sommelier free?</span>
               <span class="faq-toggle"
                 ><svg><use href="#i-plus" /></svg
@@ -4565,7 +4612,7 @@
           </details>
           <details class="faq-item reveal">
             <summary class="faq-trigger">
-              <span class="faq-num">Q.05</span>
+              <span class="faq-num">5</span>
               <span class="faq-q">I have a feature request.</span>
               <span class="faq-toggle"
                 ><svg><use href="#i-plus" /></svg
@@ -4588,14 +4635,14 @@
     <section id="privacy">
       <div class="container">
         <div class="section-head reveal">
-          <div class="section-num"><span>House rules</span></div>
-          <h2 class="display">A small <em>code of conduct</em>.</h2>
-          <p class="lede">Four principles we hold ourselves to.</p>
+          <div class="section-num"><span>Privacy</span></div>
+          <h2 class="display">Your data, <em>your business</em>.</h2>
+          <p class="lede">Four straight rules the app sticks to.</p>
         </div>
 
         <div class="principles">
           <div class="principle reveal reveal-1">
-            <div class="principle-num">i.</div>
+            <div class="principle-num">01</div>
             <h4>The camera is for <em>labels</em>.</h4>
             <p>
               Nothing is recorded or uploaded unless you tap to scan. The
@@ -4603,7 +4650,7 @@
             </p>
           </div>
           <div class="principle reveal reveal-2">
-            <div class="principle-num">ii.</div>
+            <div class="principle-num">02</div>
             <h4>No ads. <em>Ever</em>.</h4>
             <p>
               We don't sell your data, run ad networks, or share information
@@ -4611,7 +4658,7 @@
             </p>
           </div>
           <div class="principle reveal reveal-3">
-            <div class="principle-num">iii.</div>
+            <div class="principle-num">03</div>
             <h4>Your data is <em>yours</em>.</h4>
             <p>
               Scans, hydration logs, account email &mdash; stored securely,
@@ -4619,7 +4666,7 @@
             </p>
           </div>
           <div class="principle reveal reveal-4">
-            <div class="principle-num">iv.</div>
+            <div class="principle-num">04</div>
             <h4>Anonymous, by <em>default</em>.</h4>
             <p>
               We measure crashes and broad usage to fix bugs and ship better.
@@ -4695,7 +4742,7 @@
 
         <div class="footer-bar">
           <span>&copy; 2026 Water Sommelier Inc.</span>
-          <span>Issue No. 01 &middot; Spring 2026</span>
+          <span>Free on iOS &amp; Android</span>
         </div>
       </div>
     </footer>
@@ -4928,6 +4975,108 @@
           { passive: true },
         );
         update();
+      })();
+
+      // ============================================================
+      // Chat chips: click to add Q+A to thread with typewriter effect
+      // ============================================================
+      (function () {
+        var chips = document.querySelectorAll('.chat-chip');
+        var thread = document.getElementById('chatThread');
+        var template = document.getElementById('chatAnswers');
+        if (!chips.length || !thread || !template) return;
+
+        function appendMessage(role, html, animate) {
+          var msg = document.createElement('div');
+          msg.className = 'chat-msg ' + role;
+          var avatar = document.createElement('div');
+          avatar.className = 'chat-avatar';
+          avatar.textContent = role === 'user' ? 'You' : 'WS';
+          var bubble = document.createElement('div');
+          bubble.className = 'chat-bubble';
+          if (animate) {
+            bubble.classList.add('typing-caret');
+            thread.appendChild(role === 'user' ? wrapUser(msg, avatar, bubble) : wrapAssistant(msg, avatar, bubble));
+            typewriter(bubble, html, function () {
+              bubble.classList.remove('typing-caret');
+            });
+          } else {
+            bubble.innerHTML = html;
+            if (role === 'user') wrapUser(msg, avatar, bubble);
+            else wrapAssistant(msg, avatar, bubble);
+            thread.appendChild(msg);
+          }
+          msg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          return msg;
+        }
+        function wrapUser(msg, avatar, bubble) {
+          msg.appendChild(avatar);
+          msg.appendChild(bubble);
+          return msg;
+        }
+        function wrapAssistant(msg, avatar, bubble) {
+          msg.appendChild(avatar);
+          msg.appendChild(bubble);
+          return msg;
+        }
+
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        function typewriter(el, html, done) {
+          if (reduced) { el.innerHTML = html; if (done) done(); return; }
+          // Set the HTML so tags render, but hide it character-by-character
+          el.innerHTML = '';
+          var temp = document.createElement('div');
+          temp.innerHTML = html;
+          var allText = '';
+          (function walk(node, container) {
+            for (var i = 0; i < node.childNodes.length; i++) {
+              var n = node.childNodes[i];
+              if (n.nodeType === Node.TEXT_NODE) {
+                allText += n.nodeValue;
+              } else if (n.nodeType === Node.ELEMENT_NODE) {
+                walk(n, n);
+              }
+            }
+          })(temp, temp);
+          // Simpler approach: just print plain text char by char, then swap to HTML at the end
+          var plain = temp.textContent;
+          var i = 0;
+          function step() {
+            i += 2;
+            el.textContent = plain.slice(0, i);
+            if (i < plain.length) {
+              setTimeout(step, 14);
+            } else {
+              el.innerHTML = html;
+              if (done) done();
+            }
+          }
+          step();
+        }
+
+        chips.forEach(function (chip) {
+          chip.addEventListener('click', function () {
+            if (chip.classList.contains('used')) return;
+            chip.classList.add('used');
+            var key = chip.getAttribute('data-q');
+            var entry = template.content.querySelector('[data-q="' + key + '"]');
+            if (!entry) return;
+            var q = entry.querySelector('.q').innerHTML;
+            var a = entry.querySelector('.a').innerHTML;
+            appendMessage('user', q, false);
+            setTimeout(function () {
+              var typing = document.createElement('div');
+              typing.className = 'chat-msg assistant';
+              typing.innerHTML = '<div class="chat-avatar">WS</div><div class="chat-typing"><span></span><span></span><span></span></div>';
+              thread.appendChild(typing);
+              typing.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+              setTimeout(function () {
+                thread.removeChild(typing);
+                appendMessage('assistant', '<span class="mono-tag">Sommelier</span> ' + a, true);
+              }, 1000);
+            }, 250);
+          });
+        });
       })();
     </script>
   </body>
