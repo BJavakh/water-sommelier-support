@@ -3,123 +3,552 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Water Sommelier - Support</title>
-  <meta name="description" content="Support page for the Water Sommelier iOS and Android app. Contact us, troubleshooting, and frequently asked questions." />
+  <title>Water Sommelier - Know what's in your water</title>
+  <meta name="description" content="Water Sommelier scans water bottle labels to reveal minerals, pH, and source, then helps you track hydration. Free on iOS and Android." />
+  <meta name="theme-color" content="#135bec" />
+
+  <meta property="og:title" content="Water Sommelier" />
+  <meta property="og:description" content="Know what's in your water. Scan any bottle, see its minerals, and track your hydration." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bjavakh.github.io/water-sommelier-support/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
+    :root {
+      --accent: #135bec;
+      --accent-soft: rgba(19, 91, 236, 0.08);
+      --text: #0f1a2e;
+      --text-muted: #5a6a85;
+      --text-faint: #8593ab;
+      --border: #e8edf5;
+      --bg: #ffffff;
+      --bg-subtle: #f7f9fd;
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      color: #0f1a2e;
-      background: linear-gradient(180deg, #f4f8ff 0%, #ffffff 100%);
-      line-height: 1.6;
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+      font-size: 17px;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    body { min-height: 100vh; padding: 48px 20px; }
-    .container { max-width: 720px; margin: 0 auto; }
-    header {
+
+    a { color: var(--accent); text-decoration: none; transition: opacity 0.15s ease; }
+    a:hover { opacity: 0.75; }
+
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .container-narrow { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- Nav ---------- */
+    nav {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      z-index: 10;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 15px;
+    }
+    .nav-links a { color: var(--text-muted); }
+    .nav-links a:hover { color: var(--accent); opacity: 1; }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      padding: 120px 0 100px;
       text-align: center;
-      padding: 32px 0 24px;
-      border-bottom: 1px solid #e3eaf5;
-      margin-bottom: 32px;
     }
-    h1 {
-      font-size: 32px;
-      color: #0f346e;
-      letter-spacing: -0.5px;
+    .hero h1 {
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 24px;
+    }
+    .hero h1 .accent { color: var(--accent); }
+    .hero p.lede {
+      font-size: clamp(18px, 2.2vw, 22px);
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto 48px;
+      line-height: 1.5;
+    }
+    .hero-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--accent);
+      margin: 0 auto 32px;
+    }
+
+    /* ---------- Store badges ---------- */
+    .badges {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 24px;
+      border: 1px solid var(--text);
+      border-radius: 12px;
+      background: var(--text);
+      color: #ffffff;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      min-width: 200px;
+    }
+    .badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(15, 26, 46, 0.18);
+      opacity: 1;
+    }
+    .badge-icon {
+      font-size: 28px;
+      line-height: 1;
+    }
+    .badge-text {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      line-height: 1.2;
+    }
+    .badge-text .badge-pre { font-size: 11px; opacity: 0.75; }
+    .badge-text .badge-store { font-size: 17px; font-weight: 600; }
+
+    /* ---------- Section base ---------- */
+    section { padding: 96px 0; }
+    section.alt { background: var(--bg-subtle); }
+    .section-head {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 16px;
+    }
+    .section-head h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .section-head p {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* ---------- Features grid ---------- */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 32px;
+    }
+    .feature-card {
+      padding: 32px 28px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .feature-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .feature-card h3 {
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
       margin-bottom: 8px;
     }
-    .tagline { color: #5a6a85; font-size: 16px; }
-    h2 {
-      font-size: 22px;
-      color: #135bec;
-      margin-top: 36px;
+    .feature-card p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ---------- Screenshots ---------- */
+    .screenshots {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .phone {
+      width: 240px;
+      aspect-ratio: 9 / 19.5;
+      background: var(--text);
+      border-radius: 36px;
+      padding: 10px;
+      box-shadow: 0 20px 60px rgba(15, 26, 46, 0.15);
+      flex-shrink: 0;
+    }
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      border-radius: 28px;
+      background: linear-gradient(160deg, #0f346e 0%, #061e45 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      padding: 24px;
+      color: rgba(255, 255, 255, 0.85);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .phone-screen::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 6px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 3px;
+    }
+    .phone-screen .ss-icon {
+      font-size: 44px;
+      margin-top: 24px;
+    }
+    .phone-screen .ss-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+    .phone-screen .ss-sub {
+      font-size: 12px;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* ---------- Contact card ---------- */
+    .contact-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .contact-label {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-faint);
       margin-bottom: 12px;
     }
-    p, li { font-size: 16px; color: #1f2d4a; margin-bottom: 12px; }
-    ul { padding-left: 22px; margin-bottom: 12px; }
-    a { color: #135bec; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .contact-card {
-      background: #ffffff;
-      border: 1px solid #e3eaf5;
-      border-radius: 16px;
-      padding: 24px;
-      margin: 24px 0 8px;
-      box-shadow: 0 1px 3px rgba(15, 52, 110, 0.04);
-    }
-    .contact-label { font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; color: #5a6a85; margin-bottom: 8px; }
     .contact-email {
-      font-size: 20px;
+      font-size: 24px;
       font-weight: 600;
-      color: #0f346e;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      display: inline-block;
+      margin-bottom: 12px;
     }
-    .response-time { color: #5a6a85; font-size: 14px; margin-top: 8px; }
-    .faq-item { margin-bottom: 20px; }
-    .faq-question { font-weight: 600; color: #0f346e; margin-bottom: 4px; }
+    .contact-email:hover { color: var(--accent); opacity: 1; }
+    .contact-meta {
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    /* ---------- FAQ ---------- */
+    .faq {
+      max-width: 720px;
+      margin: 56px auto 0;
+    }
+    .faq-item {
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+    }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+    }
+    .faq-a {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ---------- Privacy section ---------- */
+    .privacy-list {
+      list-style: none;
+      padding: 0;
+      max-width: 640px;
+      margin: 32px auto 0;
+    }
+    .privacy-list li {
+      padding: 16px 0;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .privacy-list li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 11px;
+    }
+    .privacy-list strong { color: var(--text); font-weight: 600; }
+
+    /* ---------- Footer ---------- */
     footer {
+      padding: 56px 0 40px;
+      border-top: 1px solid var(--border);
       text-align: center;
-      margin-top: 48px;
-      padding-top: 24px;
-      border-top: 1px solid #e3eaf5;
-      color: #8593ab;
+      color: var(--text-faint);
       font-size: 14px;
+    }
+    footer .brand { color: var(--text); margin-bottom: 8px; display: block; }
+    footer p { margin-bottom: 4px; }
+
+    /* ---------- Responsive tweaks ---------- */
+    @media (max-width: 640px) {
+      .hero { padding: 72px 0 64px; }
+      section { padding: 72px 0; }
+      .nav-links { gap: 18px; font-size: 14px; }
+      .badge { min-width: unset; flex: 1 1 100%; }
+      .contact-card { padding: 28px 24px; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Water Sommelier</h1>
-      <p class="tagline">Support &amp; Help Center</p>
-    </header>
 
-    <section>
-      <h2>Contact us</h2>
-      <p>We're here to help. The fastest way to reach our team is email.</p>
+  <!-- ============== NAV ============== -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="#top" class="brand">Water Sommelier</a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#support">Support</a>
+        <a href="#privacy">Privacy</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============== HERO ============== -->
+  <header id="top" class="hero">
+    <div class="container-narrow">
+      <h1>Know what's in <span class="accent">your water</span>.</h1>
+      <div class="hero-divider"></div>
+      <p class="lede">Scan any bottled water and instantly see its minerals, pH, and source. Track what you drink, build better hydration habits.</p>
+
+      <div class="badges">
+        <a class="badge" href="https://apps.apple.com/app/id6764657093" target="_blank" rel="noopener">
+          <span class="badge-icon">&#63743;</span>
+          <span class="badge-text">
+            <span class="badge-pre">Download on the</span>
+            <span class="badge-store">App Store</span>
+          </span>
+        </a>
+        <a class="badge" href="https://play.google.com/store/apps/details?id=com.watersommelier.app" target="_blank" rel="noopener">
+          <span class="badge-icon">&#9658;</span>
+          <span class="badge-text">
+            <span class="badge-pre">Get it on</span>
+            <span class="badge-store">Google Play</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============== FEATURES ============== -->
+  <section id="features" class="alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Features</span>
+        <h2>Everything you need to drink smarter.</h2>
+        <p>A quick scan reveals what your bottle won't tell you on the label.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">&#128247;</div>
+          <h3>Instant label scan</h3>
+          <p>Point your camera at any water bottle and identify the brand in seconds. No barcode required.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#129514;</div>
+          <h3>Mineral breakdown</h3>
+          <p>See calcium, magnesium, sodium, pH, and TDS values for every bottle, with the source location when available.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128167;</div>
+          <h3>Hydration tracking</h3>
+          <p>Log every sip with gentle daily reminders. Visualize your hydration trends over time.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128172;</div>
+          <h3>AI water sommelier</h3>
+          <p>Ask anything about water, minerals, or hydration. Get personalized recommendations based on your goals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== SCREENSHOTS ============== -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">A quick look</span>
+        <h2>Beautiful, simple, and fast.</h2>
+        <p>Designed for daily use - one tap to scan, one glance to understand.</p>
+      </div>
+
+      <div class="screenshots">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="ss-icon">&#128247;</div>
+            <div class="ss-title">Scan a bottle</div>
+            <div class="ss-sub">Aim, capture, identify in seconds.</div>
+          </div>
+        </div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="ss-icon">&#129514;</div>
+            <div class="ss-title">See its minerals</div>
+            <div class="ss-sub">pH, TDS, calcium, sodium, and source.</div>
+          </div>
+        </div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="ss-icon">&#128202;</div>
+            <div class="ss-title">Track your day</div>
+            <div class="ss-sub">Set goals, log sips, build habits.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== SUPPORT ============== -->
+  <section id="support" class="alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Support</span>
+        <h2>We're here to help.</h2>
+        <p>Got a question or feedback? Reach out and we'll get back to you within 1-2 business days.</p>
+      </div>
+
       <div class="contact-card">
-        <div class="contact-label">Support email</div>
+        <div class="contact-label">Contact email</div>
         <a class="contact-email" href="mailto:admin@watersommelier.app">admin@watersommelier.app</a>
-        <div class="response-time">We typically respond within 1-2 business days.</div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Frequently asked questions</h2>
-
-      <div class="faq-item">
-        <div class="faq-question">The camera won't open when I try to scan a bottle.</div>
-        <p>Open the iOS Settings app, scroll down to Water Sommelier, and make sure Camera access is enabled. On Android, open Settings &rarr; Apps &rarr; Water Sommelier &rarr; Permissions &rarr; Camera.</p>
+        <div class="contact-meta">Typical response: 1-2 business days</div>
       </div>
 
-      <div class="faq-item">
-        <div class="faq-question">The app didn't recognize the bottle I scanned.</div>
-        <p>Our brand database is constantly growing. If a bottle isn't recognized, please email us the brand name and a photo of the label and we'll add it within a few days.</p>
+      <div class="faq">
+        <div class="faq-item">
+          <div class="faq-q">The camera won't open when I try to scan.</div>
+          <div class="faq-a">Open your device Settings, find Water Sommelier, and make sure Camera access is enabled. On iOS: Settings &rarr; Water Sommelier &rarr; Camera. On Android: Settings &rarr; Apps &rarr; Water Sommelier &rarr; Permissions &rarr; Camera.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">My bottle wasn't recognized.</div>
+          <div class="faq-a">Our brand database grows every week. Email <a href="mailto:admin@watersommelier.app">admin@watersommelier.app</a> with the brand name and a photo of the label and we'll add it within a few days.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How do I delete my account or data?</div>
+          <div class="faq-a">Email <a href="mailto:admin@watersommelier.app">admin@watersommelier.app</a> from the address linked to your account and we'll permanently delete your data within 7 days.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Is Water Sommelier free?</div>
+          <div class="faq-a">Yes. Water Sommelier is free to download and use, with no ads.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">I have a feature request.</div>
+          <div class="faq-a">We'd love to hear it. Send your idea to <a href="mailto:admin@watersommelier.app">admin@watersommelier.app</a> - real user feedback drives what we build next.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== PRIVACY ============== -->
+  <section id="privacy">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Privacy</span>
+        <h2>Your data stays yours.</h2>
+        <p>We collect the minimum needed to make the app work, nothing more.</p>
       </div>
 
-      <div class="faq-item">
-        <div class="faq-question">How do I delete my account or data?</div>
-        <p>Email <a href="mailto:admin@watersommelier.app">admin@watersommelier.app</a> from the address associated with your account and we'll remove your data within 7 days.</p>
-      </div>
+      <ul class="privacy-list">
+        <li><span><strong>Camera access</strong> is used only to capture water bottle labels for identification. We never record or upload anything you haven't explicitly scanned.</span></li>
+        <li><span><strong>No third-party advertising.</strong> We don't sell your data, run ad networks, or share information with marketers.</span></li>
+        <li><span><strong>Account data</strong> (email, scan history, hydration logs) is stored securely and can be deleted on request via <a href="mailto:admin@watersommelier.app">admin@watersommelier.app</a>.</span></li>
+        <li><span><strong>Analytics</strong> are limited to anonymous, aggregated usage metrics that help us fix bugs and improve features.</span></li>
+      </ul>
+    </div>
+  </section>
 
-      <div class="faq-item">
-        <div class="faq-question">Where can I see what minerals are in my water?</div>
-        <p>After scanning a bottle, tap the result to view the full mineral breakdown, pH, and TDS information when available.</p>
-      </div>
+  <!-- ============== FOOTER ============== -->
+  <footer>
+    <div class="container">
+      <span class="brand">Water Sommelier</span>
+      <p>&copy; 2026 Water Sommelier Inc. All rights reserved.</p>
+      <p><a href="mailto:admin@watersommelier.app">admin@watersommelier.app</a></p>
+    </div>
+  </footer>
 
-      <div class="faq-item">
-        <div class="faq-question">I have a feature request or feedback.</div>
-        <p>We'd love to hear from you. Send your thoughts to <a href="mailto:admin@watersommelier.app">admin@watersommelier.app</a> - real users shape what we build next.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Privacy</h2>
-      <p>Water Sommelier uses your camera only to scan water bottle labels. Photos are processed for scan results and are not shared with third parties for advertising.</p>
-    </section>
-
-    <footer>
-      <p>Water Sommelier Inc. &middot; <a href="mailto:admin@watersommelier.app">admin@watersommelier.app</a></p>
-    </footer>
-  </div>
 </body>
 </html>
