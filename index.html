@@ -10,15 +10,43 @@
     />
     <meta name="theme-color" content="#F4EFE5" />
 
-    <meta property="og:title" content="Water Sommelier" />
+    <meta
+      property="og:title"
+      content="Water Sommelier - Drink with discernment"
+    />
     <meta
       property="og:description"
-      content="A guide to the water you drink. Scan any bottle, see its minerals, drink with intention."
+      content="Your pocket water sommelier. Scan any bottle to see its minerals, pH, and source. Ask the AI assistant anything. Free on iOS &amp; Android."
     />
     <meta property="og:type" content="website" />
     <meta
       property="og:url"
       content="https://bjavakh.github.io/water-sommelier-support/"
+    />
+    <meta
+      property="og:image"
+      content="https://bjavakh.github.io/water-sommelier-support/og-image.png"
+    />
+    <meta property="og:image:width" content="2400" />
+    <meta property="og:image:height" content="1260" />
+    <meta
+      property="og:image:alt"
+      content="Water Sommelier - Drink with discernment. Scan any bottle. San Pellegrino sample readout shown."
+    />
+
+    <!-- Twitter / X cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Water Sommelier - Drink with discernment"
+    />
+    <meta
+      name="twitter:description"
+      content="Your pocket water sommelier. Scan any bottle. Ask anything."
+    />
+    <meta
+      name="twitter:image"
+      content="https://bjavakh.github.io/water-sommelier-support/og-image.png"
     />
 
     <!-- Inline SVG favicon (water drop in brand blue) -->
@@ -1392,7 +1420,7 @@
         justify-content: space-between;
         align-items: center;
         padding: 0 8px;
-        font-family: 'Manrope', sans-serif;
+        font-family: "Manrope", sans-serif;
         font-size: 10px;
         font-weight: 600;
         color: var(--paper);
@@ -1407,10 +1435,16 @@
       }
 
       /* Phone 1: Scan viewfinder */
-      .show-screen-scan { padding-bottom: 14px; }
+      .show-screen-scan {
+        padding-bottom: 14px;
+      }
       .viewfinder {
         flex: 1;
-        background: linear-gradient(135deg, rgba(15, 52, 110, 0.55), rgba(5, 8, 23, 0.85));
+        background: linear-gradient(
+          135deg,
+          rgba(15, 52, 110, 0.55),
+          rgba(5, 8, 23, 0.85)
+        );
         border-radius: 16px;
         position: relative;
         overflow: hidden;
@@ -1420,13 +1454,29 @@
         margin-bottom: 10px;
         border: 1px solid rgba(244, 239, 229, 0.06);
       }
-      .viewfinder .scan-corner { border-color: var(--water-bright); width: 18px; height: 18px; }
-      .viewfinder .scan-corner.tl { top: 12px; left: 12px; }
-      .viewfinder .scan-corner.tr { top: 12px; right: 12px; }
-      .viewfinder .scan-corner.bl { bottom: 12px; left: 12px; }
-      .viewfinder .scan-corner.br { bottom: 12px; right: 12px; }
+      .viewfinder .scan-corner {
+        border-color: var(--water-bright);
+        width: 18px;
+        height: 18px;
+      }
+      .viewfinder .scan-corner.tl {
+        top: 12px;
+        left: 12px;
+      }
+      .viewfinder .scan-corner.tr {
+        top: 12px;
+        right: 12px;
+      }
+      .viewfinder .scan-corner.bl {
+        bottom: 12px;
+        left: 12px;
+      }
+      .viewfinder .scan-corner.br {
+        bottom: 12px;
+        right: 12px;
+      }
       .viewfinder-bottle {
-        filter: drop-shadow(0 4px 12px rgba(0,0,0,0.6));
+        filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
       }
       .scan-detecting {
         background: rgba(244, 239, 229, 0.06);
@@ -1437,24 +1487,27 @@
         display: flex;
         align-items: center;
         gap: 6px;
-        font-family: 'Fraunces', Georgia, serif;
+        font-family: "Fraunces", Georgia, serif;
         font-style: italic;
         font-size: 10px;
         color: rgba(244, 239, 229, 0.7);
       }
       .scan-dot {
-        width: 5px; height: 5px;
+        width: 5px;
+        height: 5px;
         background: #22c55e;
         border-radius: 50%;
         box-shadow: 0 0 6px rgba(34, 197, 94, 0.6);
         flex-shrink: 0;
       }
       .shutter-wrap {
-        display: flex; justify-content: center;
+        display: flex;
+        justify-content: center;
         margin-top: 8px;
       }
       .shutter {
-        width: 38px; height: 38px;
+        width: 38px;
+        height: 38px;
         border-radius: 50%;
         background: var(--paper);
         border: 3px solid var(--paper);
@@ -1469,8 +1522,10 @@
         margin-bottom: 12px;
       }
       .result-brand {
-        font-family: 'Fraunces', Georgia, serif;
-        font-variation-settings: 'opsz' 72, 'SOFT' 100;
+        font-family: "Fraunces", Georgia, serif;
+        font-variation-settings:
+          "opsz" 72,
+          "SOFT" 100;
         font-size: 18px;
         font-weight: 400;
         letter-spacing: -0.02em;
@@ -1482,7 +1537,7 @@
         color: var(--water-bright);
       }
       .result-origin {
-        font-family: 'JetBrains Mono', monospace;
+        font-family: "JetBrains Mono", monospace;
         font-size: 8.5px;
         letter-spacing: 0.06em;
         text-transform: uppercase;
@@ -1502,7 +1557,7 @@
         padding: 8px 10px;
       }
       .rc-label {
-        font-family: 'JetBrains Mono', monospace;
+        font-family: "JetBrains Mono", monospace;
         font-size: 7.5px;
         letter-spacing: 0.1em;
         text-transform: uppercase;
@@ -1510,20 +1565,26 @@
         margin-bottom: 2px;
       }
       .rc-value {
-        font-family: 'Fraunces', Georgia, serif;
-        font-variation-settings: 'opsz' 36, 'SOFT' 100;
+        font-family: "Fraunces", Georgia, serif;
+        font-variation-settings:
+          "opsz" 36,
+          "SOFT" 100;
         font-size: 16px;
         font-weight: 500;
         letter-spacing: -0.02em;
         color: var(--paper);
       }
       .rc-unit {
-        font-family: 'JetBrains Mono', monospace;
+        font-family: "JetBrains Mono", monospace;
         font-size: 8px;
         color: rgba(244, 239, 229, 0.5);
       }
       .ai-recommend {
-        background: linear-gradient(135deg, rgba(61, 111, 184, 0.2), rgba(89, 144, 213, 0.08));
+        background: linear-gradient(
+          135deg,
+          rgba(61, 111, 184, 0.2),
+          rgba(89, 144, 213, 0.08)
+        );
         border: 1px solid rgba(89, 144, 213, 0.25);
         border-radius: 10px;
         padding: 10px;
@@ -1536,11 +1597,12 @@
         margin-bottom: 6px;
       }
       .ai-avatar-sm {
-        width: 18px; height: 18px;
+        width: 18px;
+        height: 18px;
         border-radius: 50%;
         background: var(--ink);
         color: var(--paper);
-        font-family: 'Fraunces', Georgia, serif;
+        font-family: "Fraunces", Georgia, serif;
         font-style: italic;
         font-size: 9px;
         display: flex;
@@ -1548,15 +1610,17 @@
         justify-content: center;
       }
       .ai-label {
-        font-family: 'JetBrains Mono', monospace;
+        font-family: "JetBrains Mono", monospace;
         font-size: 8px;
         letter-spacing: 0.1em;
         text-transform: uppercase;
         color: var(--water-bright);
       }
       .ai-recommend-body {
-        font-family: 'Fraunces', Georgia, serif;
-        font-variation-settings: 'opsz' 18, 'SOFT' 100;
+        font-family: "Fraunces", Georgia, serif;
+        font-variation-settings:
+          "opsz" 18,
+          "SOFT" 100;
         font-size: 10.5px;
         line-height: 1.45;
         color: rgba(244, 239, 229, 0.85);
@@ -1576,7 +1640,7 @@
         border-radius: 10px;
         padding: 9px;
         text-align: center;
-        font-family: 'Manrope', sans-serif;
+        font-family: "Manrope", sans-serif;
         font-size: 11px;
         font-weight: 600;
         letter-spacing: -0.005em;
@@ -1592,7 +1656,9 @@
       }
 
       /* Phone 3: In-app chat */
-      .show-screen-chat { padding-bottom: 10px; }
+      .show-screen-chat {
+        padding-bottom: 10px;
+      }
       .chat-header {
         display: flex;
         align-items: center;
@@ -1601,10 +1667,15 @@
         border-bottom: 1px solid rgba(244, 239, 229, 0.08);
         margin-bottom: 10px;
       }
-      .chat-back { color: var(--paper); font-size: 14px; }
+      .chat-back {
+        color: var(--paper);
+        font-size: 14px;
+      }
       .chat-name {
-        font-family: 'Fraunces', Georgia, serif;
-        font-variation-settings: 'opsz' 36, 'SOFT' 100;
+        font-family: "Fraunces", Georgia, serif;
+        font-variation-settings:
+          "opsz" 36,
+          "SOFT" 100;
         font-style: italic;
         font-size: 13px;
         color: var(--paper);
@@ -1614,14 +1685,15 @@
         display: inline-flex;
         align-items: center;
         gap: 4px;
-        font-family: 'JetBrains Mono', monospace;
+        font-family: "JetBrains Mono", monospace;
         font-size: 8px;
         color: rgba(244, 239, 229, 0.55);
         text-transform: uppercase;
         letter-spacing: 0.08em;
       }
       .chat-online-dot {
-        width: 5px; height: 5px;
+        width: 5px;
+        height: 5px;
         background: #22c55e;
         border-radius: 50%;
         box-shadow: 0 0 5px rgba(34, 197, 94, 0.6);
@@ -1659,8 +1731,10 @@
         color: var(--paper);
         border: 1px solid rgba(244, 239, 229, 0.1);
         border-bottom-left-radius: 4px;
-        font-family: 'Fraunces', Georgia, serif;
-        font-variation-settings: 'opsz' 14, 'SOFT' 100;
+        font-family: "Fraunces", Georgia, serif;
+        font-variation-settings:
+          "opsz" 14,
+          "SOFT" 100;
       }
       .chat-mini-bubble em {
         font-style: italic;
@@ -1675,13 +1749,14 @@
         background: rgba(244, 239, 229, 0.05);
         border: 1px solid rgba(244, 239, 229, 0.1);
         border-radius: 999px;
-        font-family: 'Fraunces', Georgia, serif;
+        font-family: "Fraunces", Georgia, serif;
         font-style: italic;
         font-size: 10px;
         color: rgba(244, 239, 229, 0.5);
       }
       .chat-mini-send {
-        width: 22px; height: 22px;
+        width: 22px;
+        height: 22px;
         border-radius: 50%;
         background: var(--water);
         color: var(--paper);
@@ -1691,6 +1766,142 @@
         font-size: 12px;
         font-weight: 600;
         font-style: normal;
+      }
+
+      /* ============================================================
+       PRAISE / TESTIMONIALS
+       ============================================================ */
+      .praise {
+        padding: 140px 0;
+        background: var(--paper);
+        position: relative;
+      }
+      .praise-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+      .praise-card {
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        border-radius: 20px;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        box-shadow: var(--shadow-paper);
+        transition:
+          transform 0.4s var(--ease-out),
+          border-color 0.4s var(--ease-out),
+          box-shadow 0.4s var(--ease-out);
+        position: relative;
+      }
+      .praise-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--border-strong, var(--rule));
+        box-shadow: var(--shadow-soft);
+      }
+      .praise-stars {
+        display: inline-flex;
+        gap: 2px;
+        color: var(--copper);
+      }
+      .praise-stars svg {
+        width: 16px;
+        height: 16px;
+      }
+      .praise-quote {
+        font-family: "Fraunces", Georgia, serif;
+        font-variation-settings:
+          "opsz" 24,
+          "SOFT" 100;
+        font-size: 18px;
+        line-height: 1.5;
+        color: var(--ink);
+        letter-spacing: -0.005em;
+        margin: 0;
+        flex: 1;
+      }
+      .praise-quote em {
+        font-style: italic;
+        color: var(--water);
+      }
+      .praise-attribution {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 0;
+        padding-top: 12px;
+        border-top: 1px solid var(--rule);
+      }
+      .praise-avatar {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Fraunces", Georgia, serif;
+        font-style: italic;
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--paper);
+        flex-shrink: 0;
+      }
+      .praise-name {
+        font-family: "Manrope", sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--ink);
+        letter-spacing: -0.005em;
+      }
+      .praise-role {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--ink-faint);
+        margin-top: 2px;
+      }
+      .rating-bar {
+        max-width: 520px;
+        margin: 56px auto 0;
+        padding: 22px 32px;
+        background: var(--paper-warm);
+        border: 1px solid var(--rule);
+        border-radius: 999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+      }
+      .rating-stars {
+        display: inline-flex;
+        gap: 2px;
+        color: var(--copper);
+      }
+      .rating-stars svg {
+        width: 18px;
+        height: 18px;
+      }
+      .rating-text {
+        font-family: "Fraunces", Georgia, serif;
+        font-variation-settings:
+          "opsz" 24,
+          "SOFT" 100;
+        font-size: 18px;
+        color: var(--ink);
+      }
+      .rating-num {
+        font-weight: 600;
+        font-size: 22px;
+        letter-spacing: -0.02em;
+      }
+      .rating-text em {
+        font-style: italic;
+        color: var(--water);
       }
 
       /* ============================================================
@@ -2033,6 +2244,120 @@
       }
 
       /* ============================================================
+       STICKY MOBILE CTA
+       ============================================================ */
+      .sticky-cta {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 20px;
+        background: var(--ink);
+        color: var(--paper);
+        border-radius: 999px;
+        font-family: "Manrope", sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: -0.005em;
+        box-shadow:
+          var(--shadow-soft),
+          0 0 0 1px rgba(244, 239, 229, 0.4);
+        opacity: 0;
+        transform: translateY(80px);
+        pointer-events: none;
+        transition:
+          opacity 0.4s var(--ease-out),
+          transform 0.5s var(--ease-out);
+        z-index: 90;
+      }
+      .sticky-cta.visible {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .sticky-cta:hover {
+        opacity: 1;
+        transform: translateY(-2px);
+      }
+      .sticky-cta svg {
+        flex-shrink: 0;
+      }
+
+      /* Hide sticky CTA on desktop (we have nav-cta and hero CTAs) */
+      @media (min-width: 720px) {
+        .sticky-cta {
+          display: none;
+        }
+      }
+
+      /* ============================================================
+       WHY WATER MATTERS — hook section
+       ============================================================ */
+      .why-water {
+        padding: 120px 0;
+        background: var(--paper);
+        position: relative;
+      }
+      .why-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 48px;
+        max-width: 1080px;
+        margin: 0 auto;
+      }
+      .why-stat {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .why-num {
+        font-family: "Fraunces", Georgia, serif;
+        font-variation-settings:
+          "opsz" 144,
+          "SOFT" 100;
+        font-size: clamp(72px, 9vw, 140px);
+        font-weight: 400;
+        line-height: 0.9;
+        letter-spacing: -0.04em;
+        color: var(--ink);
+        margin-bottom: 4px;
+      }
+      .why-pct {
+        font-size: 0.45em;
+        color: var(--water);
+        margin-left: 0.05em;
+        font-style: italic;
+        font-variation-settings:
+          "opsz" 144,
+          "SOFT" 100,
+          "WONK" 1;
+      }
+      .why-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--copper);
+        margin-bottom: 4px;
+      }
+      .why-body {
+        font-family: "Fraunces", Georgia, serif;
+        font-variation-settings:
+          "opsz" 18,
+          "SOFT" 100;
+        font-size: 17px;
+        line-height: 1.55;
+        color: var(--ink-soft);
+        max-width: 340px;
+      }
+      .why-body em {
+        font-style: italic;
+        color: var(--water);
+      }
+
+      /* ============================================================
        COMPARE TWO WATERS WIDGET
        ============================================================ */
       .compare {
@@ -2055,14 +2380,17 @@
         gap: 12px;
         margin-bottom: 24px;
       }
-      .compare-picker:last-of-type { margin-bottom: 0; margin-top: 24px; }
+      .compare-picker:last-of-type {
+        margin-bottom: 0;
+        margin-top: 24px;
+      }
       .compare-picker-head {
         display: flex;
         align-items: center;
         gap: 12px;
       }
       .compare-label {
-        font-family: 'JetBrains Mono', monospace;
+        font-family: "JetBrains Mono", monospace;
         font-size: 11px;
         letter-spacing: 0.14em;
         text-transform: uppercase;
@@ -2074,7 +2402,7 @@
         gap: 8px;
       }
       .compare-chip {
-        font-family: 'Manrope', sans-serif;
+        font-family: "Manrope", sans-serif;
         font-size: 13px;
         font-weight: 500;
         color: var(--ink-soft);
@@ -2083,9 +2411,15 @@
         border: 1px solid transparent;
         border-radius: 999px;
         cursor: pointer;
-        transition: background 0.25s var(--ease-out), border-color 0.25s var(--ease-out), color 0.25s var(--ease-out);
+        transition:
+          background 0.25s var(--ease-out),
+          border-color 0.25s var(--ease-out),
+          color 0.25s var(--ease-out);
       }
-      .compare-chip:hover { background: var(--paper-deep); color: var(--ink); }
+      .compare-chip:hover {
+        background: var(--paper-deep);
+        color: var(--ink);
+      }
       .compare-chip.active {
         background: var(--ink);
         color: var(--paper);
@@ -2110,15 +2444,20 @@
         border-bottom: 1px dashed var(--rule);
       }
       .compare-col-mark {
-        width: 6px; height: 6px;
+        width: 6px;
+        height: 6px;
         background: var(--water);
         border-radius: 50%;
         margin: 0 auto 10px;
       }
-      #colB .compare-col-mark { background: var(--copper); }
+      #colB .compare-col-mark {
+        background: var(--copper);
+      }
       .compare-col-name {
-        font-family: 'Fraunces', Georgia, serif;
-        font-variation-settings: 'opsz' 72, 'SOFT' 100;
+        font-family: "Fraunces", Georgia, serif;
+        font-variation-settings:
+          "opsz" 72,
+          "SOFT" 100;
         font-style: italic;
         font-size: clamp(22px, 2.6vw, 30px);
         font-weight: 400;
@@ -2127,7 +2466,7 @@
         margin-bottom: 4px;
       }
       .compare-col-origin {
-        font-family: 'JetBrains Mono', monospace;
+        font-family: "JetBrains Mono", monospace;
         font-size: 10px;
         letter-spacing: 0.06em;
         text-transform: uppercase;
@@ -2153,22 +2492,24 @@
         align-items: baseline;
       }
       .compare-row-label {
-        font-family: 'JetBrains Mono', monospace;
+        font-family: "JetBrains Mono", monospace;
         font-size: 10px;
         letter-spacing: 0.08em;
         text-transform: uppercase;
         color: var(--ink-faint);
       }
       .compare-row-value {
-        font-family: 'Fraunces', Georgia, serif;
-        font-variation-settings: 'opsz' 36, 'SOFT' 100;
+        font-family: "Fraunces", Georgia, serif;
+        font-variation-settings:
+          "opsz" 36,
+          "SOFT" 100;
         font-size: 18px;
         font-weight: 500;
         letter-spacing: -0.02em;
         color: var(--ink);
       }
       .compare-row-unit {
-        font-family: 'JetBrains Mono', monospace;
+        font-family: "JetBrains Mono", monospace;
         font-size: 10px;
         color: var(--ink-faint);
         margin-left: 2px;
@@ -2197,8 +2538,10 @@
         max-width: 700px;
         margin: 28px auto 0;
         text-align: center;
-        font-family: 'Fraunces', Georgia, serif;
-        font-variation-settings: 'opsz' 18, 'SOFT' 100;
+        font-family: "Fraunces", Georgia, serif;
+        font-variation-settings:
+          "opsz" 18,
+          "SOFT" 100;
         font-style: italic;
         font-size: 17px;
         color: var(--ink-soft);
@@ -2221,10 +2564,16 @@
         position: relative;
       }
       .ticker::before {
-        content: '';
+        content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(90deg, var(--paper-warm) 0%, transparent 8%, transparent 92%, var(--paper-warm) 100%);
+        background: linear-gradient(
+          90deg,
+          var(--paper-warm) 0%,
+          transparent 8%,
+          transparent 92%,
+          var(--paper-warm) 100%
+        );
         pointer-events: none;
         z-index: 1;
       }
@@ -2235,14 +2584,18 @@
         will-change: transform;
       }
       @keyframes tickerSlide {
-        from { transform: translateX(0); }
-        to { transform: translateX(-50%); }
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
       }
       .ticker-item {
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        font-family: 'Manrope', sans-serif;
+        font-family: "Manrope", sans-serif;
         font-size: 13px;
         color: var(--ink-soft);
       }
@@ -2255,8 +2608,10 @@
         animation: pulseSoft 2.4s ease-in-out infinite;
       }
       .ticker-item .ticker-brand {
-        font-family: 'Fraunces', Georgia, serif;
-        font-variation-settings: 'opsz' 14, 'SOFT' 100;
+        font-family: "Fraunces", Georgia, serif;
+        font-variation-settings:
+          "opsz" 14,
+          "SOFT" 100;
         font-style: italic;
         color: var(--ink);
       }
@@ -2267,7 +2622,7 @@
         color: var(--rule);
       }
       .ticker-label {
-        font-family: 'JetBrains Mono', monospace;
+        font-family: "JetBrains Mono", monospace;
         font-size: 10px;
         color: var(--copper);
         letter-spacing: 0.18em;
@@ -2829,8 +3184,14 @@
       }
 
       /* Hoverable mineral ions */
-      .mineral-ion { cursor: pointer; transition: transform 0.2s var(--ease-out); }
-      .mineral-ion:hover circle { fill: rgba(168, 95, 60, 0.32); stroke-width: 1.6; }
+      .mineral-ion {
+        cursor: pointer;
+        transition: transform 0.2s var(--ease-out);
+      }
+      .mineral-ion:hover circle {
+        fill: rgba(168, 95, 60, 0.32);
+        stroke-width: 1.6;
+      }
       .mineral-tooltip {
         position: fixed;
         pointer-events: none;
@@ -2839,21 +3200,23 @@
         padding: 12px 16px;
         border-radius: 12px;
         max-width: 260px;
-        font-family: 'Manrope', sans-serif;
+        font-family: "Manrope", sans-serif;
         font-size: 13px;
         line-height: 1.55;
         box-shadow: var(--shadow-deep);
         z-index: 250;
         opacity: 0;
         transform: translateY(4px);
-        transition: opacity 0.2s var(--ease-out), transform 0.2s var(--ease-out);
+        transition:
+          opacity 0.2s var(--ease-out),
+          transform 0.2s var(--ease-out);
       }
       .mineral-tooltip.visible {
         opacity: 1;
         transform: translateY(0);
       }
       .mineral-tooltip strong {
-        font-family: 'JetBrains Mono', monospace;
+        font-family: "JetBrains Mono", monospace;
         color: var(--copper-soft);
         font-size: 11px;
         letter-spacing: 0.06em;
@@ -2907,7 +3270,9 @@
         border: 1px solid var(--rule);
         border-radius: 14px;
         box-shadow: var(--shadow-paper);
-        transition: border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+        transition:
+          border-color 0.3s var(--ease-out),
+          box-shadow 0.3s var(--ease-out);
       }
       .chat-input:hover {
         border-color: var(--water);
@@ -2924,14 +3289,16 @@
         flex-shrink: 0;
       }
       .chat-input-placeholder {
-        font-family: 'Fraunces', Georgia, serif;
-        font-variation-settings: 'opsz' 18, 'SOFT' 100;
+        font-family: "Fraunces", Georgia, serif;
+        font-variation-settings:
+          "opsz" 18,
+          "SOFT" 100;
         font-style: italic;
         font-size: 16px;
         color: var(--ink-faint);
       }
       .chat-input-cta {
-        font-family: 'JetBrains Mono', monospace;
+        font-family: "JetBrains Mono", monospace;
         font-size: 11px;
         color: var(--ink-soft);
         letter-spacing: 0.06em;
@@ -2942,7 +3309,7 @@
         flex-shrink: 0;
       }
       .chat-input-cta kbd {
-        font-family: 'JetBrains Mono', monospace;
+        font-family: "JetBrains Mono", monospace;
         font-size: 11px;
         padding: 2px 6px;
         background: var(--paper-warm);
@@ -2959,7 +3326,7 @@
         margin-bottom: 32px;
       }
       .chat-chip {
-        font-family: 'Manrope', sans-serif;
+        font-family: "Manrope", sans-serif;
         font-size: 14px;
         font-weight: 500;
         color: var(--ink);
@@ -2967,10 +3334,15 @@
         background: var(--paper);
         border: 1px solid var(--rule);
         border-radius: 999px;
-        transition: background 0.25s var(--ease-out), border-color 0.25s var(--ease-out), transform 0.25s var(--ease-out), color 0.25s var(--ease-out);
+        transition:
+          background 0.25s var(--ease-out),
+          border-color 0.25s var(--ease-out),
+          transform 0.25s var(--ease-out),
+          color 0.25s var(--ease-out);
         cursor: pointer;
       }
-      .chat-chip:hover, .chat-chip:focus-visible {
+      .chat-chip:hover,
+      .chat-chip:focus-visible {
         background: var(--ink);
         color: var(--paper);
         border-color: var(--ink);
@@ -2985,7 +3357,7 @@
 
       /* Typewriter cursor */
       .typing-caret::after {
-        content: '';
+        content: "";
         display: inline-block;
         width: 6px;
         height: 16px;
@@ -3139,6 +3511,36 @@
         .colophon {
           grid-template-columns: 1fr;
           gap: 32px;
+        }
+        .why-water {
+          padding: 80px 0;
+        }
+        .why-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .why-num {
+          font-size: 72px;
+        }
+        .why-body {
+          max-width: 100%;
+        }
+        .praise {
+          padding: 80px 0;
+        }
+        .praise-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        .praise-card {
+          padding: 24px;
+        }
+        .praise-quote {
+          font-size: 16px;
+        }
+        .rating-bar {
+          padding: 18px 24px;
+          flex-wrap: wrap;
         }
         .anatomy-grid {
           grid-template-columns: 1fr;
@@ -3661,9 +4063,7 @@
           <div class="hero-left">
             <div class="hero-eyebrow reveal">
               <span class="rule"></span>
-              <span class="uppercase-tracked"
-                >Your pocket water sommelier</span
-              >
+              <span class="uppercase-tracked">Your pocket water sommelier</span>
             </div>
 
             <h1
@@ -3902,43 +4302,144 @@
     <!-- ============== LIVE TICKER — recently scanned ============== -->
     <div class="ticker" aria-hidden="true">
       <div class="ticker-track">
-        <span class="ticker-item"><span class="ticker-label">Recently scanned</span></span>
-        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">San Pellegrino</span><span class="ticker-loc">Italian Alps</span></span>
+        <span class="ticker-item"
+          ><span class="ticker-label">Recently scanned</span></span
+        >
+        <span class="ticker-item"
+          ><span class="ticker-pulse"></span
+          ><span class="ticker-brand">San Pellegrino</span
+          ><span class="ticker-loc">Italian Alps</span></span
+        >
         <span class="ticker-item ticker-sep">&middot;</span>
-        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Evian</span><span class="ticker-loc">Evian-les-Bains, France</span></span>
+        <span class="ticker-item"
+          ><span class="ticker-pulse"></span
+          ><span class="ticker-brand">Evian</span
+          ><span class="ticker-loc">Evian-les-Bains, France</span></span
+        >
         <span class="ticker-item ticker-sep">&middot;</span>
-        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Volvic</span><span class="ticker-loc">Auvergne, France</span></span>
+        <span class="ticker-item"
+          ><span class="ticker-pulse"></span
+          ><span class="ticker-brand">Volvic</span
+          ><span class="ticker-loc">Auvergne, France</span></span
+        >
         <span class="ticker-item ticker-sep">&middot;</span>
-        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Vichy Catalan</span><span class="ticker-loc">Caldes de Malavella, Spain</span></span>
+        <span class="ticker-item"
+          ><span class="ticker-pulse"></span
+          ><span class="ticker-brand">Vichy Catalan</span
+          ><span class="ticker-loc">Caldes de Malavella, Spain</span></span
+        >
         <span class="ticker-item ticker-sep">&middot;</span>
-        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Gerolsteiner</span><span class="ticker-loc">Eifel, Germany</span></span>
+        <span class="ticker-item"
+          ><span class="ticker-pulse"></span
+          ><span class="ticker-brand">Gerolsteiner</span
+          ><span class="ticker-loc">Eifel, Germany</span></span
+        >
         <span class="ticker-item ticker-sep">&middot;</span>
-        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Borjomi</span><span class="ticker-loc">Borjomi, Georgia</span></span>
+        <span class="ticker-item"
+          ><span class="ticker-pulse"></span
+          ><span class="ticker-brand">Borjomi</span
+          ><span class="ticker-loc">Borjomi, Georgia</span></span
+        >
         <span class="ticker-item ticker-sep">&middot;</span>
-        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Fiji</span><span class="ticker-loc">Yaqara Valley, Fiji</span></span>
+        <span class="ticker-item"
+          ><span class="ticker-pulse"></span
+          ><span class="ticker-brand">Fiji</span
+          ><span class="ticker-loc">Yaqara Valley, Fiji</span></span
+        >
         <span class="ticker-item ticker-sep">&middot;</span>
-        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Acqua Panna</span><span class="ticker-loc">Tuscany, Italy</span></span>
+        <span class="ticker-item"
+          ><span class="ticker-pulse"></span
+          ><span class="ticker-brand">Acqua Panna</span
+          ><span class="ticker-loc">Tuscany, Italy</span></span
+        >
         <span class="ticker-item ticker-sep">&middot;</span>
         <!-- Duplicate set for seamless loop -->
-        <span class="ticker-item"><span class="ticker-label">Recently scanned</span></span>
-        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">San Pellegrino</span><span class="ticker-loc">Italian Alps</span></span>
+        <span class="ticker-item"
+          ><span class="ticker-label">Recently scanned</span></span
+        >
+        <span class="ticker-item"
+          ><span class="ticker-pulse"></span
+          ><span class="ticker-brand">San Pellegrino</span
+          ><span class="ticker-loc">Italian Alps</span></span
+        >
         <span class="ticker-item ticker-sep">&middot;</span>
-        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Evian</span><span class="ticker-loc">Evian-les-Bains, France</span></span>
+        <span class="ticker-item"
+          ><span class="ticker-pulse"></span
+          ><span class="ticker-brand">Evian</span
+          ><span class="ticker-loc">Evian-les-Bains, France</span></span
+        >
         <span class="ticker-item ticker-sep">&middot;</span>
-        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Volvic</span><span class="ticker-loc">Auvergne, France</span></span>
+        <span class="ticker-item"
+          ><span class="ticker-pulse"></span
+          ><span class="ticker-brand">Volvic</span
+          ><span class="ticker-loc">Auvergne, France</span></span
+        >
         <span class="ticker-item ticker-sep">&middot;</span>
-        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Vichy Catalan</span><span class="ticker-loc">Caldes de Malavella, Spain</span></span>
+        <span class="ticker-item"
+          ><span class="ticker-pulse"></span
+          ><span class="ticker-brand">Vichy Catalan</span
+          ><span class="ticker-loc">Caldes de Malavella, Spain</span></span
+        >
         <span class="ticker-item ticker-sep">&middot;</span>
-        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Gerolsteiner</span><span class="ticker-loc">Eifel, Germany</span></span>
+        <span class="ticker-item"
+          ><span class="ticker-pulse"></span
+          ><span class="ticker-brand">Gerolsteiner</span
+          ><span class="ticker-loc">Eifel, Germany</span></span
+        >
         <span class="ticker-item ticker-sep">&middot;</span>
-        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Borjomi</span><span class="ticker-loc">Borjomi, Georgia</span></span>
+        <span class="ticker-item"
+          ><span class="ticker-pulse"></span
+          ><span class="ticker-brand">Borjomi</span
+          ><span class="ticker-loc">Borjomi, Georgia</span></span
+        >
         <span class="ticker-item ticker-sep">&middot;</span>
-        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Fiji</span><span class="ticker-loc">Yaqara Valley, Fiji</span></span>
+        <span class="ticker-item"
+          ><span class="ticker-pulse"></span
+          ><span class="ticker-brand">Fiji</span
+          ><span class="ticker-loc">Yaqara Valley, Fiji</span></span
+        >
         <span class="ticker-item ticker-sep">&middot;</span>
-        <span class="ticker-item"><span class="ticker-pulse"></span><span class="ticker-brand">Acqua Panna</span><span class="ticker-loc">Tuscany, Italy</span></span>
+        <span class="ticker-item"
+          ><span class="ticker-pulse"></span
+          ><span class="ticker-brand">Acqua Panna</span
+          ><span class="ticker-loc">Tuscany, Italy</span></span
+        >
         <span class="ticker-item ticker-sep">&middot;</span>
       </div>
     </div>
+
+    <!-- ============== WHY WATER MATTERS — hook ============== -->
+    <section class="why-water" id="why">
+      <div class="container">
+        <div class="why-grid">
+          <div class="why-stat reveal reveal-1">
+            <div class="why-num">60<span class="why-pct">%</span></div>
+            <div class="why-label">of your body</div>
+            <div class="why-body">
+              is water. The single thing you put in it more than anything else
+              &mdash; and the one we pay <em>least attention</em> to.
+            </div>
+          </div>
+          <div class="why-stat reveal reveal-2">
+            <div class="why-num">50<span class="why-pct">&times;</span></div>
+            <div class="why-label">mineral variation</div>
+            <div class="why-body">
+              The mineral content of one bottled water can be
+              <em>fifty times</em>
+              another. Same shelf. Different chemistry. Different effect.
+            </div>
+          </div>
+          <div class="why-stat reveal reveal-3">
+            <div class="why-num">7<span class="why-pct">/10</span></div>
+            <div class="why-label">don't know</div>
+            <div class="why-body">
+              what's in the water they drink every day. The label is fine print.
+              The app reads it <em>for you</em>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ============== ANATOMY OF WATER ============== -->
     <section class="anatomy" id="anatomy">
@@ -4190,24 +4691,108 @@
                 </g>
 
                 <!-- Mineral ions: Ca2+, Mg2+, Na+, HCO3- (hoverable) -->
-                <g transform="translate(110, 230)" class="pulse-soft mineral-ion" data-tooltip="<strong>Ca&sup2;&#8314; &middot; Calcium</strong>Strengthens bones and teeth. Daily need ~1000mg. High in mineral waters from limestone regions.">
-                  <circle cx="0" cy="0" r="9" fill="rgba(168, 95, 60, 0.18)" stroke="#A85F3C" stroke-width="1"/>
-                  <text x="0" y="2.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6.5" fill="#A85F3C" font-weight="600">Ca</text>
+                <g
+                  transform="translate(110, 230)"
+                  class="pulse-soft mineral-ion"
+                  data-tooltip="<strong>Ca&sup2;&#8314; &middot; Calcium</strong>Strengthens bones and teeth. Daily need ~1000mg. High in mineral waters from limestone regions."
+                >
+                  <circle
+                    cx="0"
+                    cy="0"
+                    r="9"
+                    fill="rgba(168, 95, 60, 0.18)"
+                    stroke="#A85F3C"
+                    stroke-width="1"
+                  />
+                  <text
+                    x="0"
+                    y="2.5"
+                    text-anchor="middle"
+                    font-family="JetBrains Mono, monospace"
+                    font-size="6.5"
+                    fill="#A85F3C"
+                    font-weight="600"
+                  >
+                    Ca
+                  </text>
                 </g>
 
-                <g transform="translate(40, 230)" class="pulse-soft mineral-ion" data-tooltip="<strong>Mg&sup2;&#8314; &middot; Magnesium</strong>Supports muscle and nerve function. Particularly useful after exercise. Daily need ~400mg.">
-                  <circle cx="0" cy="0" r="8" fill="rgba(168, 95, 60, 0.18)" stroke="#A85F3C" stroke-width="1"/>
-                  <text x="0" y="2.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="#A85F3C" font-weight="600">Mg</text>
+                <g
+                  transform="translate(40, 230)"
+                  class="pulse-soft mineral-ion"
+                  data-tooltip="<strong>Mg&sup2;&#8314; &middot; Magnesium</strong>Supports muscle and nerve function. Particularly useful after exercise. Daily need ~400mg."
+                >
+                  <circle
+                    cx="0"
+                    cy="0"
+                    r="8"
+                    fill="rgba(168, 95, 60, 0.18)"
+                    stroke="#A85F3C"
+                    stroke-width="1"
+                  />
+                  <text
+                    x="0"
+                    y="2.5"
+                    text-anchor="middle"
+                    font-family="JetBrains Mono, monospace"
+                    font-size="6"
+                    fill="#A85F3C"
+                    font-weight="600"
+                  >
+                    Mg
+                  </text>
                 </g>
 
-                <g transform="translate(75, 410)" class="pulse-soft mineral-ion" data-tooltip="<strong>Na&#8314; &middot; Sodium</strong>An electrolyte you lose through sweat. Helpful after long runs. Most diets have plenty already.">
-                  <circle cx="0" cy="0" r="8" fill="rgba(168, 95, 60, 0.18)" stroke="#A85F3C" stroke-width="1"/>
-                  <text x="0" y="2.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="#A85F3C" font-weight="600">Na</text>
+                <g
+                  transform="translate(75, 410)"
+                  class="pulse-soft mineral-ion"
+                  data-tooltip="<strong>Na&#8314; &middot; Sodium</strong>An electrolyte you lose through sweat. Helpful after long runs. Most diets have plenty already."
+                >
+                  <circle
+                    cx="0"
+                    cy="0"
+                    r="8"
+                    fill="rgba(168, 95, 60, 0.18)"
+                    stroke="#A85F3C"
+                    stroke-width="1"
+                  />
+                  <text
+                    x="0"
+                    y="2.5"
+                    text-anchor="middle"
+                    font-family="JetBrains Mono, monospace"
+                    font-size="6"
+                    fill="#A85F3C"
+                    font-weight="600"
+                  >
+                    Na
+                  </text>
                 </g>
 
-                <g transform="translate(160, 440)" class="pulse-soft mineral-ion" data-tooltip="<strong>HCO&#8323;&#8315; &middot; Bicarbonate</strong>Buffers the water's pH and gives it a soft, smooth mouthfeel. Higher levels = more alkaline character.">
-                  <circle cx="0" cy="0" r="10" fill="rgba(168, 95, 60, 0.18)" stroke="#A85F3C" stroke-width="1"/>
-                  <text x="0" y="2.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="5.5" fill="#A85F3C" font-weight="600">HCO&#8323;</text>
+                <g
+                  transform="translate(160, 440)"
+                  class="pulse-soft mineral-ion"
+                  data-tooltip="<strong>HCO&#8323;&#8315; &middot; Bicarbonate</strong>Buffers the water's pH and gives it a soft, smooth mouthfeel. Higher levels = more alkaline character."
+                >
+                  <circle
+                    cx="0"
+                    cy="0"
+                    r="10"
+                    fill="rgba(168, 95, 60, 0.18)"
+                    stroke="#A85F3C"
+                    stroke-width="1"
+                  />
+                  <text
+                    x="0"
+                    y="2.5"
+                    text-anchor="middle"
+                    font-family="JetBrains Mono, monospace"
+                    font-size="5.5"
+                    fill="#A85F3C"
+                    font-weight="600"
+                  >
+                    HCO&#8323;
+                  </text>
                 </g>
 
                 <!-- Base / glass bottom -->
@@ -4420,11 +5005,17 @@
               <span class="compare-label">Water A</span>
             </div>
             <div class="compare-chips" data-side="A">
-              <button class="compare-chip active" data-water="sanpellegrino">San Pellegrino</button>
+              <button class="compare-chip active" data-water="sanpellegrino">
+                San Pellegrino
+              </button>
               <button class="compare-chip" data-water="evian">Evian</button>
               <button class="compare-chip" data-water="volvic">Volvic</button>
-              <button class="compare-chip" data-water="vichy">Vichy Catalan</button>
-              <button class="compare-chip" data-water="gerolsteiner">Gerolsteiner</button>
+              <button class="compare-chip" data-water="vichy">
+                Vichy Catalan
+              </button>
+              <button class="compare-chip" data-water="gerolsteiner">
+                Gerolsteiner
+              </button>
               <button class="compare-chip" data-water="fiji">Fiji</button>
             </div>
           </div>
@@ -4434,7 +5025,9 @@
               <div class="compare-col-head">
                 <div class="compare-col-mark"></div>
                 <div class="compare-col-name" data-name="A">San Pellegrino</div>
-                <div class="compare-col-origin" data-origin="A">Italian Alps</div>
+                <div class="compare-col-origin" data-origin="A">
+                  Italian Alps
+                </div>
               </div>
               <div class="compare-rows" data-rows="A"></div>
             </div>
@@ -4445,7 +5038,9 @@
               <div class="compare-col-head">
                 <div class="compare-col-mark"></div>
                 <div class="compare-col-name" data-name="B">Evian</div>
-                <div class="compare-col-origin" data-origin="B">Evian-les-Bains, France</div>
+                <div class="compare-col-origin" data-origin="B">
+                  Evian-les-Bains, France
+                </div>
               </div>
               <div class="compare-rows" data-rows="B"></div>
             </div>
@@ -4456,11 +5051,19 @@
               <span class="compare-label">Water B</span>
             </div>
             <div class="compare-chips" data-side="B">
-              <button class="compare-chip" data-water="sanpellegrino">San Pellegrino</button>
-              <button class="compare-chip active" data-water="evian">Evian</button>
+              <button class="compare-chip" data-water="sanpellegrino">
+                San Pellegrino
+              </button>
+              <button class="compare-chip active" data-water="evian">
+                Evian
+              </button>
               <button class="compare-chip" data-water="volvic">Volvic</button>
-              <button class="compare-chip" data-water="vichy">Vichy Catalan</button>
-              <button class="compare-chip" data-water="gerolsteiner">Gerolsteiner</button>
+              <button class="compare-chip" data-water="vichy">
+                Vichy Catalan
+              </button>
+              <button class="compare-chip" data-water="gerolsteiner">
+                Gerolsteiner
+              </button>
               <button class="compare-chip" data-water="fiji">Fiji</button>
             </div>
           </div>
@@ -4918,8 +5521,8 @@
           <h2 class="display">Ask <em>anything</em>.</h2>
           <p class="lede">
             The app's AI has read the literature, the labels, and the lab
-            reports. Tap a question below or type your own &mdash; the
-            sommelier answers in real time.
+            reports. Tap a question below or type your own &mdash; the sommelier
+            answers in real time.
           </p>
         </div>
 
@@ -4928,11 +5531,23 @@
           <div class="chat-input-wrap reveal">
             <div class="chat-input">
               <span class="chat-input-prompt">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <circle cx="11" cy="11" r="7"/>
-                  <path d="m20 20-3.5-3.5"/>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m20 20-3.5-3.5" />
                 </svg>
-                <span class="chat-input-placeholder">Ask anything about your water...</span>
+                <span class="chat-input-placeholder"
+                  >Ask anything about your water...</span
+                >
               </span>
               <span class="chat-input-cta">Ask <kbd>&#8629;</kbd></span>
             </div>
@@ -4940,12 +5555,24 @@
 
           <!-- Starter question chips -->
           <div class="chat-chips reveal reveal-1" id="chatChips">
-            <button class="chat-chip" data-q="run">Best water for a long run?</button>
-            <button class="chat-chip" data-q="alkaline">Is alkaline water good for me?</button>
-            <button class="chat-chip" data-q="tds">What does TDS mean on a label?</button>
-            <button class="chat-chip" data-q="baby">Safe water for a baby?</button>
-            <button class="chat-chip" data-q="evian">Why is Evian so popular?</button>
-            <button class="chat-chip" data-q="distilled">Should I drink distilled water?</button>
+            <button class="chat-chip" data-q="run">
+              Best water for a long run?
+            </button>
+            <button class="chat-chip" data-q="alkaline">
+              Is alkaline water good for me?
+            </button>
+            <button class="chat-chip" data-q="tds">
+              What does TDS mean on a label?
+            </button>
+            <button class="chat-chip" data-q="baby">
+              Safe water for a baby?
+            </button>
+            <button class="chat-chip" data-q="evian">
+              Why is Evian so popular?
+            </button>
+            <button class="chat-chip" data-q="distilled">
+              Should I drink distilled water?
+            </button>
           </div>
 
           <!-- Conversation thread (initial assistant intro + answers appended on click) -->
@@ -4968,27 +5595,57 @@
     <template id="chatAnswers">
       <div data-q="run">
         <div class="q">Best water for a long run?</div>
-        <div class="a">Look for high <em>sodium</em> and high <em>calcium</em> &mdash; Vichy Catalan, Gerolsteiner, or San Pellegrino qualify. Avoid distilled or low-mineral waters; you'll lose electrolytes faster than you replace them.</div>
+        <div class="a">
+          Look for high <em>sodium</em> and high <em>calcium</em> &mdash; Vichy
+          Catalan, Gerolsteiner, or San Pellegrino qualify. Avoid distilled or
+          low-mineral waters; you'll lose electrolytes faster than you replace
+          them.
+        </div>
       </div>
       <div data-q="alkaline">
         <div class="q">Is alkaline water good for me?</div>
-        <div class="a">The pH of what you drink barely changes your body's chemistry &mdash; your stomach is too acidic for it to matter. What does matter is the <em>minerals</em>. Most alkaline waters happen to be mineral-rich, which is the real benefit.</div>
+        <div class="a">
+          The pH of what you drink barely changes your body's chemistry &mdash;
+          your stomach is too acidic for it to matter. What does matter is the
+          <em>minerals</em>. Most alkaline waters happen to be mineral-rich,
+          which is the real benefit.
+        </div>
       </div>
       <div data-q="tds">
         <div class="q">What does TDS mean on a label?</div>
-        <div class="a">Total dissolved solids. The sum, in mg per litre, of everything in the water that isn't water. Below 50 is very low, 50&ndash;500 is normal, above 500 is mineral-rich. <em>Higher isn't better &mdash; it's different.</em></div>
+        <div class="a">
+          Total dissolved solids. The sum, in mg per litre, of everything in the
+          water that isn't water. Below 50 is very low, 50&ndash;500 is normal,
+          above 500 is mineral-rich.
+          <em>Higher isn't better &mdash; it's different.</em>
+        </div>
       </div>
       <div data-q="baby">
         <div class="q">Safe water for a baby?</div>
-        <div class="a">Low-mineral, low-sodium water is the rule. Look for TDS under 100, sodium under 20 mg/L. Volvic and Evian are classic safe choices. <em>Avoid sparkling and high-mineral waters</em> for infants under 6 months.</div>
+        <div class="a">
+          Low-mineral, low-sodium water is the rule. Look for TDS under 100,
+          sodium under 20 mg/L. Volvic and Evian are classic safe choices.
+          <em>Avoid sparkling and high-mineral waters</em> for infants under 6
+          months.
+        </div>
       </div>
       <div data-q="evian">
         <div class="q">Why is Evian so popular?</div>
-        <div class="a">A balanced mineral profile from the French Alps, low TDS (~309 mg/L), neutral pH (7.2), and a brand history reaching back to 1789. It's not the most mineral-rich, but it's a <em>safe, reliable middle</em> &mdash; a clean default.</div>
+        <div class="a">
+          A balanced mineral profile from the French Alps, low TDS (~309 mg/L),
+          neutral pH (7.2), and a brand history reaching back to 1789. It's not
+          the most mineral-rich, but it's a
+          <em>safe, reliable middle</em> &mdash; a clean default.
+        </div>
       </div>
       <div data-q="distilled">
         <div class="q">Should I drink distilled water?</div>
-        <div class="a">For everyday hydration, no. Distilled water has had its minerals removed, so it doesn't replenish what you sweat out. It's fine occasionally; it's not great as a daily drink. <em>The minerals are the point.</em></div>
+        <div class="a">
+          For everyday hydration, no. Distilled water has had its minerals
+          removed, so it doesn't replenish what you sweat out. It's fine
+          occasionally; it's not great as a daily drink.
+          <em>The minerals are the point.</em>
+        </div>
       </div>
     </template>
 
@@ -5011,8 +5668,18 @@
               <div class="phone-status">
                 <span>9:41</span>
                 <span class="status-icons">
-                  <svg width="14" height="10" viewBox="0 0 14 10" fill="currentColor"><rect x="0" y="6" width="2" height="4"/><rect x="3" y="4" width="2" height="6"/><rect x="6" y="2" width="2" height="8"/><rect x="9" y="0" width="2" height="10"/></svg>
-                  <span style="font-size:8.5px">100%</span>
+                  <svg
+                    width="14"
+                    height="10"
+                    viewBox="0 0 14 10"
+                    fill="currentColor"
+                  >
+                    <rect x="0" y="6" width="2" height="4" />
+                    <rect x="3" y="4" width="2" height="6" />
+                    <rect x="6" y="2" width="2" height="8" />
+                    <rect x="9" y="0" width="2" height="10" />
+                  </svg>
+                  <span style="font-size: 8.5px">100%</span>
                 </span>
               </div>
               <!-- Viewfinder -->
@@ -5023,11 +5690,23 @@
                 <span class="scan-corner br"></span>
                 <span class="scan-line"></span>
                 <!-- Bottle silhouette in frame -->
-                <svg class="viewfinder-bottle" width="48" height="80" viewBox="0 0 24 40" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="9" y="0" width="6" height="4" rx="0.5"/>
-                  <path d="M10 4 L10 9 Q9 11 8 14 L7 22 Q6 24 6 28 L6 36 Q6 39 9 39 L15 39 Q18 39 18 36 L18 28 Q18 24 17 22 L16 14 Q15 11 14 9 L14 4"/>
-                  <line x1="6" y1="22" x2="18" y2="22" opacity="0.5"/>
-                  <line x1="8" y1="30" x2="16" y2="30" opacity="0.4"/>
+                <svg
+                  class="viewfinder-bottle"
+                  width="48"
+                  height="80"
+                  viewBox="0 0 24 40"
+                  fill="none"
+                  stroke="rgba(255,255,255,0.85)"
+                  stroke-width="1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="9" y="0" width="6" height="4" rx="0.5" />
+                  <path
+                    d="M10 4 L10 9 Q9 11 8 14 L7 22 Q6 24 6 28 L6 36 Q6 39 9 39 L15 39 Q18 39 18 36 L18 28 Q18 24 17 22 L16 14 Q15 11 14 9 L14 4"
+                  />
+                  <line x1="6" y1="22" x2="18" y2="22" opacity="0.5" />
+                  <line x1="8" y1="30" x2="16" y2="30" opacity="0.4" />
                 </svg>
               </div>
               <!-- Detecting card -->
@@ -5056,7 +5735,9 @@
             <div class="show-screen">
               <div class="phone-status">
                 <span>9:41</span>
-                <span class="status-icons"><span style="font-size:8.5px">100%</span></span>
+                <span class="status-icons"
+                  ><span style="font-size: 8.5px">100%</span></span
+                >
               </div>
               <!-- Brand header -->
               <div class="result-header">
@@ -5065,10 +5746,30 @@
               </div>
               <!-- Mineral grid -->
               <div class="result-grid">
-                <div class="result-cell"><div class="rc-label">Calcium</div><div class="rc-value">208<span class="rc-unit"> mg/L</span></div></div>
-                <div class="result-cell"><div class="rc-label">Magnesium</div><div class="rc-value">55<span class="rc-unit"> mg/L</span></div></div>
-                <div class="result-cell"><div class="rc-label">Sodium</div><div class="rc-value">34<span class="rc-unit"> mg/L</span></div></div>
-                <div class="result-cell"><div class="rc-label">TDS</div><div class="rc-value">305<span class="rc-unit"> ppm</span></div></div>
+                <div class="result-cell">
+                  <div class="rc-label">Calcium</div>
+                  <div class="rc-value">
+                    208<span class="rc-unit"> mg/L</span>
+                  </div>
+                </div>
+                <div class="result-cell">
+                  <div class="rc-label">Magnesium</div>
+                  <div class="rc-value">
+                    55<span class="rc-unit"> mg/L</span>
+                  </div>
+                </div>
+                <div class="result-cell">
+                  <div class="rc-label">Sodium</div>
+                  <div class="rc-value">
+                    34<span class="rc-unit"> mg/L</span>
+                  </div>
+                </div>
+                <div class="result-cell">
+                  <div class="rc-label">TDS</div>
+                  <div class="rc-value">
+                    305<span class="rc-unit"> ppm</span>
+                  </div>
+                </div>
               </div>
               <!-- AI recommendation card -->
               <div class="ai-recommend">
@@ -5077,14 +5778,26 @@
                   <span class="ai-label">Sommelier note</span>
                 </div>
                 <div class="ai-recommend-body">
-                  A bright, structured mineral water with notable calcium. <em>Well suited</em> to long meals and warm afternoons.
+                  A bright, structured mineral water with notable calcium.
+                  <em>Well suited</em> to long meals and warm afternoons.
                 </div>
               </div>
               <!-- Action row -->
               <div class="result-actions">
                 <div class="result-action">Log a glass</div>
                 <div class="result-action result-action-icon">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M12 5v14M5 12h14" />
+                  </svg>
                 </div>
               </div>
             </div>
@@ -5095,12 +5808,16 @@
             <div class="show-screen show-screen-chat">
               <div class="phone-status">
                 <span>9:41</span>
-                <span class="status-icons"><span style="font-size:8.5px">100%</span></span>
+                <span class="status-icons"
+                  ><span style="font-size: 8.5px">100%</span></span
+                >
               </div>
               <div class="chat-header">
                 <span class="chat-back">&larr;</span>
                 <span class="chat-name">Sommelier</span>
-                <span class="chat-online"><span class="chat-online-dot"></span>online</span>
+                <span class="chat-online"
+                  ><span class="chat-online-dot"></span>online</span
+                >
               </div>
               <div class="chat-mini-thread">
                 <div class="chat-mini-msg user">
@@ -5108,7 +5825,8 @@
                 </div>
                 <div class="chat-mini-msg assistant">
                   <div class="chat-mini-bubble">
-                    Yes &mdash; it's a <em>solid daily-drinker</em>. Good calcium, low sodium, neutral pH. Pairs well with food.
+                    Yes &mdash; it's a <em>solid daily-drinker</em>. Good
+                    calcium, low sodium, neutral pH. Pairs well with food.
                   </div>
                 </div>
                 <div class="chat-mini-msg user">
@@ -5116,7 +5834,8 @@
                 </div>
                 <div class="chat-mini-msg assistant">
                   <div class="chat-mini-bubble">
-                    You'd want something with more sodium. Try <em>Vichy Catalan</em> or Gerolsteiner instead.
+                    You'd want something with more sodium. Try
+                    <em>Vichy Catalan</em> or Gerolsteiner instead.
                   </div>
                 </div>
               </div>
@@ -5130,8 +5849,159 @@
         </div>
 
         <p class="phone-caption reveal reveal-4">
-          One: aim the camera. Two: read the breakdown. Three: ask the assistant.
+          One: aim the camera. Two: read the breakdown. Three: ask the
+          assistant.
         </p>
+      </div>
+    </section>
+
+    <!-- ============== PRAISE / TESTIMONIALS ============== -->
+    <section class="praise" id="praise">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-num"><span>Praise</span></div>
+          <h2 class="display">What <em>early users</em> are saying.</h2>
+          <p class="lede">
+            Beta testers, runners, sommeliers, and the curious.
+          </p>
+        </div>
+
+        <div class="praise-grid">
+          <figure class="praise-card reveal reveal-1">
+            <div class="praise-stars" aria-label="5 out of 5 stars">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <use href="#i-star" />
+              </svg>
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <use href="#i-star" />
+              </svg>
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <use href="#i-star" />
+              </svg>
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <use href="#i-star" />
+              </svg>
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <use href="#i-star" />
+              </svg>
+            </div>
+            <blockquote class="praise-quote">
+              I scanned three bottles in my fridge. Found out my "good" water
+              has <em>5x more sodium</em> than the one I usually skip. Reordered
+              my pantry that night.
+            </blockquote>
+            <figcaption class="praise-attribution">
+              <span
+                class="praise-avatar"
+                style="background: linear-gradient(135deg, #3d6fb8, #5990d5)"
+                >M</span
+              >
+              <div>
+                <div class="praise-name">Mara Hartmann</div>
+                <div class="praise-role">Marathon runner &middot; Berlin</div>
+              </div>
+            </figcaption>
+          </figure>
+
+          <figure class="praise-card reveal reveal-2">
+            <div class="praise-stars" aria-label="5 out of 5 stars">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <use href="#i-star" />
+              </svg>
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <use href="#i-star" />
+              </svg>
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <use href="#i-star" />
+              </svg>
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <use href="#i-star" />
+              </svg>
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <use href="#i-star" />
+              </svg>
+            </div>
+            <blockquote class="praise-quote">
+              Finally an app that treats water like the rest of us treat wine.
+              The mineral breakdown is genuinely useful for <em>pairings</em>
+              &mdash; I've started recommending it to guests.
+            </blockquote>
+            <figcaption class="praise-attribution">
+              <span
+                class="praise-avatar"
+                style="background: linear-gradient(135deg, #a85f3c, #c77b58)"
+                >J</span
+              >
+              <div>
+                <div class="praise-name">James Caldwell</div>
+                <div class="praise-role">Sommelier &middot; New York</div>
+              </div>
+            </figcaption>
+          </figure>
+
+          <figure class="praise-card reveal reveal-3">
+            <div class="praise-stars" aria-label="5 out of 5 stars">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <use href="#i-star" />
+              </svg>
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <use href="#i-star" />
+              </svg>
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <use href="#i-star" />
+              </svg>
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <use href="#i-star" />
+              </svg>
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <use href="#i-star" />
+              </svg>
+            </div>
+            <blockquote class="praise-quote">
+              The chat is the killer feature. I asked "what's safe for my baby"
+              and got a <em>specific, sourced answer</em> in seconds. No
+              forum-scrolling required.
+            </blockquote>
+            <figcaption class="praise-attribution">
+              <span
+                class="praise-avatar"
+                style="background: linear-gradient(135deg, #1e3a5f, #3d6fb8)"
+                >P</span
+              >
+              <div>
+                <div class="praise-name">Priya Rao</div>
+                <div class="praise-role">
+                  Editor &middot; Chef Atlas Magazine
+                </div>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- App-store-style rating summary -->
+        <div class="rating-bar reveal reveal-4">
+          <div class="rating-stars" aria-label="4.9 out of 5">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <use href="#i-star" />
+            </svg>
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <use href="#i-star" />
+            </svg>
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <use href="#i-star" />
+            </svg>
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <use href="#i-star" />
+            </svg>
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <use href="#i-star" />
+            </svg>
+          </div>
+          <div class="rating-text">
+            <span class="rating-num">4.9</span> out of 5 &middot;
+            <em>early-access reviews</em>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -5358,6 +6228,39 @@
       </div>
     </footer>
 
+    <!-- Sticky mobile download CTA — fades in after hero -->
+    <a
+      class="sticky-cta"
+      href="https://apps.apple.com/app/id6764657093"
+      target="_blank"
+      rel="noopener"
+      aria-label="Download Water Sommelier"
+    >
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <use href="#i-apple" />
+      </svg>
+      <span>Download</span>
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M5 12h14M13 6l6 6-6 6" />
+      </svg>
+    </a>
+
     <script>
       // Wrap each character of the hero <h1> in spans for staggered ink-reveal
       (function () {
@@ -5557,6 +6460,36 @@
       })();
 
       // ============================================================
+      // ============================================================
+      // Sticky mobile CTA — fade in after hero scrolls out
+      // ============================================================
+      (function () {
+        var cta = document.querySelector(".sticky-cta");
+        if (!cta) return;
+        var hero = document.querySelector(".hero");
+        if (!hero) return;
+        var ticking = false;
+        function update() {
+          var heroBottom = hero.offsetTop + hero.offsetHeight;
+          if (window.scrollY > heroBottom - 100) {
+            cta.classList.add("visible");
+          } else {
+            cta.classList.remove("visible");
+          }
+          ticking = false;
+        }
+        window.addEventListener(
+          "scroll",
+          function () {
+            if (!ticking) {
+              requestAnimationFrame(update);
+              ticking = true;
+            }
+          },
+          { passive: true },
+        );
+      })();
+
       // Scroll-rotate bottle diagram (rotates as it scrolls into view)
       // ============================================================
       (function () {
@@ -5593,22 +6526,70 @@
       // ============================================================
       (function () {
         var WATERS = {
-          sanpellegrino: { name: 'San Pellegrino', origin: 'Italian Alps', pH: 7.6, tds: 1109, ca: 208, mg: 55, na: 34 },
-          evian:         { name: 'Evian',         origin: 'Evian-les-Bains, France', pH: 7.2, tds: 357,  ca: 80,  mg: 26, na: 6 },
-          volvic:        { name: 'Volvic',        origin: 'Auvergne, France', pH: 7.0, tds: 130,  ca: 12,  mg: 8,  na: 12 },
-          vichy:         { name: 'Vichy Catalan', origin: 'Caldes de Malavella, Spain', pH: 7.4, tds: 2900, ca: 60, mg: 9,  na: 1110 },
-          gerolsteiner:  { name: 'Gerolsteiner',  origin: 'Eifel, Germany', pH: 6.0, tds: 2500, ca: 348, mg: 108, na: 118 },
-          fiji:          { name: 'Fiji',          origin: 'Yaqara Valley, Fiji', pH: 7.7, tds: 222,  ca: 18,  mg: 14, na: 18 }
+          sanpellegrino: {
+            name: "San Pellegrino",
+            origin: "Italian Alps",
+            pH: 7.6,
+            tds: 1109,
+            ca: 208,
+            mg: 55,
+            na: 34,
+          },
+          evian: {
+            name: "Evian",
+            origin: "Evian-les-Bains, France",
+            pH: 7.2,
+            tds: 357,
+            ca: 80,
+            mg: 26,
+            na: 6,
+          },
+          volvic: {
+            name: "Volvic",
+            origin: "Auvergne, France",
+            pH: 7.0,
+            tds: 130,
+            ca: 12,
+            mg: 8,
+            na: 12,
+          },
+          vichy: {
+            name: "Vichy Catalan",
+            origin: "Caldes de Malavella, Spain",
+            pH: 7.4,
+            tds: 2900,
+            ca: 60,
+            mg: 9,
+            na: 1110,
+          },
+          gerolsteiner: {
+            name: "Gerolsteiner",
+            origin: "Eifel, Germany",
+            pH: 6.0,
+            tds: 2500,
+            ca: 348,
+            mg: 108,
+            na: 118,
+          },
+          fiji: {
+            name: "Fiji",
+            origin: "Yaqara Valley, Fiji",
+            pH: 7.7,
+            tds: 222,
+            ca: 18,
+            mg: 14,
+            na: 18,
+          },
         };
         var MAX = { pH: 8.5, tds: 3000, ca: 400, mg: 120, na: 1200 };
         var rowsConfig = [
-          { key: 'pH',  label: 'pH',          unit: '',     digits: 1 },
-          { key: 'tds', label: 'TDS',         unit: 'mg/L', digits: 0 },
-          { key: 'ca',  label: 'Calcium',     unit: 'mg/L', digits: 0 },
-          { key: 'mg',  label: 'Magnesium',   unit: 'mg/L', digits: 0 },
-          { key: 'na',  label: 'Sodium',      unit: 'mg/L', digits: 0 }
+          { key: "pH", label: "pH", unit: "", digits: 1 },
+          { key: "tds", label: "TDS", unit: "mg/L", digits: 0 },
+          { key: "ca", label: "Calcium", unit: "mg/L", digits: 0 },
+          { key: "mg", label: "Magnesium", unit: "mg/L", digits: 0 },
+          { key: "na", label: "Sodium", unit: "mg/L", digits: 0 },
         ];
-        var state = { A: 'sanpellegrino', B: 'evian' };
+        var state = { A: "sanpellegrino", B: "evian" };
 
         function pct(value, max) {
           return Math.max(2, Math.min(100, (value / max) * 100));
@@ -5617,68 +6598,98 @@
         function renderSide(side) {
           var water = WATERS[state[side]];
           if (!water) return;
-          document.querySelector('[data-name="' + side + '"]').textContent = water.name;
-          document.querySelector('[data-origin="' + side + '"]').textContent = water.origin;
-          var rowsContainer = document.querySelector('[data-rows="' + side + '"]');
-          rowsContainer.innerHTML = '';
+          document.querySelector('[data-name="' + side + '"]').textContent =
+            water.name;
+          document.querySelector('[data-origin="' + side + '"]').textContent =
+            water.origin;
+          var rowsContainer = document.querySelector(
+            '[data-rows="' + side + '"]',
+          );
+          rowsContainer.innerHTML = "";
           rowsConfig.forEach(function (row) {
             var v = water[row.key];
             var html =
               '<div class="compare-row">' +
-                '<div class="compare-row-head">' +
-                  '<span class="compare-row-label">' + row.label + '</span>' +
-                  '<span class="compare-row-value">' + (row.digits === 0 ? Math.round(v) : v.toFixed(row.digits)) +
-                    (row.unit ? '<span class="compare-row-unit"> ' + row.unit + '</span>' : '') +
-                  '</span>' +
-                '</div>' +
-                '<div class="compare-row-bar"><div class="compare-row-bar-fill" style="--w:' + pct(v, MAX[row.key]) + '%"></div></div>' +
-              '</div>';
-            rowsContainer.insertAdjacentHTML('beforeend', html);
+              '<div class="compare-row-head">' +
+              '<span class="compare-row-label">' +
+              row.label +
+              "</span>" +
+              '<span class="compare-row-value">' +
+              (row.digits === 0 ? Math.round(v) : v.toFixed(row.digits)) +
+              (row.unit
+                ? '<span class="compare-row-unit"> ' + row.unit + "</span>"
+                : "") +
+              "</span>" +
+              "</div>" +
+              '<div class="compare-row-bar"><div class="compare-row-bar-fill" style="--w:' +
+              pct(v, MAX[row.key]) +
+              '%"></div></div>' +
+              "</div>";
+            rowsContainer.insertAdjacentHTML("beforeend", html);
           });
           // Update active chip
-          document.querySelectorAll('[data-side="' + side + '"] .compare-chip').forEach(function (chip) {
-            chip.classList.toggle('active', chip.getAttribute('data-water') === state[side]);
-          });
+          document
+            .querySelectorAll('[data-side="' + side + '"] .compare-chip')
+            .forEach(function (chip) {
+              chip.classList.toggle(
+                "active",
+                chip.getAttribute("data-water") === state[side],
+              );
+            });
         }
 
         function renderVerdict() {
-          var a = WATERS[state.A], b = WATERS[state.B];
-          var verdict = document.getElementById('compareVerdict');
+          var a = WATERS[state.A],
+            b = WATERS[state.B];
+          var verdict = document.getElementById("compareVerdict");
           if (!verdict || !a || !b) return;
           if (state.A === state.B) {
-            verdict.innerHTML = '<em>Same water.</em> Pick two different bottles to compare.';
+            verdict.innerHTML =
+              "<em>Same water.</em> Pick two different bottles to compare.";
             return;
           }
           // Pick the most interesting difference
           var diffs = [
-            { k: 'tds',  label: 'mineral content', a: a.tds, b: b.tds },
-            { k: 'ca',   label: 'calcium',         a: a.ca,  b: b.ca  },
-            { k: 'na',   label: 'sodium',          a: a.na,  b: b.na  },
-            { k: 'mg',   label: 'magnesium',       a: a.mg,  b: b.mg  }
+            { k: "tds", label: "mineral content", a: a.tds, b: b.tds },
+            { k: "ca", label: "calcium", a: a.ca, b: b.ca },
+            { k: "na", label: "sodium", a: a.na, b: b.na },
+            { k: "mg", label: "magnesium", a: a.mg, b: b.mg },
           ];
           var biggest = diffs.sort(function (x, y) {
-            var rx = x.a === 0 || x.b === 0 ? 1000 : Math.max(x.a / x.b, x.b / x.a);
-            var ry = y.a === 0 || y.b === 0 ? 1000 : Math.max(y.a / y.b, y.b / y.a);
+            var rx =
+              x.a === 0 || x.b === 0 ? 1000 : Math.max(x.a / x.b, x.b / x.a);
+            var ry =
+              y.a === 0 || y.b === 0 ? 1000 : Math.max(y.a / y.b, y.b / y.a);
             return ry - rx;
           })[0];
           var richer = biggest.a > biggest.b ? a.name : b.name;
-          var ratio = (Math.max(biggest.a, biggest.b) / Math.max(1, Math.min(biggest.a, biggest.b))).toFixed(1);
+          var ratio = (
+            Math.max(biggest.a, biggest.b) /
+            Math.max(1, Math.min(biggest.a, biggest.b))
+          ).toFixed(1);
           verdict.innerHTML =
-            'The biggest difference is <em>' + biggest.label + '</em>: ' +
-            '<em>' + richer + '</em> has roughly <em>' + ratio + '&times;</em> as much as ' +
-            (richer === a.name ? b.name : a.name) + '.';
+            "The biggest difference is <em>" +
+            biggest.label +
+            "</em>: " +
+            "<em>" +
+            richer +
+            "</em> has roughly <em>" +
+            ratio +
+            "&times;</em> as much as " +
+            (richer === a.name ? b.name : a.name) +
+            ".";
         }
 
         function render() {
-          renderSide('A');
-          renderSide('B');
+          renderSide("A");
+          renderSide("B");
           renderVerdict();
         }
 
-        document.querySelectorAll('.compare-chip').forEach(function (chip) {
-          chip.addEventListener('click', function () {
-            var side = chip.parentElement.getAttribute('data-side');
-            var water = chip.getAttribute('data-water');
+        document.querySelectorAll(".compare-chip").forEach(function (chip) {
+          chip.addEventListener("click", function () {
+            var side = chip.parentElement.getAttribute("data-side");
+            var water = chip.getAttribute("data-water");
             state[side] = water;
             render();
           });
@@ -5690,22 +6701,22 @@
       // Mineral hover tooltips on the Anatomy diagram
       // ============================================================
       (function () {
-        var ions = document.querySelectorAll('.mineral-ion');
+        var ions = document.querySelectorAll(".mineral-ion");
         if (!ions.length) return;
-        var tip = document.createElement('div');
-        tip.className = 'mineral-tooltip';
+        var tip = document.createElement("div");
+        tip.className = "mineral-tooltip";
         document.body.appendChild(tip);
         ions.forEach(function (ion) {
-          ion.addEventListener('pointerenter', function () {
-            tip.innerHTML = ion.getAttribute('data-tooltip') || '';
-            tip.classList.add('visible');
+          ion.addEventListener("pointerenter", function () {
+            tip.innerHTML = ion.getAttribute("data-tooltip") || "";
+            tip.classList.add("visible");
           });
-          ion.addEventListener('pointermove', function (e) {
-            tip.style.left = (e.clientX + 16) + 'px';
-            tip.style.top = (e.clientY + 16) + 'px';
+          ion.addEventListener("pointermove", function (e) {
+            tip.style.left = e.clientX + 16 + "px";
+            tip.style.top = e.clientY + 16 + "px";
           });
-          ion.addEventListener('pointerleave', function () {
-            tip.classList.remove('visible');
+          ion.addEventListener("pointerleave", function () {
+            tip.classList.remove("visible");
           });
         });
       })();
@@ -5714,32 +6725,36 @@
       // Chat chips: click to add Q+A to thread with typewriter effect
       // ============================================================
       (function () {
-        var chips = document.querySelectorAll('.chat-chip');
-        var thread = document.getElementById('chatThread');
-        var template = document.getElementById('chatAnswers');
+        var chips = document.querySelectorAll(".chat-chip");
+        var thread = document.getElementById("chatThread");
+        var template = document.getElementById("chatAnswers");
         if (!chips.length || !thread || !template) return;
 
         function appendMessage(role, html, animate) {
-          var msg = document.createElement('div');
-          msg.className = 'chat-msg ' + role;
-          var avatar = document.createElement('div');
-          avatar.className = 'chat-avatar';
-          avatar.textContent = role === 'user' ? 'You' : 'WS';
-          var bubble = document.createElement('div');
-          bubble.className = 'chat-bubble';
+          var msg = document.createElement("div");
+          msg.className = "chat-msg " + role;
+          var avatar = document.createElement("div");
+          avatar.className = "chat-avatar";
+          avatar.textContent = role === "user" ? "You" : "WS";
+          var bubble = document.createElement("div");
+          bubble.className = "chat-bubble";
           if (animate) {
-            bubble.classList.add('typing-caret');
-            thread.appendChild(role === 'user' ? wrapUser(msg, avatar, bubble) : wrapAssistant(msg, avatar, bubble));
+            bubble.classList.add("typing-caret");
+            thread.appendChild(
+              role === "user"
+                ? wrapUser(msg, avatar, bubble)
+                : wrapAssistant(msg, avatar, bubble),
+            );
             typewriter(bubble, html, function () {
-              bubble.classList.remove('typing-caret');
+              bubble.classList.remove("typing-caret");
             });
           } else {
             bubble.innerHTML = html;
-            if (role === 'user') wrapUser(msg, avatar, bubble);
+            if (role === "user") wrapUser(msg, avatar, bubble);
             else wrapAssistant(msg, avatar, bubble);
             thread.appendChild(msg);
           }
-          msg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          msg.scrollIntoView({ behavior: "smooth", block: "nearest" });
           return msg;
         }
         function wrapUser(msg, avatar, bubble) {
@@ -5753,14 +6768,20 @@
           return msg;
         }
 
-        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var reduced = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
         function typewriter(el, html, done) {
-          if (reduced) { el.innerHTML = html; if (done) done(); return; }
+          if (reduced) {
+            el.innerHTML = html;
+            if (done) done();
+            return;
+          }
           // Set the HTML so tags render, but hide it character-by-character
-          el.innerHTML = '';
-          var temp = document.createElement('div');
+          el.innerHTML = "";
+          var temp = document.createElement("div");
           temp.innerHTML = html;
-          var allText = '';
+          var allText = "";
           (function walk(node, container) {
             for (var i = 0; i < node.childNodes.length; i++) {
               var n = node.childNodes[i];
@@ -5788,24 +6809,31 @@
         }
 
         chips.forEach(function (chip) {
-          chip.addEventListener('click', function () {
-            if (chip.classList.contains('used')) return;
-            chip.classList.add('used');
-            var key = chip.getAttribute('data-q');
-            var entry = template.content.querySelector('[data-q="' + key + '"]');
+          chip.addEventListener("click", function () {
+            if (chip.classList.contains("used")) return;
+            chip.classList.add("used");
+            var key = chip.getAttribute("data-q");
+            var entry = template.content.querySelector(
+              '[data-q="' + key + '"]',
+            );
             if (!entry) return;
-            var q = entry.querySelector('.q').innerHTML;
-            var a = entry.querySelector('.a').innerHTML;
-            appendMessage('user', q, false);
+            var q = entry.querySelector(".q").innerHTML;
+            var a = entry.querySelector(".a").innerHTML;
+            appendMessage("user", q, false);
             setTimeout(function () {
-              var typing = document.createElement('div');
-              typing.className = 'chat-msg assistant';
-              typing.innerHTML = '<div class="chat-avatar">WS</div><div class="chat-typing"><span></span><span></span><span></span></div>';
+              var typing = document.createElement("div");
+              typing.className = "chat-msg assistant";
+              typing.innerHTML =
+                '<div class="chat-avatar">WS</div><div class="chat-typing"><span></span><span></span><span></span></div>';
               thread.appendChild(typing);
-              typing.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+              typing.scrollIntoView({ behavior: "smooth", block: "nearest" });
               setTimeout(function () {
                 thread.removeChild(typing);
-                appendMessage('assistant', '<span class="mono-tag">Sommelier</span> ' + a, true);
+                appendMessage(
+                  "assistant",
+                  '<span class="mono-tag">Sommelier</span> ' + a,
+                  true,
+                );
               }, 1000);
             }, 250);
           });

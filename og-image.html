@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Water Sommelier - OG Card</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,0..100;1,9..144,400..700,0..100&family=Manrope:wght@500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: #F4EFE5;
+      color: #15182A;
+      font-family: 'Manrope', sans-serif;
+      position: relative;
+    }
+    /* Subtle paper grain */
+    body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.5;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/><feColorMatrix values='0 0 0 0 0.08, 0 0 0 0 0.07, 0 0 0 0 0.14, 0 0 0 0.13 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    }
+    .card {
+      width: 100%;
+      height: 100%;
+      padding: 64px 80px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 28px;
+      position: relative;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #C9BFA6;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-family: 'Fraunces', Georgia, serif;
+      font-variation-settings: 'opsz' 60, 'SOFT' 100;
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: -0.015em;
+    }
+    .brand svg { color: #3D6FB8; }
+    .meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #5A6A85;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .meta .sep {
+      width: 5px; height: 5px;
+      background: #C9BFA6;
+      border-radius: 50%;
+    }
+
+    /* Main content */
+    .main {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 60px;
+      align-items: center;
+    }
+    .lockup {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #A85F3C;
+      font-weight: 500;
+    }
+    h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-variation-settings: 'opsz' 144, 'SOFT' 100;
+      font-size: 108px;
+      font-weight: 400;
+      line-height: 0.94;
+      letter-spacing: -0.04em;
+      color: #15182A;
+    }
+    h1 em {
+      font-style: italic;
+      font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
+      background: linear-gradient(120deg, #3D6FB8, #5990D5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .lede {
+      font-family: 'Fraunces', Georgia, serif;
+      font-variation-settings: 'opsz' 24, 'SOFT' 100;
+      font-style: italic;
+      font-size: 26px;
+      color: #3D4256;
+      line-height: 1.35;
+      max-width: 560px;
+    }
+
+    /* Right side - phone mockup hint + minerals */
+    .visual {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: stretch;
+      padding-left: 20px;
+    }
+    .visual-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #A85F3C;
+    }
+    .specimen {
+      background: #FAF7EC;
+      border: 1px solid #C9BFA6;
+      border-radius: 18px;
+      padding: 24px 28px;
+      box-shadow: 0 12px 32px -10px rgba(21, 24, 42, 0.12);
+    }
+    .spec-name {
+      font-family: 'Fraunces', Georgia, serif;
+      font-variation-settings: 'opsz' 60, 'SOFT' 100;
+      font-style: italic;
+      font-size: 32px;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .spec-name em {
+      color: #3D6FB8;
+    }
+    .spec-origin {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #717890;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px dashed #C9BFA6;
+    }
+    .spec-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .spec-cell .label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #717890;
+      margin-bottom: 2px;
+    }
+    .spec-cell .value {
+      font-family: 'Fraunces', Georgia, serif;
+      font-variation-settings: 'opsz' 60, 'SOFT' 100;
+      font-size: 26px;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: #15182A;
+    }
+    .spec-cell .unit {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #717890;
+      margin-left: 2px;
+    }
+
+    /* Footer */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid #C9BFA6;
+    }
+    .stores {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #5A6A85;
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .stores .store-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: #15182A;
+      color: #F4EFE5;
+      border-radius: 999px;
+      text-transform: none;
+      letter-spacing: 0;
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      color: #5A6A85;
+    }
+    .url strong { color: #15182A; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- Header -->
+    <div class="header">
+      <div class="brand">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2.5c0 0 7 7.5 7 12.5a7 7 0 0 1-14 0c0-5 7-12.5 7-12.5Z"/>
+          <path d="M9.5 14c.4 1.6 1.7 2.7 3.2 2.7" opacity="0.55"/>
+        </svg>
+        Water Sommelier
+      </div>
+      <div class="meta">
+        <span>Free</span>
+        <span class="sep"></span>
+        <span>iOS &amp; Android</span>
+        <span class="sep"></span>
+        <span>v1.1</span>
+      </div>
+    </div>
+
+    <!-- Main split -->
+    <div class="main">
+      <div class="lockup">
+        <div class="eyebrow">Your pocket water sommelier</div>
+        <h1>Drink with<br><em>discernment</em>.</h1>
+        <div class="lede">Scan any bottle. See its minerals, pH, and source. Ask anything.</div>
+      </div>
+
+      <div class="visual">
+        <div class="visual-label">Sample readout &middot; one tap</div>
+        <div class="specimen">
+          <div class="spec-name">San <em>Pellegrino</em></div>
+          <div class="spec-origin">Italian Alps &middot; pH 7.6</div>
+          <div class="spec-grid">
+            <div class="spec-cell">
+              <div class="label">Calcium</div>
+              <div class="value">208<span class="unit"> mg/L</span></div>
+            </div>
+            <div class="spec-cell">
+              <div class="label">Magnesium</div>
+              <div class="value">55<span class="unit"> mg/L</span></div>
+            </div>
+            <div class="spec-cell">
+              <div class="label">Sodium</div>
+              <div class="value">34<span class="unit"> mg/L</span></div>
+            </div>
+            <div class="spec-cell">
+              <div class="label">TDS</div>
+              <div class="value">305<span class="unit"> ppm</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="stores">
+        <span class="store-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 12.56c-.02-2.04 1.66-3.02 1.74-3.07-.95-1.38-2.42-1.57-2.94-1.59-1.25-.13-2.44.74-3.08.74-.64 0-1.62-.72-2.66-.7-1.37.02-2.63.8-3.33 2.02-1.42 2.46-.36 6.1 1.02 8.1.68.98 1.49 2.08 2.55 2.04 1.03-.04 1.42-.66 2.66-.66 1.25 0 1.6.66 2.7.64 1.12-.02 1.82-.99 2.5-1.98.79-1.14 1.11-2.24 1.13-2.3-.02-.01-2.17-.83-2.2-3.24ZM15.07 6.8c.55-.7.93-1.65.83-2.6-.8.04-1.79.55-2.36 1.24-.51.6-.97 1.58-.85 2.51.9.07 1.82-.45 2.38-1.15Z"/></svg>
+          App Store
+        </span>
+        <span class="store-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 3.4c0-.6.62-1 1.16-.74L19.7 11.3c.56.32.56 1.08 0 1.4L5.16 21.4c-.54.26-1.16-.14-1.16-.74V3.4Z"/></svg>
+          Google Play
+        </span>
+      </div>
+      <div class="url">water<strong>sommelier</strong>.app</div>
+    </div>
+  </div>
+</body>
+</html>
