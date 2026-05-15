@@ -1385,6 +1385,315 @@
       }
 
       /* ============================================================
+       REALISTIC IN-PHONE APP UI (See it in action)
+       ============================================================ */
+      .phone-status {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 8px;
+        font-family: 'Manrope', sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--paper);
+        margin-bottom: 6px;
+        margin-top: -8px;
+      }
+      .phone-status .status-icons {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        color: rgba(244, 239, 229, 0.85);
+      }
+
+      /* Phone 1: Scan viewfinder */
+      .show-screen-scan { padding-bottom: 14px; }
+      .viewfinder {
+        flex: 1;
+        background: linear-gradient(135deg, rgba(15, 52, 110, 0.55), rgba(5, 8, 23, 0.85));
+        border-radius: 16px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+        border: 1px solid rgba(244, 239, 229, 0.06);
+      }
+      .viewfinder .scan-corner { border-color: var(--water-bright); width: 18px; height: 18px; }
+      .viewfinder .scan-corner.tl { top: 12px; left: 12px; }
+      .viewfinder .scan-corner.tr { top: 12px; right: 12px; }
+      .viewfinder .scan-corner.bl { bottom: 12px; left: 12px; }
+      .viewfinder .scan-corner.br { bottom: 12px; right: 12px; }
+      .viewfinder-bottle {
+        filter: drop-shadow(0 4px 12px rgba(0,0,0,0.6));
+      }
+      .scan-detecting {
+        background: rgba(244, 239, 229, 0.06);
+        border: 1px solid rgba(244, 239, 229, 0.1);
+      }
+      .scan-hint {
+        margin-top: 8px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-size: 10px;
+        color: rgba(244, 239, 229, 0.7);
+      }
+      .scan-dot {
+        width: 5px; height: 5px;
+        background: #22c55e;
+        border-radius: 50%;
+        box-shadow: 0 0 6px rgba(34, 197, 94, 0.6);
+        flex-shrink: 0;
+      }
+      .shutter-wrap {
+        display: flex; justify-content: center;
+        margin-top: 8px;
+      }
+      .shutter {
+        width: 38px; height: 38px;
+        border-radius: 50%;
+        background: var(--paper);
+        border: 3px solid var(--paper);
+        box-shadow: 0 0 0 2px rgba(244, 239, 229, 0.3);
+      }
+
+      /* Phone 2: Result page */
+      .result-header {
+        text-align: center;
+        padding: 6px 4px 12px;
+        border-bottom: 1px solid rgba(244, 239, 229, 0.08);
+        margin-bottom: 12px;
+      }
+      .result-brand {
+        font-family: 'Fraunces', Georgia, serif;
+        font-variation-settings: 'opsz' 72, 'SOFT' 100;
+        font-size: 18px;
+        font-weight: 400;
+        letter-spacing: -0.02em;
+        color: var(--paper);
+        line-height: 1.05;
+      }
+      .result-brand em {
+        font-style: italic;
+        color: var(--water-bright);
+      }
+      .result-origin {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8.5px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(244, 239, 229, 0.5);
+        margin-top: 4px;
+      }
+      .result-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+        margin-bottom: 10px;
+      }
+      .result-cell {
+        background: rgba(244, 239, 229, 0.06);
+        border: 1px solid rgba(244, 239, 229, 0.08);
+        border-radius: 10px;
+        padding: 8px 10px;
+      }
+      .rc-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 7.5px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(244, 239, 229, 0.55);
+        margin-bottom: 2px;
+      }
+      .rc-value {
+        font-family: 'Fraunces', Georgia, serif;
+        font-variation-settings: 'opsz' 36, 'SOFT' 100;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+        color: var(--paper);
+      }
+      .rc-unit {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8px;
+        color: rgba(244, 239, 229, 0.5);
+      }
+      .ai-recommend {
+        background: linear-gradient(135deg, rgba(61, 111, 184, 0.2), rgba(89, 144, 213, 0.08));
+        border: 1px solid rgba(89, 144, 213, 0.25);
+        border-radius: 10px;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+      .ai-recommend-head {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 6px;
+      }
+      .ai-avatar-sm {
+        width: 18px; height: 18px;
+        border-radius: 50%;
+        background: var(--ink);
+        color: var(--paper);
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-size: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .ai-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--water-bright);
+      }
+      .ai-recommend-body {
+        font-family: 'Fraunces', Georgia, serif;
+        font-variation-settings: 'opsz' 18, 'SOFT' 100;
+        font-size: 10.5px;
+        line-height: 1.45;
+        color: rgba(244, 239, 229, 0.85);
+      }
+      .ai-recommend-body em {
+        font-style: italic;
+        color: var(--water-bright);
+      }
+      .result-actions {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 6px;
+      }
+      .result-action {
+        background: var(--paper);
+        color: var(--ink);
+        border-radius: 10px;
+        padding: 9px;
+        text-align: center;
+        font-family: 'Manrope', sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: -0.005em;
+      }
+      .result-action-icon {
+        width: 36px;
+        background: rgba(244, 239, 229, 0.08);
+        color: var(--paper);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+      }
+
+      /* Phone 3: In-app chat */
+      .show-screen-chat { padding-bottom: 10px; }
+      .chat-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 4px 6px 10px;
+        border-bottom: 1px solid rgba(244, 239, 229, 0.08);
+        margin-bottom: 10px;
+      }
+      .chat-back { color: var(--paper); font-size: 14px; }
+      .chat-name {
+        font-family: 'Fraunces', Georgia, serif;
+        font-variation-settings: 'opsz' 36, 'SOFT' 100;
+        font-style: italic;
+        font-size: 13px;
+        color: var(--paper);
+        flex: 1;
+      }
+      .chat-online {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8px;
+        color: rgba(244, 239, 229, 0.55);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      .chat-online-dot {
+        width: 5px; height: 5px;
+        background: #22c55e;
+        border-radius: 50%;
+        box-shadow: 0 0 5px rgba(34, 197, 94, 0.6);
+      }
+      .chat-mini-thread {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        overflow: hidden;
+      }
+      .chat-mini-msg {
+        display: flex;
+        max-width: 82%;
+      }
+      .chat-mini-msg.user {
+        align-self: flex-end;
+      }
+      .chat-mini-msg.assistant {
+        align-self: flex-start;
+      }
+      .chat-mini-bubble {
+        padding: 7px 10px;
+        border-radius: 12px;
+        font-size: 10px;
+        line-height: 1.4;
+      }
+      .chat-mini-msg.user .chat-mini-bubble {
+        background: var(--water);
+        color: var(--paper);
+        border-bottom-right-radius: 4px;
+      }
+      .chat-mini-msg.assistant .chat-mini-bubble {
+        background: rgba(244, 239, 229, 0.08);
+        color: var(--paper);
+        border: 1px solid rgba(244, 239, 229, 0.1);
+        border-bottom-left-radius: 4px;
+        font-family: 'Fraunces', Georgia, serif;
+        font-variation-settings: 'opsz' 14, 'SOFT' 100;
+      }
+      .chat-mini-bubble em {
+        font-style: italic;
+        color: var(--water-bright);
+      }
+      .chat-mini-input {
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 12px;
+        background: rgba(244, 239, 229, 0.05);
+        border: 1px solid rgba(244, 239, 229, 0.1);
+        border-radius: 999px;
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        font-size: 10px;
+        color: rgba(244, 239, 229, 0.5);
+      }
+      .chat-mini-send {
+        width: 22px; height: 22px;
+        border-radius: 50%;
+        background: var(--water);
+        color: var(--paper);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 600;
+        font-style: normal;
+      }
+
+      /* ============================================================
        SUPPORT / FAQ
        ============================================================ */
       .contact-card {
@@ -4687,158 +4996,141 @@
     <section id="inside" class="dark-spread">
       <div class="container">
         <div class="section-head reveal">
-          <div class="section-num"><span>Inside the app</span></div>
-          <h2 class="display">A quick look <em>inside</em>.</h2>
+          <div class="section-num"><span>See it in action</span></div>
+          <h2 class="display">From bottle to <em>verdict</em>.</h2>
           <p class="lede">
-            Three frames from the app, just as it appears in hand.
+            Three steps. Camera to chat. Here's how a real session looks.
           </p>
         </div>
 
         <div class="gallery-stage">
+          <!-- Phone 1: SCAN — camera viewfinder -->
           <div class="show-phone reveal reveal-1">
-            <div class="show-screen">
-              <div class="show-title">Scan</div>
-              <div class="show-sub">Aim at the label</div>
-              <div
-                class="show-card"
-                style="
-                  aspect-ratio: 5/6;
-                  background: linear-gradient(
-                    160deg,
-                    rgba(244, 239, 229, 0.06),
-                    rgba(244, 239, 229, 0.02)
-                  );
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  position: relative;
-                  overflow: hidden;
-                "
-              >
+            <div class="show-screen show-screen-scan">
+              <!-- Status bar -->
+              <div class="phone-status">
+                <span>9:41</span>
+                <span class="status-icons">
+                  <svg width="14" height="10" viewBox="0 0 14 10" fill="currentColor"><rect x="0" y="6" width="2" height="4"/><rect x="3" y="4" width="2" height="6"/><rect x="6" y="2" width="2" height="8"/><rect x="9" y="0" width="2" height="10"/></svg>
+                  <span style="font-size:8.5px">100%</span>
+                </span>
+              </div>
+              <!-- Viewfinder -->
+              <div class="viewfinder">
                 <span class="scan-corner tl"></span>
                 <span class="scan-corner tr"></span>
                 <span class="scan-corner bl"></span>
                 <span class="scan-corner br"></span>
-                <svg
-                  width="34"
-                  height="34"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="rgba(244,239,229,0.9)"
-                  stroke-width="1.4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="#i-bottle" />
+                <span class="scan-line"></span>
+                <!-- Bottle silhouette in frame -->
+                <svg class="viewfinder-bottle" width="48" height="80" viewBox="0 0 24 40" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="0" width="6" height="4" rx="0.5"/>
+                  <path d="M10 4 L10 9 Q9 11 8 14 L7 22 Q6 24 6 28 L6 36 Q6 39 9 39 L15 39 Q18 39 18 36 L18 28 Q18 24 17 22 L16 14 Q15 11 14 9 L14 4"/>
+                  <line x1="6" y1="22" x2="18" y2="22" opacity="0.5"/>
+                  <line x1="8" y1="30" x2="16" y2="30" opacity="0.4"/>
                 </svg>
               </div>
-              <div class="show-card">
+              <!-- Detecting card -->
+              <div class="show-card scan-detecting">
                 <div class="show-row">
-                  <span class="show-muted">detecting</span
-                  ><span class="show-strong">73%</span>
+                  <span class="show-muted">Detecting brand</span>
+                  <span class="show-strong">94%</span>
                 </div>
                 <div class="show-bar">
-                  <div class="show-bar-fill" style="--w: 73%"></div>
+                  <div class="show-bar-fill" style="--w: 94%"></div>
                 </div>
+                <div class="scan-hint">
+                  <span class="scan-dot"></span>
+                  San Pellegrino &middot; high confidence
+                </div>
+              </div>
+              <!-- Shutter button -->
+              <div class="shutter-wrap">
+                <div class="shutter"></div>
               </div>
             </div>
           </div>
 
+          <!-- Phone 2: RESULT — minerals + AI recommendation -->
           <div class="show-phone reveal reveal-2">
             <div class="show-screen">
-              <div class="show-title">San Pellegrino</div>
-              <div class="show-sub">Italian Alps</div>
-              <div class="show-card">
-                <div class="show-row">
-                  <span class="show-muted">calcium</span
-                  ><span class="show-strong">208 mg/L</span>
+              <div class="phone-status">
+                <span>9:41</span>
+                <span class="status-icons"><span style="font-size:8.5px">100%</span></span>
+              </div>
+              <!-- Brand header -->
+              <div class="result-header">
+                <div class="result-brand">San <em>Pellegrino</em></div>
+                <div class="result-origin">Italian Alps &middot; pH 7.6</div>
+              </div>
+              <!-- Mineral grid -->
+              <div class="result-grid">
+                <div class="result-cell"><div class="rc-label">Calcium</div><div class="rc-value">208<span class="rc-unit"> mg/L</span></div></div>
+                <div class="result-cell"><div class="rc-label">Magnesium</div><div class="rc-value">55<span class="rc-unit"> mg/L</span></div></div>
+                <div class="result-cell"><div class="rc-label">Sodium</div><div class="rc-value">34<span class="rc-unit"> mg/L</span></div></div>
+                <div class="result-cell"><div class="rc-label">TDS</div><div class="rc-value">305<span class="rc-unit"> ppm</span></div></div>
+              </div>
+              <!-- AI recommendation card -->
+              <div class="ai-recommend">
+                <div class="ai-recommend-head">
+                  <span class="ai-avatar-sm">WS</span>
+                  <span class="ai-label">Sommelier note</span>
                 </div>
-                <div class="show-bar">
-                  <div class="show-bar-fill" style="--w: 82%"></div>
-                </div>
-                <div class="show-row">
-                  <span class="show-muted">magnesium</span
-                  ><span class="show-strong">55 mg/L</span>
-                </div>
-                <div class="show-bar">
-                  <div class="show-bar-fill" style="--w: 42%"></div>
-                </div>
-                <div class="show-row">
-                  <span class="show-muted">sodium</span
-                  ><span class="show-strong">34 mg/L</span>
-                </div>
-                <div class="show-bar">
-                  <div class="show-bar-fill" style="--w: 28%"></div>
+                <div class="ai-recommend-body">
+                  A bright, structured mineral water with notable calcium. <em>Well suited</em> to long meals and warm afternoons.
                 </div>
               </div>
-              <div class="show-card">
-                <div class="show-row">
-                  <span class="show-muted">tds</span
-                  ><span class="show-strong">305 ppm</span>
+              <!-- Action row -->
+              <div class="result-actions">
+                <div class="result-action">Log a glass</div>
+                <div class="result-action result-action-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
                 </div>
               </div>
             </div>
           </div>
 
+          <!-- Phone 3: CHAT — in-app conversation with assistant -->
           <div class="show-phone reveal reveal-3">
-            <div class="show-screen">
-              <div class="show-title">Today</div>
-              <div class="show-sub">Tuesday, 14 May</div>
-              <div
-                class="show-card"
-                style="display: flex; align-items: center; gap: 12px"
-              >
-                <svg width="44" height="44" viewBox="0 0 36 36">
-                  <circle
-                    cx="18"
-                    cy="18"
-                    r="15.9"
-                    fill="none"
-                    stroke="rgba(244,239,229,0.08)"
-                    stroke-width="3"
-                  />
-                  <circle
-                    cx="18"
-                    cy="18"
-                    r="15.9"
-                    fill="none"
-                    stroke="url(#smRing)"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-dasharray="100"
-                    stroke-dashoffset="16"
-                    transform="rotate(-90 18 18)"
-                  />
-                  <defs>
-                    <linearGradient id="smRing" x1="0" y1="0" x2="1" y2="0">
-                      <stop offset="0%" stop-color="#3D6FB8" />
-                      <stop offset="100%" stop-color="#5990D5" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-                <div>
-                  <div class="show-strong" style="font-size: 12px">
-                    2.1 / 2.5L
+            <div class="show-screen show-screen-chat">
+              <div class="phone-status">
+                <span>9:41</span>
+                <span class="status-icons"><span style="font-size:8.5px">100%</span></span>
+              </div>
+              <div class="chat-header">
+                <span class="chat-back">&larr;</span>
+                <span class="chat-name">Sommelier</span>
+                <span class="chat-online"><span class="chat-online-dot"></span>online</span>
+              </div>
+              <div class="chat-mini-thread">
+                <div class="chat-mini-msg user">
+                  <div class="chat-mini-bubble">Should I get this water?</div>
+                </div>
+                <div class="chat-mini-msg assistant">
+                  <div class="chat-mini-bubble">
+                    Yes &mdash; it's a <em>solid daily-drinker</em>. Good calcium, low sodium, neutral pH. Pairs well with food.
                   </div>
-                  <div class="show-muted">84% of goal</div>
+                </div>
+                <div class="chat-mini-msg user">
+                  <div class="chat-mini-bubble">For after a long run?</div>
+                </div>
+                <div class="chat-mini-msg assistant">
+                  <div class="chat-mini-bubble">
+                    You'd want something with more sodium. Try <em>Vichy Catalan</em> or Gerolsteiner instead.
+                  </div>
                 </div>
               </div>
-              <div class="show-card">
-                <div class="show-row">
-                  <span class="show-muted">logs</span
-                  ><span class="show-strong">8</span>
-                </div>
-                <div class="show-row">
-                  <span class="show-muted">streak</span
-                  ><span class="show-strong">12 days</span>
-                </div>
+              <!-- In-app input -->
+              <div class="chat-mini-input">
+                <span>Ask anything...</span>
+                <span class="chat-mini-send">&uarr;</span>
               </div>
             </div>
           </div>
         </div>
 
         <p class="phone-caption reveal reveal-4">
-          Figures: scanner, mineral readout, hydration journal.
+          One: aim the camera. Two: read the breakdown. Three: ask the assistant.
         </p>
       </div>
     </section>
