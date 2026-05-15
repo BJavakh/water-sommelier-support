@@ -1769,6 +1769,201 @@
       }
 
       /* ============================================================
+       PINNED SCROLL STORY — See it in action
+       ============================================================ */
+      .inaction-pinned {
+        position: relative;
+        height: 320vh;
+        background: var(--night);
+        color: var(--paper);
+      }
+      .inaction-sticky {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        background: var(--night);
+      }
+      .inaction-sticky::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 60% 50% at 20% 30%, rgba(61, 111, 184, 0.18), transparent 60%),
+          radial-gradient(ellipse 50% 40% at 80% 70%, rgba(89, 144, 213, 0.14), transparent 60%);
+        pointer-events: none;
+      }
+      .inaction-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 1fr;
+        gap: 80px;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        width: 100%;
+      }
+      .inaction-text { position: relative; padding-right: 16px; }
+      .inaction-text .section-num { color: var(--copper-soft); margin-bottom: 22px; }
+      .inaction-text .section-num::after { background: rgba(244, 239, 229, 0.2); }
+      .inaction-headline {
+        font-family: 'Fraunces', Georgia, serif;
+        font-variation-settings: 'opsz' 144, 'SOFT' 100;
+        font-size: clamp(48px, 6vw, 88px);
+        font-weight: 400;
+        letter-spacing: -0.035em;
+        line-height: 0.95;
+        color: var(--paper);
+        margin-bottom: 48px;
+      }
+      .inaction-headline em {
+        font-style: italic;
+        font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
+        color: var(--water-bright);
+      }
+      .inaction-steps {
+        position: relative;
+        min-height: 200px;
+        margin-bottom: 32px;
+      }
+      .inaction-step {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+        pointer-events: none;
+      }
+      .inaction-step[data-active] {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .step-num {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 12px;
+        color: var(--copper-soft);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+      .step-title {
+        font-family: 'Fraunces', Georgia, serif;
+        font-variation-settings: 'opsz' 72, 'SOFT' 100;
+        font-size: clamp(28px, 3vw, 38px);
+        font-weight: 400;
+        letter-spacing: -0.02em;
+        color: var(--paper);
+        line-height: 1.05;
+        margin-bottom: 14px;
+      }
+      .step-title em {
+        font-style: italic;
+        font-variation-settings: 'opsz' 72, 'SOFT' 100, 'WONK' 1;
+        color: var(--water-bright);
+      }
+      .step-desc {
+        font-family: 'Fraunces', Georgia, serif;
+        font-variation-settings: 'opsz' 18, 'SOFT' 100;
+        font-style: italic;
+        font-size: 18px;
+        line-height: 1.55;
+        color: rgba(244, 239, 229, 0.7);
+        max-width: 460px;
+      }
+
+      /* Step indicator dots */
+      .inaction-dots {
+        display: flex;
+        gap: 8px;
+      }
+      .inaction-dot {
+        width: 36px;
+        height: 3px;
+        background: rgba(244, 239, 229, 0.12);
+        border-radius: 2px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+      }
+      .inaction-dot span {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, var(--water), var(--water-bright));
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: transform 0.6s var(--ease-out);
+      }
+      .inaction-dot[data-active] {
+        background: rgba(244, 239, 229, 0.2);
+      }
+      .inaction-dot[data-active] span {
+        transform: scaleX(1);
+      }
+
+      /* Phone — single big one with stacked screens */
+      .inaction-phone {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .big-phone {
+        width: 320px;
+        aspect-ratio: 9 / 19.5;
+        background: linear-gradient(160deg, #1d2238 0%, #060d22 100%);
+        border-radius: 48px;
+        padding: 10px;
+        box-shadow:
+          inset 0 0 0 1.5px rgba(255, 255, 255, 0.06),
+          0 50px 100px -30px rgba(0, 0, 0, 0.55),
+          0 30px 60px -20px rgba(89, 144, 213, 0.25);
+        position: relative;
+      }
+      .big-screen-wrap {
+        width: 100%;
+        height: 100%;
+        border-radius: 38px;
+        position: relative;
+        overflow: hidden;
+      }
+      .big-screen-wrap::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 110px;
+        height: 28px;
+        background: #000;
+        border-radius: 0 0 18px 18px;
+        z-index: 10;
+      }
+      .big-screen {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(170deg, #1E3A5F 0%, #0B1228 65%, #050817 100%);
+        padding: 38px 16px 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        color: var(--paper);
+        opacity: 0;
+        transform: translateY(20px) scale(0.985);
+        transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+      }
+      .big-screen[data-active] {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      /* Override show-screen padding/etc for big-screen use */
+      .big-screen.show-screen-scan { padding-bottom: 14px; }
+      .big-screen.show-screen-chat { padding-bottom: 10px; }
+      .big-screen .phone-status { margin-top: 0; }
+
+      /* ============================================================
        PRAISE / TESTIMONIALS
        ============================================================ */
       .praise {
@@ -2244,6 +2439,95 @@
       }
 
       /* ============================================================
+       SCROLL PROGRESS BAR (top of page)
+       ============================================================ */
+      .scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: transparent;
+        z-index: 200;
+        pointer-events: none;
+      }
+      .scroll-progress-fill {
+        height: 100%;
+        width: 0;
+        background: linear-gradient(90deg, var(--water), var(--water-bright), var(--copper));
+        background-size: 200% 100%;
+        animation: progressShimmer 4s linear infinite;
+        transition: width 0.05s linear;
+        will-change: width;
+      }
+      @keyframes progressShimmer {
+        0% { background-position: 0% 0; }
+        100% { background-position: 200% 0; }
+      }
+
+      /* ============================================================
+       PAGE-LOAD INTRO
+       ============================================================ */
+      .intro-overlay {
+        position: fixed;
+        inset: 0;
+        background: var(--paper);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 16px;
+        pointer-events: none;
+        animation: introFade 1500ms 700ms forwards;
+      }
+      .intro-mark {
+        color: var(--water);
+        animation: introDropIn 800ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+      }
+      .intro-mark svg { width: 56px; height: 56px; }
+      .intro-name {
+        font-family: 'Fraunces', Georgia, serif;
+        font-variation-settings: 'opsz' 60, 'SOFT' 100;
+        font-size: 22px;
+        font-weight: 500;
+        letter-spacing: -0.015em;
+        color: var(--ink);
+        opacity: 0;
+        animation: introNameIn 700ms 300ms var(--ease-out) both;
+      }
+      @keyframes introDropIn {
+        0% { transform: scale(0.5) translateY(-12px); opacity: 0; }
+        100% { transform: scale(1) translateY(0); opacity: 1; }
+      }
+      @keyframes introNameIn {
+        from { opacity: 0; transform: translateY(8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes introFade {
+        0% { opacity: 1; }
+        100% { opacity: 0; visibility: hidden; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .intro-overlay { display: none; }
+      }
+
+      /* ============================================================
+       CURSOR TRAIL DROPS
+       ============================================================ */
+      .cursor-drop {
+        position: fixed;
+        width: 8px;
+        height: 8px;
+        pointer-events: none;
+        z-index: 150;
+        border-radius: 50% 50% 50% 0;
+        transform: rotate(-45deg);
+        background: linear-gradient(135deg, rgba(61, 111, 184, 0.55), rgba(89, 144, 213, 0.35));
+        opacity: 0;
+      }
+
+      /* ============================================================
        STICKY MOBILE CTA
        ============================================================ */
       .sticky-cta {
@@ -2641,6 +2925,8 @@
         background: var(--paper-warm);
         border-top: 1px solid var(--rule);
         border-bottom: 1px solid var(--rule);
+        perspective: 800px;
+        perspective-origin: 50% 50%;
         mask-image: linear-gradient(
           90deg,
           transparent 0%,
@@ -2655,6 +2941,13 @@
           black 92%,
           transparent 100%
         );
+      }
+      /* Subtle 3D tilt of the track for a banner-sliding-through-3D-space feel */
+      .marquee-track-wrap {
+        display: inline-block;
+        transform: rotateX(8deg) rotateZ(-1.2deg);
+        transform-origin: center;
+        transform-style: preserve-3d;
       }
       .marquee-track {
         display: inline-flex;
@@ -3563,6 +3856,20 @@
           bottom: -8px;
           max-width: 220px;
         }
+
+        /* Pinned scroll story fallback for tablet/mobile */
+        .inaction-pinned { height: auto; padding: 96px 0; }
+        .inaction-sticky { position: relative; height: auto; padding: 0; }
+        .inaction-grid { grid-template-columns: 1fr; gap: 48px; }
+        .inaction-text { padding-right: 0; }
+        .inaction-steps { min-height: unset; }
+        .inaction-step { position: relative; opacity: 1; transform: none; pointer-events: auto; margin-bottom: 28px; }
+        .inaction-step:last-child { margin-bottom: 0; }
+        .big-phone { width: 280px; }
+        .big-screen { position: relative; opacity: 1; transform: none; }
+        .big-screen ~ .big-screen { display: none; }
+        .big-screen[data-active] { display: flex; }
+        .big-screen[data-active] ~ .big-screen { display: none; }
       }
       @media (max-width: 640px) {
         body {
@@ -3857,6 +4164,22 @@
     </style>
   </head>
   <body>
+    <!-- Page-load intro overlay -->
+    <div class="intro-overlay" aria-hidden="true">
+      <span class="intro-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2.5c0 0 7 7.5 7 12.5a7 7 0 0 1-14 0c0-5 7-12.5 7-12.5Z"/>
+          <path d="M9.5 14c.4 1.6 1.7 2.7 3.2 2.7" opacity="0.55"/>
+        </svg>
+      </span>
+      <span class="intro-name">Water Sommelier</span>
+    </div>
+
+    <!-- Scroll progress bar -->
+    <div class="scroll-progress" aria-hidden="true">
+      <div class="scroll-progress-fill" id="progressFill"></div>
+    </div>
+
     <!-- ICONS -->
     <svg width="0" height="0" style="position: absolute" aria-hidden="true">
       <defs>
@@ -4413,7 +4736,7 @@
       <div class="container">
         <div class="why-grid">
           <div class="why-stat reveal reveal-1">
-            <div class="why-num">60<span class="why-pct">%</span></div>
+            <div class="why-num"><span data-count="60">0</span><span class="why-pct">%</span></div>
             <div class="why-label">of your body</div>
             <div class="why-body">
               is water. The single thing you put in it more than anything else
@@ -4421,7 +4744,7 @@
             </div>
           </div>
           <div class="why-stat reveal reveal-2">
-            <div class="why-num">50<span class="why-pct">&times;</span></div>
+            <div class="why-num"><span data-count="50">0</span><span class="why-pct">&times;</span></div>
             <div class="why-label">mineral variation</div>
             <div class="why-body">
               The mineral content of one bottled water can be
@@ -4430,7 +4753,7 @@
             </div>
           </div>
           <div class="why-stat reveal reveal-3">
-            <div class="why-num">7<span class="why-pct">/10</span></div>
+            <div class="why-num"><span data-count="7">0</span><span class="why-pct">/10</span></div>
             <div class="why-label">don't know</div>
             <div class="why-body">
               what's in the water they drink every day. The label is fine print.
@@ -5081,15 +5404,17 @@
 
     <!-- ============== MARQUEE WORDMARK — signature moment ============== -->
     <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span class="marquee-item"
-          >Water <em>Sommelier</em> <span class="dot">&middot;</span> Water
-          <em>Sommelier</em> <span class="dot">&middot;</span>
-        </span>
-        <span class="marquee-item"
-          >Water <em>Sommelier</em> <span class="dot">&middot;</span> Water
-          <em>Sommelier</em> <span class="dot">&middot;</span>
-        </span>
+      <div class="marquee-track-wrap">
+        <div class="marquee-track">
+          <span class="marquee-item"
+            >Water <em>Sommelier</em> <span class="dot">&middot;</span> Water
+            <em>Sommelier</em> <span class="dot">&middot;</span>
+          </span>
+          <span class="marquee-item"
+            >Water <em>Sommelier</em> <span class="dot">&middot;</span> Water
+            <em>Sommelier</em> <span class="dot">&middot;</span>
+          </span>
+        </div>
       </div>
     </div>
 
@@ -5650,20 +5975,62 @@
     </template>
 
     <!-- ============== INSIDE THE APP — gallery (dark editorial spread) ============== -->
-    <section id="inside" class="dark-spread">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="section-num"><span>See it in action</span></div>
-          <h2 class="display">From bottle to <em>verdict</em>.</h2>
-          <p class="lede">
-            Three steps. Camera to chat. Here's how a real session looks.
-          </p>
-        </div>
+    <section id="inside" class="inaction-pinned dark-spread">
+      <div class="inaction-sticky">
+        <div class="container">
+          <div class="inaction-grid">
+            <!-- LEFT: scroll-driven copy + step indicator -->
+            <div class="inaction-text">
+              <div class="section-num">
+                <span>See it in action</span>
+              </div>
+              <h2 class="display inaction-headline">
+                From bottle<br>to <em>verdict</em>.
+              </h2>
 
-        <div class="gallery-stage">
+              <div class="inaction-steps">
+                <div class="inaction-step" data-step="0" data-active>
+                  <div class="step-num">Step 01 / 03 &middot; Scan</div>
+                  <div class="step-title">Aim the <em>camera</em>.</div>
+                  <div class="step-desc">
+                    Point your phone at any bottle. The app reads the label and
+                    locks on in under a second &mdash; supermarket cheap to
+                    restaurant fancy.
+                  </div>
+                </div>
+                <div class="inaction-step" data-step="1">
+                  <div class="step-num">Step 02 / 03 &middot; Read</div>
+                  <div class="step-title">Read the <em>breakdown</em>.</div>
+                  <div class="step-desc">
+                    Calcium, magnesium, sodium, pH, TDS &mdash; aggregated from
+                    the world's best databases. With a quick sommelier's note on
+                    what it pairs with.
+                  </div>
+                </div>
+                <div class="inaction-step" data-step="2">
+                  <div class="step-num">Step 03 / 03 &middot; Ask</div>
+                  <div class="step-title">Ask <em>anything</em>.</div>
+                  <div class="step-desc">
+                    "Is this good for a run?" "Safe for my baby?" The AI
+                    sommelier has read the literature &mdash; specific,
+                    sourced answers in seconds.
+                  </div>
+                </div>
+              </div>
+
+              <div class="inaction-dots">
+                <div class="inaction-dot" data-dot="0"><span></span></div>
+                <div class="inaction-dot" data-dot="1"><span></span></div>
+                <div class="inaction-dot" data-dot="2"><span></span></div>
+              </div>
+            </div>
+
+            <!-- RIGHT: single big phone, 3 screens cross-fading -->
+            <div class="inaction-phone">
+              <div class="big-phone">
+                <div class="big-screen-wrap">
           <!-- Phone 1: SCAN — camera viewfinder -->
-          <div class="show-phone reveal reveal-1">
-            <div class="show-screen show-screen-scan">
+          <div class="big-screen show-screen show-screen-scan" data-screen="0" data-active>
               <!-- Status bar -->
               <div class="phone-status">
                 <span>9:41</span>
@@ -5728,11 +6095,9 @@
                 <div class="shutter"></div>
               </div>
             </div>
-          </div>
 
           <!-- Phone 2: RESULT — minerals + AI recommendation -->
-          <div class="show-phone reveal reveal-2">
-            <div class="show-screen">
+          <div class="big-screen show-screen" data-screen="1">
               <div class="phone-status">
                 <span>9:41</span>
                 <span class="status-icons"
@@ -5801,11 +6166,9 @@
                 </div>
               </div>
             </div>
-          </div>
 
           <!-- Phone 3: CHAT — in-app conversation with assistant -->
-          <div class="show-phone reveal reveal-3">
-            <div class="show-screen show-screen-chat">
+          <div class="big-screen show-screen show-screen-chat" data-screen="2">
               <div class="phone-status">
                 <span>9:41</span>
                 <span class="status-icons"
@@ -5845,14 +6208,12 @@
                 <span class="chat-mini-send">&uarr;</span>
               </div>
             </div>
-          </div>
-        </div>
-
-        <p class="phone-caption reveal reveal-4">
-          One: aim the camera. Two: read the breakdown. Three: ask the
-          assistant.
-        </p>
-      </div>
+                </div><!-- /.big-screen-wrap -->
+              </div><!-- /.big-phone -->
+            </div><!-- /.inaction-phone -->
+          </div><!-- /.inaction-grid -->
+        </div><!-- /.container -->
+      </div><!-- /.inaction-sticky -->
     </section>
 
     <!-- ============== PRAISE / TESTIMONIALS ============== -->
@@ -5998,7 +6359,7 @@
             </svg>
           </div>
           <div class="rating-text">
-            <span class="rating-num">4.9</span> out of 5 &middot;
+            <span class="rating-num" data-count="4.9" data-decimals="1">0</span> out of 5 &middot;
             <em>early-access reviews</em>
           </div>
         </div>
@@ -6460,6 +6821,212 @@
       })();
 
       // ============================================================
+      // ============================================================
+      // Scroll progress bar at top of page
+      // ============================================================
+      (function () {
+        var fill = document.getElementById('progressFill');
+        if (!fill) return;
+        var ticking = false;
+        function update() {
+          var max = document.documentElement.scrollHeight - window.innerHeight;
+          var pct = max <= 0 ? 0 : (window.scrollY / max) * 100;
+          fill.style.width = pct + '%';
+          ticking = false;
+        }
+        window.addEventListener('scroll', function () {
+          if (!ticking) { requestAnimationFrame(update); ticking = true; }
+        }, { passive: true });
+        update();
+      })();
+
+      // ============================================================
+      // Smooth scroll (Lenis-style momentum lerp)
+      // ============================================================
+      (function () {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if ('ontouchstart' in window) return; // skip on touch devices
+        var target = window.scrollY;
+        var current = window.scrollY;
+        var ease = 0.085;
+        var raf = null;
+        var animating = false;
+        var userScrolling = false;
+        var userScrollTimer;
+
+        // Hijack wheel
+        function onWheel(e) {
+          e.preventDefault();
+          target += e.deltaY;
+          target = Math.max(0, Math.min(target, document.documentElement.scrollHeight - window.innerHeight));
+          if (!animating) animate();
+        }
+        // Restore native on keyboard / scrollIntoView / link click
+        function onAnchorClick(e) {
+          var a = e.target.closest('a[href^="#"]');
+          if (!a) return;
+          var id = a.getAttribute('href');
+          if (id === '#' || !id) return;
+          var el = document.querySelector(id);
+          if (!el) return;
+          e.preventDefault();
+          var top = el.getBoundingClientRect().top + window.scrollY - 40;
+          target = top;
+          if (!animating) animate();
+        }
+        function animate() {
+          animating = true;
+          var diff = target - current;
+          current += diff * ease;
+          if (Math.abs(diff) < 0.5) {
+            current = target;
+            window.scrollTo(0, current);
+            animating = false;
+            return;
+          }
+          window.scrollTo(0, current);
+          raf = requestAnimationFrame(animate);
+        }
+        // Keep target in sync if user uses keyboard / scrollbar / find-in-page
+        window.addEventListener('scroll', function () {
+          if (!animating) {
+            target = window.scrollY;
+            current = window.scrollY;
+          }
+        }, { passive: true });
+        window.addEventListener('wheel', onWheel, { passive: false });
+        document.addEventListener('click', onAnchorClick);
+      })();
+
+      // ============================================================
+      // Cursor water-drop trail
+      // ============================================================
+      (function () {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+        var DROP_COUNT = 7;
+        var drops = [];
+        for (var i = 0; i < DROP_COUNT; i++) {
+          var d = document.createElement('div');
+          d.className = 'cursor-drop';
+          d.style.opacity = 0;
+          document.body.appendChild(d);
+          drops.push({ el: d, x: 0, y: 0, life: 0 });
+        }
+        var mx = -100, my = -100;
+        var dropIdx = 0;
+        var lastTime = 0;
+        document.addEventListener('pointermove', function (e) {
+          mx = e.clientX; my = e.clientY;
+          var now = performance.now();
+          if (now - lastTime < 50) return; // throttle to 1 drop every 50ms
+          lastTime = now;
+          var d = drops[dropIdx];
+          d.x = mx + (Math.random() * 8 - 4);
+          d.y = my + (Math.random() * 8 - 4);
+          d.life = 1;
+          d.el.style.transform = 'translate(' + (d.x - 4) + 'px, ' + (d.y - 4) + 'px) rotate(-45deg) scale(' + (0.6 + Math.random() * 0.6) + ')';
+          d.el.style.opacity = 1;
+          dropIdx = (dropIdx + 1) % DROP_COUNT;
+        });
+        function tick() {
+          drops.forEach(function (d) {
+            if (d.life > 0) {
+              d.life -= 0.025;
+              d.el.style.opacity = Math.max(0, d.life);
+            }
+          });
+          requestAnimationFrame(tick);
+        }
+        tick();
+      })();
+
+      // ============================================================
+      // Pinned scroll story for "See it in action"
+      // ============================================================
+      (function () {
+        var section = document.getElementById('inside');
+        if (!section) return;
+        var steps = section.querySelectorAll('.inaction-step');
+        var screens = section.querySelectorAll('.big-screen');
+        var dots = section.querySelectorAll('.inaction-dot');
+        if (!steps.length || !screens.length) return;
+
+        var ticking = false;
+        function update() {
+          var rect = section.getBoundingClientRect();
+          var scrollable = section.offsetHeight - window.innerHeight;
+          var scrolled = -rect.top;
+          var progress = Math.max(0, Math.min(1, scrolled / scrollable));
+          // Map progress 0-1 to 3 steps with crossover zones
+          var stepIdx;
+          if (progress < 0.33) stepIdx = 0;
+          else if (progress < 0.66) stepIdx = 1;
+          else stepIdx = 2;
+          steps.forEach(function (s, i) {
+            if (i === stepIdx) s.setAttribute('data-active', '');
+            else s.removeAttribute('data-active');
+          });
+          screens.forEach(function (s, i) {
+            if (i === stepIdx) s.setAttribute('data-active', '');
+            else s.removeAttribute('data-active');
+          });
+          dots.forEach(function (d, i) {
+            if (i === stepIdx) d.setAttribute('data-active', '');
+            else d.removeAttribute('data-active');
+          });
+          ticking = false;
+        }
+        window.addEventListener('scroll', function () {
+          if (!ticking) { requestAnimationFrame(update); ticking = true; }
+        }, { passive: true });
+        // Click dots to jump
+        dots.forEach(function (d, i) {
+          d.addEventListener('click', function () {
+            var ratio = (i + 0.5) / 3;
+            var target = section.offsetTop + (section.offsetHeight - window.innerHeight) * ratio;
+            window.scrollTo({ top: target, behavior: 'smooth' });
+          });
+        });
+        update();
+      })();
+
+      // ============================================================
+      // Number counters animate up on intersection
+      // ============================================================
+      (function () {
+        if (!('IntersectionObserver' in window)) return;
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var counters = document.querySelectorAll('[data-count]');
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            var el = entry.target;
+            var target = parseFloat(el.getAttribute('data-count'));
+            var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+            if (reduced) {
+              el.textContent = target.toFixed(decimals);
+              io.unobserve(el);
+              return;
+            }
+            var start = performance.now();
+            var duration = 1400;
+            function step(now) {
+              var t = Math.min(1, (now - start) / duration);
+              // ease-out cubic
+              var eased = 1 - Math.pow(1 - t, 3);
+              var v = target * eased;
+              el.textContent = v.toFixed(decimals);
+              if (t < 1) requestAnimationFrame(step);
+              else el.textContent = target.toFixed(decimals);
+            }
+            requestAnimationFrame(step);
+            io.unobserve(el);
+          });
+        }, { threshold: 0.5 });
+        counters.forEach(function (c) { io.observe(c); });
+      })();
+
       // ============================================================
       // Sticky mobile CTA — fade in after hero scrolls out
       // ============================================================
