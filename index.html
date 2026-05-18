@@ -49,12 +49,9 @@
       content="https://bjavakh.github.io/water-sommelier-support/og-image.png"
     />
 
-    <!-- Inline SVG favicon (water drop in brand blue) -->
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2.5c0 0 7 7.5 7 12.5a7 7 0 0 1-14 0c0-5 7-12.5 7-12.5Z' fill='%233D6FB8'/><circle cx='9.5' cy='14' r='1.6' fill='white' fill-opacity='0.45'/></svg>"
-    />
+    <!-- Brand logo favicon -->
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="apple-touch-icon" href="logo.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -315,8 +312,19 @@
         gap: 10px;
       }
       .brand-mark {
-        color: var(--water);
         display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .brand-mark img {
+        width: 28px;
+        height: 28px;
+        display: block;
+        border-radius: 7px;
+      }
+      footer .brand-mark img {
+        width: 24px;
+        height: 24px;
       }
       .masthead-nav {
         display: flex;
@@ -2486,6 +2494,7 @@
         animation: introDropIn 800ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
       }
       .intro-mark svg { width: 56px; height: 56px; }
+      .intro-mark img { width: 64px; height: 64px; display: block; border-radius: 14px; }
       .intro-name {
         font-family: 'Fraunces', Georgia, serif;
         font-variation-settings: 'opsz' 60, 'SOFT' 100;
@@ -4167,10 +4176,7 @@
     <!-- Page-load intro overlay -->
     <div class="intro-overlay" aria-hidden="true">
       <span class="intro-mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2.5c0 0 7 7.5 7 12.5a7 7 0 0 1-14 0c0-5 7-12.5 7-12.5Z"/>
-          <path d="M9.5 14c.4 1.6 1.7 2.7 3.2 2.7" opacity="0.55"/>
-        </svg>
+        <img src="logo.png" alt="Water Sommelier logo" />
       </span>
       <span class="intro-name">Water Sommelier</span>
     </div>
@@ -4365,8 +4371,8 @@
 
         <a href="#top" class="brand">
           <span class="brand-mark"
-            ><svg width="22" height="22"><use href="#i-drop" /></svg
-          ></span>
+            ><img src="logo.png" alt="Water Sommelier logo"
+          /></span>
           Water Sommelier
         </a>
 
@@ -6556,8 +6562,9 @@
           <div class="col-brand">
             <div class="brand">
               <span class="brand-mark"
-                ><svg width="22" height="22"><use href="#i-drop" /></svg></span
-              >Water Sommelier
+                ><img src="logo.png" alt="Water Sommelier logo"
+              /></span>
+              Water Sommelier
             </div>
             <p>
               A small magazine of a mobile app, dedicated to the proposition
